@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Aloha Editor Nano CMS</title><meta name="description" content="Aloha Editor Nano CMS"><meta name="author" content="Aloha Editor Team"><script src="assets/js/load-aloha-nano-cms.js"></script><!-- Le HTML5 shim, for IE6-8 support of HTML elements --><!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head><body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <span class="aloha-nano-cms-editable" id="brand"><a class="brand aloha-link-text" href="./" target="_self">My Nano cms</a></span>
+
+          <ul class="nav"><li class="active"><a href="./">Home</a></li>
+            <li><a href="./">Sitemap</a></li>
+          </ul><a id="create-page" href="#" data-controls-modal="modal-create-page" data-backdrop="true" data-keyboard="true" class=" danger"><span class="label success">New Page</span></a>
+            <a id="edit-page" href="#"><span class="label notice">Edit</span></a>
+            <a id="save-page" href="#"><span class="label warning">Save</span></a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+		<div id="aloha-loading" class="alert-message notice">
+		  <a class="close" href="#">&Atilde;&#151;</a>
+		  <p>Loading Aloha Editor</p>
+		</div>
+		
+
+		<div id="log" class="alert-message notice">
+		  <a class="close" href="#">&Atilde;&#151;</a>
+		  <p>No message.</p>
+		</div>
+		
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h2>Sitemap</h2>
+		<p>This is the main Navigation used for your pages.</p>
+		
+		<div id="sitemap-container" class="aloha-nano-cms-editable">
+			<ul id="sitemap"><li><a href="./" target="_self">Home</a></li>
+				<li><a href="./sitemap.html" target="_self" style="" class="">Sitemap</a></li><li><a href="AlohaEditor-HTML5-WYSIWYG-about.pdf" class="" target="_self" style="" data-gentics-aloha-repository="cmslinklist" data-gentics-aloha-object-id="">New</a></li><li><a href="mobydick.html" class="" target="_self" style="" data-gentics-aloha-repository="cmslinklist" data-gentics-aloha-object-id="">moby</a></li>
+			</ul></div>
+	</div>
+
+
+
+<!-- sample modal content -->
+<div id="modal-create-page" class="modal hide fade">
+      <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>Create a new Page</h3>
+      </div>
+
+      <div class="modal-body">
+        <p>Select from template list &amp; write a name for the new page (eg. mypage.html).</p>
+
+		<div class="clearfix">
+          <label for="normalSelect">Select a Template</label>
+          <div class="input">
+            <select name="normalSelect" id="create-page-template"><option>page.html</option><option>article-page.html</option><option>3col-article.html</option></select></div>
+        </div><!-- /clearfix -->
+
+        <div class="clearfix">
+          <label for="xlInput">Name</label>
+          <div class="input">
+            <input class="xlarge" id="create-page-name" name="xlInput" size="30" type="text"></div>
+        </div><!-- /clearfix -->
+
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" id="btn-create-page" class="btn primary">Create</a>
+        <a href="#" id="btn-create-page-abort" class="btn secondary">Abort</a>
+    </div>
+</div>
+
+<div class="aloha-nano-cms-editable" id="footer"><p>&copy; Aloha mini 2011</p></div>
+
+</div></body></html>
