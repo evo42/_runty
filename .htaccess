@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    #RewriteBase /
+    RewriteRule ^/test/test\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    #RewriteRule . /labs/microCMS/index.php [L]
+    RewriteRule . ./runty.php [L]
+</IfModule>
