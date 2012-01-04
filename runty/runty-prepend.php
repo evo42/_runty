@@ -3,12 +3,11 @@ require_once dirname( __FILE__ ) . '/runty-core.php';
 
 function runty_loader( $buffer ) {
   // inject a script tag to load runty
-	//print_r($_SESSION);
 	
 	$aloha = '
 	<link rel="stylesheet" href="../runty/css/runty.css" type="text/css">
 	
-	<script src="../runty/app/js/aloha-editor/lib/aloha.js"
+	<script src="../runty/js/aloha-editor/lib/aloha.js"
 
 	        data-aloha-plugins="common/format,
 	                            common/table,
@@ -44,7 +43,12 @@ function runty_loader( $buffer ) {
 		});
 	</script>
 	';
-  return ( str_replace( "</head>", "\n\n$aloha\n\n</head>", $buffer ) );
+	
+	if ( !empty($_SESSION['user']) ) {
+		return ( str_replace( "</head>", "\n\n$aloha\n\n</head>", $buffer ) );
+	} else {
+		return false;
+	}
 }
 
 // call runty_loader callback function 

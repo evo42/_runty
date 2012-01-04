@@ -55,6 +55,3 @@ editable zones
 * runty-editable
 * runty-navigation
 
-
-* bootstrap via less prefixen 
-
