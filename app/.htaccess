@@ -3,4 +3,5 @@
 </IfModule>
 <IfModule mod_php5.c>
 	php_value auto_prepend_file none
+	php_value auto_append_file none
 </IfModule>

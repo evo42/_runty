@@ -3,6 +3,6 @@
 	RewriteRule ^(.*)\.html$ $1.php [R=301,NC,L]
 </IfModule>
 <IfModule mod_php5.c>
-	php_value auto_prepend_file "runty/runty-core.php"
+	php_value auto_prepend_file "runty/runty-prepend.php"
+	php_value auto_append_file "runty/runty-append.php"
 </IfModule>
-php_value auto_prepend_file none
