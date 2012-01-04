@@ -13,12 +13,12 @@
 	Aloha.settings = {
 		bundles: {
 			// Path for custom bundle relative from Aloha.settings.baseUrl usually path of aloha.js
-			cmsplugin: '../../../aloha-plugins'
+			custom: '../../../js/aloha-plugins'
 		},
     	plugins: "common/format, common/table, common/list, common/link, " +
     			"common/highlighteditables, common/block, common/undo, " +
     			"common/contenthandler, common/paste, common/commands, extra/flag-icons, " +
-    			"common/abbr, extra/browser, extra/linkbrowser"
+    			"common/abbr, extra/browser, extra/linkbrowser, custom/runty"
 
 	};
 })(window);

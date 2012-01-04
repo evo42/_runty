@@ -2,7 +2,7 @@ define( [
 	'aloha',
 	'aloha/jquery',
 	'aloha/plugin',
-	'../../cms/extra/cms-linklist' // custom linklist
+	'../../runty/extra/runty-linklist' // custom linklist
 ], function ( Aloha, jQuery, Plugin ) {
 	
 	var GENTICS = window.GENTICS;
@@ -10,7 +10,7 @@ define( [
 	/**
 	 * register the plugin with unique name
 	 */
-	return Plugin.create( 'cms-plugin', {
+	return Plugin.create( 'runty-plugin', {
 
 		/**
 		 * Initialize the plugin and set initialize flag on true
@@ -24,7 +24,7 @@ define( [
 		* @return string
 		*/
 		toString: function () {
-			return 'cms-plugin';
+			return 'runty-plugin';
 		}
 
 	} );

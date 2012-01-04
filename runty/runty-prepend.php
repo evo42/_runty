@@ -6,12 +6,10 @@ function runty_loader( $buffer ) {
 	
 	$aloha = '
 	<link rel="stylesheet" href="../runty/css/runty.css" type="text/css">
+	<script src="../runty/js/runty-aloha.js"></script>
 	
-	<script src="../runty/js/aloha-editor/lib/aloha.js"
-
-	<link rel="stylesheet" href="../runty/css/runty.css" type="text/css">
 	<!-- move plugins to settings, once in dev AE branch -->
-    <script src="../runty/app/js/aloha-editor/lib/aloha.js" </script>
+    <script src="../runty/deps/aloha-editor/lib/aloha.js"
 	        data-aloha-plugins="common/format,
 	                            common/table,
 	                            common/list,
@@ -25,7 +23,8 @@ function runty_loader( $buffer ) {
 	                            extra/flag-icons,
 	                            common/abbr,
 	                            extra/browser,
-	                            extra/linkbrowser"></script>
+	                            extra/linkbrowser,
+								custom/runty"></script>
 
 	<script type="text/javascript">
 		Aloha.ready( function() {

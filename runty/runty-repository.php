@@ -11,7 +11,7 @@ function query() {
 	$results = array();
 	
 	// all pages
-	$files = get_files( \runty\content_path );
+	$files = get_files( '../' );
 	
 	$results = array_merge($results, $files);
 	

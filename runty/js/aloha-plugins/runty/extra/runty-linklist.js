@@ -9,7 +9,7 @@ function ( jQuery, repository ) {
 	new ( repository.extend( {
 		
 		_constructor: function () {
-			this._super( 'cmslinklist' );
+			this._super( 'runtylinklist' );
 		},
 		
 		urlset: [
@@ -48,7 +48,7 @@ function ( jQuery, repository ) {
 			jQuery.ajax({ type: "GET",
 				dataType: "json",
 				async: false,
-				url: 'app/cms-linklist.php',
+				url: '../runty/runty-repository.php', // @todo
 				success: function(data) {
 					//console.log('lookup data', data);
 					var items = [];
