@@ -2,14 +2,10 @@
 require_once dirname( __FILE__ ) . '/runty-core.php';
 
 function runty_loader( $buffer ) {
-  // inject a script tag to load runty
-	//print_r($_SESSION);
-	
 	$aloha = '
 	<link rel="stylesheet" href="../runty/css/runty.css" type="text/css">
-	
-	<script src="../runty/app/js/aloha-editor/lib/aloha.js"
-
+	<!-- move plugins to settings, once in dev AE branch -->
+    <script src="../runty/app/js/aloha-editor/lib/aloha.js" </script>
 	        data-aloha-plugins="common/format,
 	                            common/table,
 	                            common/list,
@@ -26,21 +22,8 @@ function runty_loader( $buffer ) {
 	                            extra/linkbrowser"></script>
 	
 	<script type="text/javascript">
-		Aloha.ready(function() {
-			Aloha.require( ["aloha", "aloha/jquery" ], function( Aloha, jQuery ) {
-				// here jQuery 1.6 from Aloha is used
-				//console.log("Aloha jQuery: " + jQuery().jquery);
-
-				//jQuery("#aloha-loading").hide();
-
-				//jQuery("#edit-page").bind("click", function() {
-					//alert("Edit the page content. To be done.");
-					jQuery(".runty-editable").aloha();
-
-					//jQuery("#edit-page").hide();
-					//jQuery("#save-page").show();
-				//});
-			});
+		Aloha.ready( function() {
+			Aloha.jQuery(".runty-editable").aloha();
 		});
 	</script>
 	';
