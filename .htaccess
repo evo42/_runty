@@ -20,5 +20,5 @@
 	RewriteEngine On
 	# if http://example.com/runty/content --> activate RewriteBase /runty
 	RewriteBase /runty
-	RewriteRule ^$ content [L,R=301]
+	RewriteRule ^$ content [L,R=301] # user is redirected to content directory
 </IfModule>
