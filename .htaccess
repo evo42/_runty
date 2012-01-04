@@ -1,8 +1,8 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-	RewriteRule ^(.*)\.html$ $1.php [R=301,NC,L]
-</IfModule>
+<FilesMatch "\.(htm|html|php)$">
+	SetHandler application/x-httpd-php
+</FilesMatch>
+
 <IfModule mod_php5.c>
-	php_value auto_prepend_file "runty/runty-prepend.php"
-	php_value auto_append_file "runty/runty-append.php"
+	php_value auto_prepend_file "../runty/app/runty-prepend.php"
+	php_value auto_append_file "../runty/app/runty-append.php"
 </IfModule>
