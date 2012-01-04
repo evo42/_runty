@@ -24,7 +24,7 @@ function runty_loader( $buffer ) {
 	                            common/abbr,
 	                            extra/browser,
 	                            extra/linkbrowser"></script>
-	
+
 	<script type="text/javascript">
 		Aloha.ready(function() {
 			Aloha.require( ["aloha", "aloha/jquery" ], function( Aloha, jQuery ) {
