@@ -6,9 +6,10 @@ function runty_loader( $buffer ) {
 	//print_r($_SESSION);
 	
 	$aloha = '
-	<link rel="stylesheet" href="../runty/app/css/runty.css" type="text/css">
+	<link rel="stylesheet" href="../runty/css/runty.css" type="text/css">
 	
 	<script src="../runty/app/js/aloha-editor/lib/aloha.js"
+
 	        data-aloha-plugins="common/format,
 	                            common/table,
 	                            common/list,

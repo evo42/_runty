@@ -3,17 +3,16 @@
 </FilesMatch>
 
 <IfModule mod_php5.c>
-	php_value auto_prepend_file "../runty/app/runty-prepend.php"
-	php_value auto_append_file "../runty/app/runty-append.php"
+	php_value auto_prepend_file "../runty/runty-prepend.php"
+	php_value auto_append_file "../runty/runty-append.php"
 	
 	# turn on / off error reporting
 	# http://www.php.net/manual/en/errorfunc.constants.php
 	php_value error_reporting 32767
 	php_value display_errors 1
 	
-	# if sub directories are used, use absolue path to runty or the example below
+	# if sub directories are used, use absolute path to runty 
 	# http://www.php.net/manual/de/ini.core.php#ini.include-path
-	# php_value include_path ".:../:../../"
 </IfModule>
 
 <IfModule mod_rewrite.c>
