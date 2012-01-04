@@ -1,5 +1,5 @@
-@import( './bootstrap.css' );
-@import( '../aloha-editor/css/aloha.css' );
+@import url( './bootstrap.css' );
+@import url( '../js/aloha-editor/css/aloha.css' );
 
 body {
 	padding-top: 60px;
