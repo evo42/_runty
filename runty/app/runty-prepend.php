@@ -5,7 +5,7 @@ function runty_loader( $buffer ) {
   // inject a script tag to load runty
   //return ( str_replace( "apples", "oranges", $buffer ) );
 	$aloha = '
-	<link rel="stylesheet" href="../runty/app/js/aloha/css/aloha.css" id="aloha-style-include" type="text/css">
+	<link rel="stylesheet" href="../runty/app/css/runty.css" type="text/css">
 	
 	<script src="../runty/app/js/aloha/lib/aloha.js"
 	        data-aloha-plugins="common/format,

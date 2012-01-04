@@ -1,40 +1,38 @@
-<?php
+<?php namespace \runty\repository
+
 /**
-* provide aloha link suggestion
-*/
+ * Runty Aloha repository implementation.
+ * 
+ */
 
-/*
-// also possible: use the lookup filter here to not send a json with 10000s of entries
-$lookup = false;
-if (isset($_REQUEST['lookup'])) {
-	$lookup = $_REQUEST['lookup'];
-}
-*/
-
-// read all available files
-$results = array();
-
-// all pages
-$files = get_files( '../' );
-$results = array_merge($results, $files);
-
-
-// all uploads
-$files = get_files( '../uploads/' );
-$results = array_merge($results, $files);
-
-
-header('Content-Type:text/javascript');
-if (count($results) > 0) {
-	$out = '[';
-	foreach ($results as $result) {
-		$out .= '{"url":"'.$result['link'].'","name":"'.$result['title'].'","type":"'.$result['type'].'"},';
+function query() {
+	
+	// read all available files
+	$results = array();
+	
+	// all pages
+	$files = get_files( \runty\content_path );
+	
+	$results = array_merge($results, $files);
+	
+	
+	// all uploads
+	$files = get_files( '../uploads/' );
+	$results = array_merge($results, $files);
+	
+	
+	header('Content-Type:text/javascript');
+	if (count($results) > 0) {
+		$out = '[';
+		foreach ($results as $result) {
+			$out .= '{"url":"'.$result['link'].'","name":"'.$result['title'].'","type":"'.$result['type'].'"},';
+		}
+		$out = substr($out, 0, -1);
+		$out .= ']';
+		echo $out;
 	}
-	$out = substr($out, 0, -1);
-	$out .= ']';
-	echo $out;
-}
 
+}
 
 /**
  * helper functions
