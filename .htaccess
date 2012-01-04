@@ -16,3 +16,9 @@
 	# php_value include_path ".:../:../../"
 </IfModule>
 
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	# if http://example.com/runty/content --> activate RewriteBase /runty
+	RewriteBase /runty
+	RewriteRule ^$ content [L,R=301]
+</IfModule>
