@@ -1,4 +1,4 @@
-<?php namespace \runty\repository
+<?php namespace runty\repository;
 
 /**
  * Runty Aloha repository implementation.

@@ -1,9 +1,15 @@
-<?
+<?php
+$runty = (object) array();
+$runty->core_path = dirname( __FILE__ );
 
-require('./runty-config.php');
+//require('../content/.runty/runty-config.php');
 
-require('./runty-repository.php');
-require('./runty-store.php');
+require_once $runty->core_path . '/runty-authentication.php';
+//require_once $runty->core_path . '/runty-repository.php';
+//require_once $runty->core_path . '/runty-store.php';
+
+
+$request_method = false;
 
 // route request
 switch ( $request_method ) {

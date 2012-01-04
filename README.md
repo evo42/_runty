@@ -21,12 +21,15 @@ There are different ways to install Runty
 
 
 ## Dev
+
 USPs besser ausarbeiten
+
 * noCMS just edit
 * draft to production in 2 min
 
 
 runty noCMS
+
 * logo muss fetzen
 * design demo site
 * design für Aloha und runty 
@@ -47,7 +50,11 @@ runty noCMS
 * ersetzen des doms mittels jquery und dann auf den server schicken
 
 
-editable zones 
+editable zones
+
 * runty-editable
 * runty-navigation
+
+
+* bootstrap via less prefixen 
 

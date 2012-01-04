@@ -1,16 +1,24 @@
 <?php
-require_once 'lib/JSLikeHTMLElement.php';
+//require_once 'lib/JSLikeHTMLElement.php';
 
 
 
 // Save Data
 
 // XSS handling required
+$pageId = false;
+$contentId = false;
+$content =  false;
+
+if (isset($_REQUEST['pageId'])) {
 $pageId = $_REQUEST['pageId'];
 $contentId = $_REQUEST['contentId'];
 $content =  $_REQUEST['content'];
+} else {
+	exit;
+}
 
-error_log("\n\n".'###### save as file '.$pageId, 3, "cms.log");
+//error_log("\n\n".'###### save as file '.$pageId, 3, "cms.log");
 
 
 $filePath = preg_replace('%^(/*)[^/]+%', '$2..', $pageId);
@@ -37,7 +45,7 @@ if (!$doc->loadHTML($pageContent)) {
 }
 
 if ( !empty($error) ) {
-	error_log("\nerror: ".print_r($error, true), 3, "cms.log");
+	//error_log("\nerror: ".print_r($error, true), 3, "cms.log");
 } else {
 	echo 'Content saved.';
 }

@@ -1,13 +1,14 @@
 <?php
-
+require_once dirname( __FILE__ ) . '/runty-core.php';
 
 function runty_loader( $buffer ) {
   // inject a script tag to load runty
-  //return ( str_replace( "apples", "oranges", $buffer ) );
+	//print_r($_SESSION);
+	
 	$aloha = '
 	<link rel="stylesheet" href="../runty/app/css/runty.css" type="text/css">
 	
-	<script src="../runty/app/js/aloha/lib/aloha.js"
+	<script src="../runty/app/js/aloha-editor/lib/aloha.js"
 	        data-aloha-plugins="common/format,
 	                            common/table,
 	                            common/list,
