@@ -46,7 +46,7 @@ $request_method = false;
 switch ( $request_method ) {
 
 	case 'query':
-		\runty\repository\query( );
+		// \runty\repository\query( );
 		break;
 
 	case 'store':
