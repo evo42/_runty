@@ -1,3 +1,5 @@
+/*
+// demo config using roles: admin and guest
 [{
     "@context": "http://runtyapp.org/person",
     "@id": "admin@runtyapp.org",
@@ -11,3 +13,4 @@
     "role": "guest",
     "member": "http://runtyapp.org/guest"
 }]
+*/

@@ -32,11 +32,10 @@
 
 
 			<div class="touchslider"  id="fullscreen">
-
+				<a class="touchslider-next">
+					<span class="touchslider-next-in"><img src="./theme/images/icons/glyphicons_002_dog.png"></span>
+				</a>
 				<div class="touchslider-nav blur">
-					<a class="touchslider-next">
-						<span class="touchslider-next-in"><img src="./theme/images/icons/glyphicons_002_dog.png"></span>
-					</a>
 					<a href="#home" class="touchslider-nav-item touchslider-nav-item-current">Runty NoCMS</a>
 					<a href="#about" class="touchslider-nav-item">About</a>
 					<a href="#install" class="touchslider-nav-item">Installation</a>
@@ -118,7 +117,7 @@
 	<div id="runty-tech-info" class="blur">
 		<h2>Installer</h2>
 		<p>Use the command line utilities and run the <em>Runty NoCMS</em> installer script:</p>
-		<pre><code>$ curl -s https://runtyapp.org/installer | php</code></pre>
+		<pre><code><del>$ curl -s http://runtyapp.org/runty/installer | php</del></code></pre>
 		<p><a href="#source-installer">Source</a>  &middot; <a href="">Guides</a> &middot; <a href="#help">Help</a> &middot; <a href="">Issues</a></p>
 		</div>
 	
@@ -150,7 +149,6 @@
 			</div></div>
 		</div>
 
-
       <div id="footer"><p>&copy; 2012 Runty NoCMS &middot; <a class="persona_logout" href="/#sign-out">sign-out</a></p>
       </div><!-- /container -->
 
@@ -163,10 +161,22 @@
 					jQuery("#fullscreen").touchSlider({mouseTouch: false}); // true in none edit mode
 
 					jQuery(function() {
-						jQuery("#foobar, .blur, #aloha-editor-logo, #aloha-editor-html5").css("opacity","0.6");
-						jQuery("#foobar, .blur, #aloha-editor-logo, #aloha-editor-html5").hover(function () {
+						jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").css("opacity","0.6");
+						jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").hover(function () {
 							jQuery(this).stop().animate({opacity: 1.0}, "slow");},
 							function () { jQuery(this).stop().animate({ opacity: 0.6 }, "slow"); });
+
+						// custom
+						jQuery(".touchslider-next").hover(function () {
+							jQuery(".touchslider-nav").stop().animate({opacity: 1.0}, "slow"),
+							function () { jQuery(".touchslider-nav").stop().animate({ opacity: 0.6 }, "slow");};
+						});
+
+						jQuery(".touchslider-next").mouseleave(function () {
+							jQuery(".touchslider-nav").stop().animate({opacity: 0.6}, "slow"),
+							function () { jQuery(".touchslider-nav").stop().animate({ opacity: 0.6 }, "slow");};
+						});
+
 					});
 				</script>
 

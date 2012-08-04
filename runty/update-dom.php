@@ -1,6 +1,7 @@
 <?php
 require_once './vendor/JSLikeHTMLElement.php';
 
+// @todo
 if (isset($_REQUEST['draft'])) {
 	//die('draft');
 	$draft = true;
@@ -9,7 +10,10 @@ if (isset($_REQUEST['draft'])) {
 	$draft = false;
 }
 
+// @todo is draft mode! do not write to file ...
 $draft = true;
+
+
 
 
 // Save Data
@@ -28,12 +32,12 @@ $content =  $_REQUEST['content'];
 	exit;
 }
 
-error_log("\n\n".'###### save as file '.$pageId, 3, "cms.log");
+//error_log("\n\n".'###### save as file '.$pageId, 3, "cms.log");
 
 
 $filePath = preg_replace('%^(/*)[^/]+%', '$2..', $pageId);
 $filePath = '../draft.html';
-error_log("\n\n".'###### save as file '.$filePath, 3, "cms.log");
+//error_log("\n\n".'###### save as file '.$filePath, 3, "cms.log");
 $pageContent = file_get_contents($filePath);
 $error = false;
 
@@ -46,7 +50,7 @@ if (!$doc->loadHTML($pageContent)) {
 	$error .= $pageContent;
 } else {
 	$elem = $doc->getElementById($contentId);
-	error_log("\n innerhtml: ".print_r($elem->innerHTML, true), 3, "cms.log");
+	//error_log("\n innerhtml: ".print_r($elem->innerHTML, true), 3, "cms.log");
 
 	// set innerHTML
 	$elem->innerHTML = $content;
@@ -63,10 +67,10 @@ if (!$doc->loadHTML($pageContent)) {
 }
 
 if ( !empty($error) ) {
-	error_log("\nerror: ".print_r($error, true), 3, "cms.log");
+	//error_log("\nerror: ".print_r($error, true), 3, "cms.log");
 	print_r($error);
 } else {
-	error_log("\OK. Content saved. ".$msg, 3, "cms.log");
+	//error_log("\OK. Content saved. ".$msg, 3, "cms.log");
 	echo 'Content saved.';
 }
 
