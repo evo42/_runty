@@ -1,6 +1,6 @@
-<?
+<?php
 
 	// Call runty core library
-	require('runty-core.php');
+	require_once 'core.php';
 
 ?>

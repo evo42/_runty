@@ -1,57 +1,52 @@
-# Runty noCMS
+# Runty NoCMS
 
+From HTML to NoCMS contentEditable HTML in 1 minute.
+No Database. No Forms. No CMS.
+
+Just edit your web pages smart!
 
 
 Runty is using [Aloha Editor](http://aloha-editor.org/) as HTML5 inline WYSIWYG editor.
 
 
+Open one of our demos:
+* Runty.html
+* News.html
+
+Or remove everything except:
+* .htaccess
+* .runty
+* runty
+
+and start your own project.
+
+
+
+
 ## Features
-* Login via oAuth
-* GitHub backup
+* Login via BrowserID
+* Using json-LD
+* Using Aloha Editor
+* Using HTML5
+* ...
 
 
 ## Install
-There are different ways to install Runty
+There are different ways to install Runty.
+
+### Command line
+
+### Download
 
 
 ## Getting Started
 
 
-## Examples
 
 
-## Dev
+### Editable zones
 
-USPs besser ausarbeiten
-
-* noCMS just edit
-* draft to production in 2 min
-
-
-runty noCMS
-
-* logo muss fetzen
-* design demo site
-* design für Aloha und runty 
-* no cms just edit 
-* one click install
-- package auf server entpacken
-- url aufrufen -> one click installer
--- checken ob schon content vorhanden und wie viele unterschiedliche templates
--- permissons setzen
--- templates hochladen
--- facebook / Twitter anmeldung
-* db raus
-* top runty menu von runty hinein rendern
-* site navigationskonzept
-* docu (guides)
-* login über facebook oder twitter
-* template selection mit template preview
-* ersetzen des doms mittels jquery und dann auf den server schicken
-
-
-editable zones
-
-* runty-editable
-* runty-navigation
-
+* .runty-editable
+* .runty-panel
+* .runty-block
+* .runty-data

@@ -1,0 +1,6 @@
+.x-btn button.GENTICS_button_undo {
+  background: url("../img/undo.png") repeat scroll 0 0 transparent !important;
+}
+.x-btn button.GENTICS_button_redo {
+  background: url("../img/redo.png") repeat scroll 0 0 transparent !important;
+}

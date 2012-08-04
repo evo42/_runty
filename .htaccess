@@ -1,23 +1,24 @@
-<FilesMatch "\.(htm|html|php)$">
+<FilesMatch "\.(htm|html)$">
 	SetHandler application/x-httpd-php
-</FilesMatch>
 
-<IfModule mod_php5.c>
-	php_value auto_prepend_file "../runty/runty-prepend.php"
-	php_value auto_append_file "../runty/runty-append.php"
-	
+	php_value auto_prepend_file "./runty/app-prepend.php"
+	php_value auto_append_file "./runty/app-append.php"
+
 	# turn on / off error reporting
 	# http://www.php.net/manual/en/errorfunc.constants.php
 	php_value error_reporting 32767
 	php_value display_errors 1
+</FilesMatch>
+
+<IfModule mod_php5.c>
 	
 	# if sub directories are used, use absolute path to runty 
 	# http://www.php.net/manual/de/ini.core.php#ini.include-path
 </IfModule>
 
 <IfModule mod_rewrite.c>
-	RewriteEngine On
-	# if http://example.com/runty/content --> activate RewriteBase /runty
-	RewriteBase /runty
-	RewriteRule ^$ content [L,R=301] # user is redirected to content directory
+	#RewriteEngine On
+	# if runty is running in a sub directory (eg. http://example.com/runty/content) use RewriteBase /runty
+	#RewriteBase /
+	#RewriteRule ^$ content [L,R=301] # user is redirected to content directory
 </IfModule>

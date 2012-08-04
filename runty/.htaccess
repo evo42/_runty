@@ -1,7 +1,15 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine Off
-</IfModule>
-<IfModule mod_php5.c>
+<FilesMatch "\.(htm|html|php)$">
+	SetHandler application/x-httpd-php
+
 	php_value auto_prepend_file none
 	php_value auto_append_file none
+
+	# turn on / off error reporting
+	# http://www.php.net/manual/en/errorfunc.constants.php
+	php_value error_reporting 32767
+	php_value display_errors 1
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
 </IfModule>
