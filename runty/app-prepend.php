@@ -33,40 +33,32 @@ function runty_loader( $buffer ) {
 	
 	$aloha = '
 	<link rel="stylesheet" href="../runty/theme/css/runty.css" type="text/css">
-	
 	<link rel="stylesheet" href="http://cdn.aloha-editor.org/latest/css/aloha.css" type="text/css">
 
-	<!-- script src="../runty/deps/jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
-	<link rel="stylesheet" href="../runty/deps/jquery-ui/theme/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css" -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
-
 	<script src="../runty/app/aloha-editor.js"></script>
 	<script src="../.runty/aloha-editor.js"></script>
-	
+
     <script src="http://cdn.aloha-editor.org/latest/lib/require.js" ></script>
-	<!-- script src="http://cdn.aloha-editor.org/latest/lib/vendor/jquery-1.7.2.js"></script -->
     <script src="http://cdn.aloha-editor.org/latest/lib/aloha.js" ></script>
 
-	
 	<script type="text/javascript">
-	//if (!window.Aloha || !Aloha) {
-		//return false;
-		//var Aloha = window.Aloha = {};
-
 		Aloha.ready( function() {
 			Aloha.jQuery(".runty-editable").aloha();
+
+			if ( typeof Aloha != "undefined" ) {
+				jQuery("#runty-button-edit").hide();
+				jQuery("#runty-button-save").show();
+			} else {
+				jQuery("#runty-button-edit").show();
+				jQuery("#runty-button-save").hide();
+			}
 		});
-	//}
-	</script>
-	
-	<script src="../runty/app/plugin/toolbar.js"></script>
+	</script>';
 
-	<script src="../runty/app/load.js"></script>
-
-	<script type="text/javascript">console.log("app loaded");</script>
-	
-	';
+$toolbar = '
+	<script src="../runty/app/plugin/toolbar.js"></script>;
+';
 
 	// @todo check for https/http / jquery
 	$browserid = '
@@ -83,20 +75,17 @@ function runty_loader( $buffer ) {
 function gotAssertion(assertion) {  
   // got an assertion, now send it up to the server for verification  
   if (assertion !== null) { 
-  	//console.log("assertion", assertion);
     $.ajax({  
       type: "POST",  
-      url: "/runty/runty/login.php",  
+      url: "./runty/authentication.php",  
       data: { assertion: assertion },  
       success: function(res, status, xhr) {  
         //if (res === null) {}//loggedOut();  
          // else loggedIn(res);
-      	console.log("login ok", res, status);
       	checkLogin(res);
        },  
       error: function(res, status, xhr) {  
         //alert("login failure" + res);
-        console.log("login failure", res);
       }  
     });  
   } else {  
@@ -105,27 +94,13 @@ function gotAssertion(assertion) {
 }
 
 function checkLogin(res) {
-	console.log("check login", res);
-
 	var obj = jQuery.parseJSON(res);
-	console.log( obj.status, obj.email );
-
 	if (obj.status === "okay") {
 		//$("#browserid").fadeOut();
-		
-		console.log(document.location,document.location.origin,document.location.pathname);
-		
 		document.location.href=document.location.origin + document.location.pathname;
-
-
-
 	}
 }
-
-
 		</script>
-
-		<script type="text/javascript">console.log("browserid loaded");</script>
 	';
 
 	$login = '
@@ -133,25 +108,44 @@ function checkLogin(res) {
   			<img src="http://browserid.org/i/sign_in_blue.png" alt="Sign in" />  
 		</a>
 	';
+
+	// demo mode
+	if ( $_REQUEST['sign'] || $_REQUEST['edit'] || $_REQUEST['action'] == 'edit') {
+		$_SESSION['user']->role = 'editor';
+		$_SESSION['user']->id = 'guest';
+	} 
 	
-	
-	//$_SESSION['user']->role = 'admin';
-	//$_SESSION['user']->id = 'rene.kapusta@gmail.com';
-	//$_SESSION['user']->role = false;
-	//$_SESSION['user']->id = 'guest';
-	
+	if ( $_REQUEST['edit'] || $_REQUEST['action'] == 'edit') {
+		$_SESSION['user']->edit = true;
+	} 
+
+	if ( $_REQUEST['edit'] == 'off' ) {
+		$_SESSION['user']->edit = false;
+		$buffer = str_replace( "</body>", "\n\n$toolbar\n\n</body>", $buffer );
+	}
+
+	if ($_REQUEST['sign'] == 'off' || $_REQUEST['action'] == 'sign-off' ) {
+		$_SESSION['user']->role = false;
+		$_SESSION['user']->id = false; // will be set to 'guest' again
+		$_SESSION['user']->edit = false;
+	}
+
 	if ( !empty($_SESSION['user']) ) {
 		
-		if ($_SESSION['user']->id == 'guest') {
-			
-		} else if ($_SESSION['user']->role == 'admin') {
-			$buffer = str_replace( "</body>", "\n\n$aloha\n\n</body>", $buffer );
+		if ( $_SESSION['user']->role == 'editor' || $_SESSION['user']->role == 'admin' ) {
+			$buffer = str_replace( "</body>", "\n\n$toolbar\n\n</body>", $buffer );
 		}
-		//$buffer = str_replace( "</body>", "\n\n$aloha\n\n</body>", $buffer );
+		
+		if ($_SESSION['user']->id == 'guest' && $_SESSION['user']->role == 'editor' && $_SESSION['user']->edit) {
+			$buffer = str_replace( "</body>", "\n\n$aloha\n\n</body>", $buffer );
+			// is draft / demo mode
+		} else if ($_SESSION['user']->role == 'admin' && $_SESSION['user']->edit) {
+			$buffer = str_replace( "</body>", "\n\n$aloha\n\n</body>", $buffer );
+			// is draft / publish mode
+		}
 		//$buffer = str_replace( "</body>", "\n\n$browserid\n\n</body>", $buffer );
 		//$buffer = str_replace( "</head>", "</head>\n\n$login\n\n", $buffer );
 		return ( $buffer );
-		//return ( str_replace( "</head>", "\n\n$aloha\n\n</head>", $buffer ) );
 	/*} else if ( isset($_REQUEST['login']) && empty($_SESSION['user']) ) {
 		$buffer = str_replace( "</head>", "\n\n$browserid\n\n</head>", $buffer );
 		$buffer = str_replace( "</head>", "</head>\n\n$login\n\n", $buffer );
@@ -169,6 +163,6 @@ function checkLogin(res) {
 ob_start( 'runty_loader' );
 
 // tidy contents in order to get valid html
-//ob_start( 'ob_tidyhandler' );
+ob_start( 'ob_tidyhandler' );
 
 ?>

@@ -26,7 +26,7 @@
  * recipients can access the Corresponding Source.
  */
 
-$runty = new stdClass;
+$runty = new stdClass();
 $runty->core_path = dirname( __FILE__ );
 
 

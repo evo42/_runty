@@ -114,6 +114,16 @@
 			text-align:center;
 		}
 		
+		h3 {
+			font-family: 'Lobster';
+			line-height: 120%;
+			text-rendering: optimizeLegibility;
+			margin:20px auto;
+			font-size:2.2em;
+			color: #2a719e;
+			text-align:center;
+		}
+		
 		.p-intro {
 			font-size: 1.5em;
 			line-height: 1.3em;
@@ -162,7 +172,6 @@
 			});
 			twitter.starting();
 			$.getJSON("http://search.twitter.com/search.json?q='moby+dick'&rpp=7&callback=?", function(data) {
-				//console.log(data);
 				twitter.render(data.results);
 			});
 		});
@@ -174,15 +183,15 @@
 <div id="header">
 	<div class="row">
 		<div class="column grid_12">
-			<h2 class="runty-editable"><strong>Dynamic Content with Runty NoCMS</strong></h2>
-			<h2 class="runty-editable">Display JSON data &amp; edit the rest!</h2>
+			<h2><span class="runty-editable"><strong>Dynamic Content with Runty NoCMS</strong></span></h2>
+			<h3><span class="runty-editable">Display JSON data &amp; <a href="?edit=on">edit</a> the rest!</span></h3>
 		</div>
 	</div>
 </div>
 
     <div class="container">
 		
-		<h1 id="page-title" class="runty-editable">Moby Dick</h1>
+		<h1 id="page-title"><span class="runty-editable">Moby Dick</span></h1>
       <!-- Main hero unit for a primary marketing message or call to action -->
 	<div id="multicolumnElement" class="runty-editable"><p class="p-intro">Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.</p>
 
@@ -202,26 +211,26 @@
 
 <!-- Tweets -->
 <ol id="tweets">
-	<h2 class="runty-editable">People talking on Twitter about "<span id="lookup-query" class="runty-block runty-editable">Moby Dick</span>"</h2>
+	<h2><span class="runty-editable">People talking on Twitter about "<span id="lookup-query" class="runty-block runty-editable">Moby Dick</span>"</span></h2>
 	<li class="row" data-template style="display: none;">
 		<div class="column grid_4 user">
 			<img height="48" width="48" alt="{{from_user}}" src="./theme/images/tweeter.png" data-src="{{profile_image_url}}" />
 			<h3>{{from_user}}</h3>
 		</div>
 		<p class="column grid_8 text">
-            {{text | replace '@([A-z0-9_]+)', '@<a href="http://twitter.com/$1">$1</a>'}}<span class="time">, {{created_at | date '\at HH:mm on EEEE' }}</span>
+            {{text}}<span class="time">, {{created_at | date '\at HH:mm on EEEE' }}</span>
         </p>
 	</li>
     <li class="error" data-template-fallback>
         Sorry, but you sort of need JavaScript for this one!
     </li>
 </ol>
-<p style="text-align:center;" class="runty-editable">This is a list of tweets containing "Moby Dick".</p>
+<p style="text-align:center;"><span class="runty-editable">This is a list of tweets containing "Moby Dick".</span></p>
 
 
 <div id="footer">
 	<div class="row">
-		<p><a href="http://twigkit.com/">Runty NoCMS</a></p>
+		<p><span class="runty-editable"><a href="http://runtyapp.org">Runty NoCMS</a></span></p>
 	</div>
 </div>
 

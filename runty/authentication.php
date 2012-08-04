@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-
 	// user object
 	if (!isset($_SESSION['user']) || empty($_SESSION['user']->id)) {
-		$_SESSION['user'] = false;
+		$_SESSION['user'] = new StdClass();
 		$_SESSION['user']->id = 'guest';
 	}
 

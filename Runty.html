@@ -25,10 +25,11 @@
 
 		<link href="http://fonts.googleapis.com/css?family=Chango" media="screen" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Candal" media="screen" rel="stylesheet" type="text/css">
-
 		<link href="./theme/css/default.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
+
 
 
 			<div class="touchslider"  id="fullscreen">
@@ -47,13 +48,13 @@
 					<div class="touchslider-item">
 						
 						<div id="runty-info" class="slider-text">
-							<h1 class="runty-editable"><span>Web Editable!</span></h1>
-							<h2 class="runty-editable"><span>smart content.</span></h2>
+							<h1><span class="runty-editable">Web Editable!</span></h1>
+							<h2><span class="runty-editable">smart content.</span></h2>
 							<p class="runty-editable">
 								<strong><em>Runty, the smart way to manage the web!</em></strong><br />
 								<strong><em>No</em> database. <em>No</em> forms. <em>No</em> CMS.</strong><br /><br />
 								Edit HTML pages. <em>Instantly</em>. Inline.<br /><br />
-								Click'n'<a class="login" id="runty-button-edit" href="#edit">edit</a> powered by <em><a href="">Aloha Editor <img id="ae-icon-tech-flower" src="./theme/images/Aloha%20Editor%20HTML5%20technology%20class%2032.png"></a></em>
+								Click'n'<a class="login" id="runty-button-edit" href="?edit=on"><strong>edit</strong></a> powered by <em><a href="http://aloha-editor.org" target="_blank">Aloha Editor <img id="ae-icon-tech-flower" src="./theme/images/Aloha%20Editor%20HTML5%20technology%20class%2032.png"></a></em>
 							</p>
 						</div>
 						
@@ -66,32 +67,51 @@
 
 					</div>
 					<div class="touchslider-item">
-						<div id="runty-about"  class="slider-text runty-editable">
-							<h1><span>smart web editing.</span></h1>
-							<p>click &amp; <a class="login" href="">edit</a> content<br />
-								&nbsp; &middot; with one click.<br />
-								&nbsp; &middot; no forms required.<br />
-								&nbsp; &middot; easy to install.</p>
+						<div id="runty-about"  class="slider-text">
+							<h1><span class="runty-editable">smart web editing.</span></h1>
+							<div class="runty-editable">
+							<p>click &amp; <a class="login" href="?edit=on">edit</a> content<br />
+								<img class="list-item" src="./theme/images/icons/glyphicons_187_more.png"> &nbsp; with one click.<br />
+								<img class="list-item" src="./theme/images/icons/glyphicons_187_more.png"> &nbsp; no forms required.<br />
+								<img class="list-item" src="./theme/images/icons/glyphicons_187_more.png"> &nbsp; easy to install.</p>
 
 							<ul>
-								<li><a href="#features" class="lightbox">features</a></li>
-								<li><a href="">how-to</a></li>
-								<li><a href="">tech</a></li>
+								<li><a href="./guides/" class="lightbox">features</a></li>
+								<li><a href="./guides/">how-to</a></li>
+								<li><a href="./guides/">tech</a></li>
 							</ul>
-
+							</div>
+							
 						</div>
+
+						<!-- Begin MailChimp Signup Form -->
+						<div id="mc_embed_signup">
+						<form action="http://runtyapp.us5.list-manage.com/subscribe/post?u=3dbbefdce860bb595905873a3&amp;id=59c1f6c27e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+							<label for="mce-EMAIL"><span class="runty-editable">Get <strong>sporadic news</strong>. NoSpam.</span></label>
+							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+							
+							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
 						
-						<div id="open-source-tech-info" class="runty-editable">
-							<p><span>
-								<a href="">Aloha Editor</a> 
-								&middot; <a href="">Apache Stanbol</a>
-								&middot; <a href="">BrowserID</a>
-								&middot; <a href="">HTML5</a> 
-								&middot; <a href="">JSON-LD</a> 
-								&middot; <a href="">jQuery</a> 
-								&middot; <a href="">jQuery UI</a> 
-								&middot; <a href="">Microdata</a> 
-								&middot; <a href="">RDFa</a> 
+							<div class="clear">
+								
+							
+							</div>
+						</form>
+						</div>
+						<!--End mc_embed_signup-->
+
+						
+						<div id="open-source-tech-info" >
+							<p><span class="runty-editable">
+								<a href="http://aloha-editor.org">Aloha Editor</a> 
+								&middot; <a href="https://incubator.apache.org/stanbol">Apache Stanbol</a>
+								&middot; <a href="https://browserid.org">BrowserID</a>
+								&middot; <a href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> 
+								&middot; <a href="http://json-ld.org">JSON-LD</a> 
+								&middot; <a href="http://jquery.com">jQuery</a> 
+								&middot; <a href="http://jqueryui.com">jQuery UI</a> 
+								&middot; <a href="https://en.wikipedia.org/wiki/Microdata_(HTML5)">Microdata</a> 
+								&middot; <a href="http://rdfa.info">RDFa</a> 
 							</span></p>
 						</div>
 						
@@ -104,21 +124,21 @@
 					<div class="touchslider-item">
 						<img  class="backgroud" src="./theme/images/runty3.jpg" width="1920px" height="1083px" alt="Installation">
 						
-						<a class="blur" href="http://aloha-editor.org"><img  id="aloha-editor-tech" src="http://aloha-editor.org/logo/Aloha%20Editor%20HTML5%20technology%20128.png" width="128px" height="128px"></a>
+						<a href="http://aloha-editor.org"><img class="blur" id="aloha-editor-tech" src="http://aloha-editor.org/logo/Aloha%20Editor%20HTML5%20technology%20128.png" width="128px" height="128px"></a>
 
-<div id="runty-download" class="blur">
+<div id="runty-download" class="blur runty-editable" >
 	<img src="./theme/images/icons/glyphicons_200_download.png" width="40px" height="40px">
-	<h2><a href="">Download</a> <span>(v 0.2.1)</span></h2>
-	<p>Install the <em>Runty NoCMS</em> app <br/>on your own system &middot; <a href="">licence</a><br/>click &amp; <a href="#edit" class="login">edit</a> this page <strong>right now!</strong></p>
-	<p id="download-link" ><span><a href="#download">Download &amp; Guide</a></span></p>
-	<p><a href="#source-installer">Source</a>  &middot; <a href="">Guides</a> &middot; <a href="#help">Help</a> &middot; <a href="">Issues</a></p>
+	<h2><a href="https://github.com/evo42/runty/zipball/master">Download</a> <span>(v 0.2.x)</span></h2>
+	<p>Install the <em>Runty NoCMS</em> app <br/>on your own system &middot; <a href="https://github.com/evo42/runty/blob/master/License.md">licence</a><br/>click &amp; <a href="?edit=on" class="login"><strong>edit</strong></a> this page <strong>right now!</strong></p>
+	<p id="download-link" ><span><a href="https://github.com/evo42/runty/zipball/master">Download &amp; Guide</a></span></p>
+	<p><a href="https://github.com/evo42/runty">Source</a>  &middot; <a href="./guides/">Guides</a> &middot; <a href="https://github.com/evo42/runty/issues">Help</a> &middot; <a href="https://github.com/evo42/runty/issues">Issues</a></p>
 </div>
 
-	<div id="runty-tech-info" class="blur">
+	<div id="runty-tech-info" class="blur runty-editable">
 		<h2>Installer</h2>
 		<p>Use the command line utilities and run the <em>Runty NoCMS</em> installer script:</p>
 		<pre><code><del>$ curl -s http://runtyapp.org/runty/installer | php</del></code></pre>
-		<p><a href="#source-installer">Source</a>  &middot; <a href="">Guides</a> &middot; <a href="#help">Help</a> &middot; <a href="">Issues</a></p>
+		<p><a href="https://github.com/evo42/runty">Source</a>  &middot; <a href="./guides/">Guides</a> &middot; <a href="https://github.com/evo42/runty/issues">Help</a> &middot; <a href="https://github.com/evo42/runty/issues">Issues</a></p>
 		</div>
 	
 </div>
@@ -126,16 +146,15 @@
 
 <div class="touchslider-item">
 
-	<div id="runty-guides" class="slider-text">
+	<div id="runty-guides" class="slider-text runty-editable">
 		
-		<h2><span>How To</span></h2>
-		<p>
-		</p>
+		<h2>How To</h2>
+
 		<ul>
-			<li>Install Runty</li>
-			<li>Edit Content</li>
-			<li>Configuration</li>
-			<li>Get Help</li>
+			<li><a href="./guides/">Install Runty</a></li>
+			<li><a href="./guides/">Edit Content</a></li>
+			<li><a href="./guides/">Configuration</a></li>
+			<li><a href="./guides/">Get Help</a></li>
 		</ul>
 	</div>
 
@@ -149,16 +168,41 @@
 			</div></div>
 		</div>
 
-      <div id="footer"><p>&copy; 2012 Runty NoCMS &middot; <a class="persona_logout" href="/#sign-out">sign-out</a></p>
+      <div id="footer" class="runty-editable"><p>&copy; 2012 Runty NoCMS &middot; <a class="persona_logout" href="?sign=off">sign-off</a></p>
       </div><!-- /container -->
 
-		<a class="blur" href="https://github.com/runty/NoCMS" target="_blank">
-			<img style="position: absolute; top: 0; right: 0; border: 0; width: 200px;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+		<a class="blur" href="https://github.com/evo42/runty" target="_blank" title="Watch / Fork Runty on Github">
+			<img style="position: absolute; top: 0; right: 0; border: 0; width: 200px;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork Runty on GitHub">
 		</a>
 
+
 				<script>
-					// on aloha edit this needs to be false
-					jQuery("#fullscreen").touchSlider({mouseTouch: false}); // true in none edit mode
+				<?php
+				if (empty($_SESSION['user']->edit)) {
+					$_SESSION['user']->edit = false;
+				}
+				if (empty($_REQUEST['edit'])) {
+					$_REQUEST['edit'] = false;
+				}
+				if (empty($_REQUEST['sign'])) {
+					$_REQUEST['sign'] = false;
+				}
+
+				if ($_REQUEST['edit'] == 'on') {
+					$_SESSION['user']->edit = true;
+				}
+				if ($_REQUEST['edit'] == 'off' || $_REQUEST['sign'] == 'off') {
+					$_SESSION['user']->edit = false;
+				}
+
+				if ( $_SESSION['user']->edit ) {
+					echo 'jQuery("#fullscreen").touchSlider({mouseTouch: false}); // true in none edit mode';
+				} else {
+					echo 'jQuery("#fullscreen").touchSlider({mouseTouch: true}); // true in none edit mode';
+				}
+
+				?>
+					//jQuery("#fullscreen").touchSlider({mouseTouch: false}); // true in none edit mode
 
 					jQuery(function() {
 						jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").css("opacity","0.6");
@@ -181,4 +225,8 @@
 				</script>
 
 </body>
+
+<!-- should move -->
+<link href="./theme/css/default.css" rel="stylesheet" type="text/css">
+
 </html>

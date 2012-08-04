@@ -1,0 +1,5 @@
+<FilesMatch "\.(htm|html)$">
+	SetHandler application/x-httpd-php
+	php_value auto_prepend_file "../runty/app-prepend.php"
+	php_value auto_append_file "../runty/app-append.php"
+</FilesMatch>

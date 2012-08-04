@@ -13,6 +13,10 @@ Aloha.settings = {
 		// Path for custom bundle relative from Aloha.settings.baseUrl usually path of aloha.js
 		custom: '../../app/aloha-editor-plugin'
 	},
+	sidebar: {
+		open: false,
+		disabled: true
+	},
    	plugins: {
 		load: "common/ui, common/format, common/table, common/list, common/link, " +
    			"common/highlighteditables, common/block, common/undo, " +

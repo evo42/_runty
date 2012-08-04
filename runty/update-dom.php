@@ -13,9 +13,6 @@ if (isset($_REQUEST['draft'])) {
 // @todo is draft mode! do not write to file ...
 $draft = true;
 
-
-
-
 // Save Data
 $msg = '';
 
@@ -36,7 +33,7 @@ $content =  $_REQUEST['content'];
 
 
 $filePath = preg_replace('%^(/*)[^/]+%', '$2..', $pageId);
-$filePath = '../draft.html';
+$draftFilePath = '../.runty/draft/'.$filePath;
 //error_log("\n\n".'###### save as file '.$filePath, 3, "cms.log");
 $pageContent = file_get_contents($filePath);
 $error = false;
@@ -55,15 +52,15 @@ if (!$doc->loadHTML($pageContent)) {
 	// set innerHTML
 	$elem->innerHTML = $content;
 
-	if (!$draft) {
-		if (!file_put_contents($filePath, $doc->saveHTML())) {
-			$error = 'Could not update file.';
-		} 
-	} else {
-		$filePath = '/draft'.$filePath;
-		$msg = 'Saved as Draft. '.$filePath;
+	$msg = 'Saved as: '.$filePath;
+	if ($draft) {
+		$filePath = $draftFilePath;
+		$msg = 'Saved as Draft: '.$filePath;
 	}
 	
+	if (!file_put_contents($filePath, $doc->saveHTML())) {
+		$error = $msg = 'Could not update file: '.$filePath;
+	}
 }
 
 if ( !empty($error) ) {
@@ -71,7 +68,7 @@ if ( !empty($error) ) {
 	print_r($error);
 } else {
 	//error_log("\OK. Content saved. ".$msg, 3, "cms.log");
-	echo 'Content saved.';
+	echo $msg;
 }
 
 ?>
