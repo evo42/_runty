@@ -612,3 +612,6 @@ img {
 	float: left;
 	padding: 5px 5px 0 0;
 }
+.small-info {
+	font-size: x-small;
+}
