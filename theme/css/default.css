@@ -261,11 +261,15 @@ div.page-bg-leaf {
 	height:700px;
 	margin:0 auto;
 }
+
 .p-intro {
 	font-size:1.5em;
 	line-height:1.3em;
-	text-align:left !important;
+	text-align:center !important;
+	padding: 15px;
+	margin: 15px;
 }
+
 p {
 	font-family:georgia;
 	font-size:1em;

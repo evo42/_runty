@@ -3,10 +3,11 @@ var toolbar = jQuery('<div id="runty-toolbar">'),
 	actions = jQuery('<div id="runty-actions">');
 
 //actions.append('<strong>Runty</strong> ');
-actions.append("<a href=\"?edit=on\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"./theme/images/icons/glyphicons_030_pencil.png\"></span></a> ");
-actions.append("<a href=\"?edit=off\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"./theme/images/icons/glyphicons_198_ok.png\"></span></a> ");
+// @todo path for icons into runty
+actions.append("<a href=\"?edit=on\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"/theme/images/icons/glyphicons_030_pencil.png\"></span></a> ");
+actions.append("<a href=\"?edit=off\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"/theme/images/icons/glyphicons_198_ok.png\"></span></a> ");
 actions.append("&nbsp;");
-actions.append("<a href=\"?sign=off\" id=\"runty-button-logout\"><span><img alt=\"Sign-off\" title=\"Sign-off\" src=\"./theme/images/icons/glyphicons_240_rotation_lock.png\"></span></a>");
+actions.append("<a href=\"?sign=off\" id=\"runty-button-logout\"><span><img alt=\"Sign-off\" title=\"Sign-off\" src=\"/theme/images/icons/glyphicons_240_rotation_lock.png\"></span></a>");
 
 
 toolbar.append(actions);
