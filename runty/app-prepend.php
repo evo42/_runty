@@ -30,13 +30,12 @@ require_once dirname( __FILE__ ) . '/core.php';
 
 function runty_loader( $buffer ) {
   // inject a script tag to load runty
-	
 	$aloha = '
 	<link rel="stylesheet" href="../runty/theme/css/runty.css" type="text/css">
 	<link rel="stylesheet" href="http://cdn.aloha-editor.org/latest/css/aloha.css" type="text/css">
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="../runty/app/aloha-editor.js"></script>
+	<script src="../runty/app/aloha-editor/aloha-editor.js"></script>
 	<script src="../.runty/aloha-editor.js"></script>
 
     <script src="http://cdn.aloha-editor.org/latest/lib/require.js" ></script>

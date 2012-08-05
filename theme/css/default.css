@@ -550,6 +550,14 @@ img {
 #runty-info p {
 	text-align:center;
 }
+#runty-info p span {
+	background-color: white;
+	color: black;
+	padding: 5px 10px 5px 10px;
+}
+#runty-info p span a {
+	color: black;
+}
 #browserid {
 	position:absolute;
 	top:-1px;
@@ -577,9 +585,10 @@ img {
 #runty-toolbar a span {
 }
 #ae-icon-tech-flower {
+	position: relative;
+	margin:0;
 	float:right;
-	margin-right:100px;
-	margin-top:-5px;
+	margin: 0px 70px 0 5px;
 }
 #mc_embed_signup {
 	background:none;
