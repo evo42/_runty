@@ -173,7 +173,7 @@
 				}
 			});
 			twitter.starting();
-			$.getJSON("http://search.twitter.com/search.json?q='#runty'&rpp=7&callback=?", function(data) {
+			$.getJSON("http://search.twitter.com/search.json?q='runty'&rpp=7&callback=?", function(data) {
 				twitter.render(data.results);
 			});
 		});
@@ -252,7 +252,7 @@
 <!-- Tweets -->
 <ol id="tweets">
 	<h2><span class="runty-editable"> 
-		Twitter chat about "<span id="lookup-query" class="runty-block runty-editable">#Runty</span>"</span></h2>
+		Twitter chat about "<span id="lookup-query" class="runty-block runty-editable">runty</span>"</span></h2>
 	<li class="row" data-template style="display: none;">
 		<div class="column grid_4 user">
 			<img height="48" width="48" alt="{{from_user}}" src="../theme/images/tweeter.png" data-src="{{profile_image_url}}" />
@@ -266,7 +266,7 @@
         Sorry, but you sort of need JavaScript for this one!
     </li>
 </ol>
-<p style="text-align:center;"><span class="runty-editable">This is a list of tweets containing "#Runty".</span></p>
+<p style="text-align:center;"><span class="runty-editable">This is a list of tweets containing "runty".</span></p>
 
 
 <div id="footer">
