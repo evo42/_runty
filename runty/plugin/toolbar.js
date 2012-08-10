@@ -56,7 +56,7 @@ jQuery('#runty-button-save').bind('click', function() {
 		// @todo switch to datatype json
 		//console.log(pageId + ' -- ' + contentId + ' content: ' + content);
 		var request = jQuery.ajax({
-			url: "../runty/update-dom.php",
+			url: "../runty/store.php",
 			type: "POST",
 			data: {
 				content : content,

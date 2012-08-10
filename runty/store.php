@@ -1,5 +1,5 @@
 <?php
-/* update-dom.php is part of the Runty NoCMS project http://runtyapp.org
+/* store.php is part of the Runty NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -23,6 +23,19 @@
 */
 
 require_once '../index.php';
+
+
+// update a backend store
+
+// can be a key-value store like redis
+// a data base like sqlite or postgresql
+// html5 local storage
+
+
+// or
+
+
+//DOM
 require_once '../vendor/JSLikeHTMLElement.php';
 
 // check authentication

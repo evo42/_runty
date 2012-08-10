@@ -36,7 +36,12 @@
 	# @todo use runty/favicon.ico if no /favicon.ico is provided
 	# if Runty is running in a sub directory (eg. http://example.com/my-runty-site/)
 
-	#RewriteEngine On
+	RewriteEngine On
 	# use as RewriteBase /my-runty-site
 	#RewriteBase /
+
+	# favicon
+	RewriteCond favicon.ico !-f
+	RewriteCond $0 !=runty/favicon.ico
+	RewriteRule ^([^/]+/)*favicon\.ico$ /runty/favicon.ico [L]
 </IfModule>
