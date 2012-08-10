@@ -1,31 +1,22 @@
 # Runty NoCMS License
 
 
-Runty NoCMS is meant to be an free and open source for all now and in future.
+Runty NoCMS is meant to be free and open source for all now and in future.
 
 We encourage continuous, self sustainable development supported by both the open source
 community and commercial stake holders. This way both parties (community and commercial users)
 profit from each other by code and financial resources for core development.
-Therefore we adopted a dual licensing approach for Runty NoCMS. All contributor need to
-agree and sign the CLA (http://aloha-editor.org/contribution.php), if they want to push in
-the master repository of Runty NoCMS.
 
 
-# Open source Software License
+# Open Source Software License
 
-The Open Source version of Runty NoCMS is released under the terms of GPLv2 or later.
+Runty NoCMS is released under the terms of GPLv2 or later.
 http://www.gnu.org/licenses/gpl-2.0.html (or see license text below)
 
-As an additional permission to the GNU GPL version 2, you may distribute non-source 
-(e.g., minimized or compacted) forms of the Aloha-Editor source code without the copy
+As an additional permission to the GNU GPL version 2, you may distribute non-source
+(e.g., minimized or compacted) forms of the Runty NoCMS source code without the copy
 of the GNU GPL normally required, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-# Commercial Software License
-
-The commercial version of Runty NoCMS allows to use, modify, copy and distribute without
-any restrictions as stated in the commercial license agreement.
+through which recipients can access the corresponding source.
 
 
 # Translation License

@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
+		<!--
+		/* Runty.html is part of the Runty NoCMS project http://runtyapp.org
+		*
+		* Runty is a handy NoCMS utilizing the power of Aloha Editor
+		* -- a modern WYSIWYG HTML5 inline editing library and editor.
+		*
+		*
+		* Runty is free software; you can redistribute it and/or
+		* modify it under the terms of the GNU General Public License
+		* as published by the Free Software Foundation; either version 2
+		* of the License, or any later version.
+		*
+		* Runty is distributed in the hope that it will be useful,
+		* but WITHOUT ANY WARRANTY; without even the implied warranty of
+		* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+		* GNU General Public License for more details.
+		*
+		* You should have received a copy of the GNU General Public License
+		* along with this program; if not, write to the Free Software
+		* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+		*
+		* Online: https://www.gnu.org/licenses/gpl-2.0.html
+		*/
+		-->
+
 		<title>Runty NoCMS -- Website Editable!</title>
 		<meta charset="utf-8">
 		<meta name="description" content="Runty NoCMS using Aloha Editor">
@@ -164,33 +190,15 @@
 			<img style="position: absolute; top: 0; right: 0; border: 0; width: 200px;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork Runty on GitHub">
 		</a>
 
-		<script>
-		<?php
-	if (empty($_SESSION['user']->edit)) {
-		$_SESSION['user']->edit = false;
-	}
-	if (empty($_REQUEST['edit'])) {
-		$_REQUEST['edit'] = false;
-	}
-	if (empty($_REQUEST['sign'])) {
-		$_REQUEST['sign'] = false;
-	}
-
-	if ($_REQUEST['edit'] == 'on') {
-		$_SESSION['user']->edit = true;
-	}
-	if ($_REQUEST['edit'] == 'off' || $_REQUEST['sign'] == 'off') {
-		$_SESSION['user']->edit = false;
-	}
-
-	if ( $_SESSION['user']->edit ) {
-		echo 'jQuery("#fullscreen").touchSlider({mouseTouch: false}); // true in none edit mode';
+	<script>
+	<?php
+	if ( isset($_SESSION['user']->edit) ) {
+		$mouseTouch = 'false';
 	} else {
-		echo 'jQuery("#fullscreen").touchSlider({mouseTouch: true}); // true in none edit mode';
+		$mouseTouch = 'true';
 	}
-
+	echo 'jQuery("#fullscreen").touchSlider({mouseTouch: '.$mouseTouch.'}); // true in none edit mode';
 	?>
-	//jQuery("#fullscreen").touchSlider({mouseTouch: false}); // true in none edit mode
 
 	jQuery(function() {
 		jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").css("opacity","0.6");
@@ -211,10 +219,9 @@
 
 		});
 		</script>
-
 </body>
 
-<!-- should move @hack -->
+<!-- @hack should move... using head.js? -->
 <link href="./theme/css/default.css" rel="stylesheet" type="text/css">
 
 </html>

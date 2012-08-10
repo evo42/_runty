@@ -1,5 +1,5 @@
 <?php
-/* index.php is part of the Runty NoCMS project http://runtyapp.org
+/* update-store.php is part of the Runty NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -22,21 +22,12 @@
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// runty app
-session_start();
-$runty = new stdClass();
-$runty->core_path = dirname( __FILE__ );
-$runty->host = $_SERVER['HTTP_HOST'];
-$runty->settings = new stdClass();
+require_once '../index.php';
 
-// load individual project config file
-$require = array();
-$require[] = $runty->core_path . '/settings.php';
-$require[] = $runty->core_path . '../.runty/settings.php';
-foreach($require as $require_path) {
-	if (is_readable($require_path)) {
-		require_once $require_path;
-	}
-}
+// update a backend store
 
-// @todo http router
+// can be a key-value store like redis
+// a data base like sqlite or postgresql
+// html5 local storage
+// or just the user session
+?>

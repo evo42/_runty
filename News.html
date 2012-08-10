@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<!--
+	/* News.html is part of the Runty NoCMS project http://runtyapp.org
+	*
+	* Runty is a handy NoCMS utilizing the power of Aloha Editor
+	* -- a modern WYSIWYG HTML5 inline editing library and editor.
+	*
+	*
+	* Runty is free software; you can redistribute it and/or
+	* modify it under the terms of the GNU General Public License
+	* as published by the Free Software Foundation; either version 2
+	* of the License, or any later version.
+	*
+	* Runty is distributed in the hope that it will be useful,
+	* but WITHOUT ANY WARRANTY; without even the implied warranty of
+	* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	* GNU General Public License for more details.
+	*
+	* You should have received a copy of the GNU General Public License
+	* along with this program; if not, write to the Free Software
+	* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+	*
+	* Online: https://www.gnu.org/licenses/gpl-2.0.html
+	*/
+	-->
+
 	<meta charset="UTF-8">
 	<title>News Example -- Dynamic Content with Runty NoCMS</title>
 
@@ -8,28 +34,28 @@
 	<link rel="stylesheet" href="./theme/css/grid.css" type="text/css" media="screen">
 
 	<!-- Import styles for the universal footer -->
-	<link rel="stylesheet" href="./theme/css/examples.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="./theme/css/news.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="./theme/css/examples.css" type="text/css" media="screen">
 	<link href="http://fonts.googleapis.com/css?family=Lobster" media="screen" rel="stylesheet" type="text/css">
 
 	<!-- Import Tempo -->
 	<script type="text/javascript" src="./runty/vendor/tempo.js"></script>
-	
+
 	<!-- This example uses jQuery's ajax() method to retrieve data from Twitter -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function() {
-			var twitter = Tempo.prepare('tweets').notify(function(event) {
-				if (event.type === TempoEvent.Types.RENDER_STARTING || event.type === TempoEvent.Types.RENDER_COMPLETE) {
-					$('ol').toggleClass('loading');
-				}
-			});
-			twitter.starting();
-			$.getJSON("http://search.twitter.com/search.json?q='moby+dick'&rpp=7&callback=?", function(data) {
-				twitter.render(data.results);
-			});
+	$(document).ready(function() {
+		var twitter = Tempo.prepare('tweets').notify(function(event) {
+			if (event.type === TempoEvent.Types.RENDER_STARTING || event.type === TempoEvent.Types.RENDER_COMPLETE) {
+				$('ol').toggleClass('loading');
+			}
 		});
+		twitter.starting();
+		$.getJSON("http://search.twitter.com/search.json?q='moby+dick'&rpp=7&callback=?", function(data) {
+			twitter.render(data.results);
+		});
+	});
 	</script>
 </head>
 <body>
@@ -44,8 +70,8 @@
 	</div>
 </div>
 
-    <div class="container">
-		<h1 id="page-title"><span class="runty-editable">Moby Dick</span></h1>
+<div class="container">
+	<h1 id="page-title"><span class="runty-editable">Moby Dick</span></h1>
 
 	<div id="multicolumnElement" class="runty-editable"><p class="p-intro">Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.</p>
 
@@ -68,12 +94,12 @@
 			<h3>{{from_user}}</h3>
 		</div>
 		<p class="column grid_8 text">
-            {{text}}<span class="time">, {{created_at | date '\at HH:mm on EEEE' }}</span>
-        </p>
+			{{text}}<span class="time">, {{created_at | date '\at HH:mm on EEEE' }}</span>
+		</p>
 	</li>
-    <li class="error" data-template-fallback>
-        Sorry, but you sort of need JavaScript for this one!
-    </li>
+	<li class="error" data-template-fallback>
+		Sorry, but you sort of need JavaScript for this one!
+	</li>
 </ol>
 <p style="text-align:center;"><span class="runty-editable">This is a list of tweets containing "Moby Dick".</span></p>
 

@@ -1,1 +1,1 @@
-See http://runtyapp.org/guides/
+See [http://runtyapp.org/guides/](Runty Guides) for more information about Runty NoCMS.
