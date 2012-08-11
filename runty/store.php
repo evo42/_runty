@@ -36,7 +36,7 @@ require_once dirname( __FILE__ ) . '/index.php';
 
 
 //DOM
-require_once '../vendor/JSLikeHTMLElement.php';
+require_once './vendor/JSLikeHTMLElement.php';
 
 // check authentication
 if (empty($_SESSION['user']->id)) {
@@ -68,6 +68,11 @@ if (isset($_REQUEST['pageId'])) {
 	$contentId = $_REQUEST['contentId'];
 	$content =  $_REQUEST['content'];
 } else {
+	exit;
+}
+
+if (empty($contentId)) {
+	echo json_encode('Runty Error: missing contentId.');
 	exit;
 }
 
@@ -103,10 +108,8 @@ if (!$doc->loadHTML($pageContent)) {
 
 // @todo output as json(-ld) format
 if ( !empty($error) ) {
-	//error_log("\nerror: ".print_r($error, true), 3, "cms.log");
-	print_r($error);
+	echo json_encode($error);
 } else {
-	//error_log("\OK. Content saved. ".$msg, 3, "cms.log");
-	echo $msg;
+	echo json_encode($msg);
 }
 ?>

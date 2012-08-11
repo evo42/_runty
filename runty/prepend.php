@@ -37,6 +37,31 @@ function runty_loader( $buffer ) {
 	// @todo add guid as id attribute to all elements with class runty-editable and not id attr.
 
 
+	// if check / update ids write buffer back to file
+	$updateContentIds = true;
+	if ($updateContentIds) {
+		$update = updateContentIds($buffer);
+
+		if ($update->updates > 0) {
+			$buffer = $update->html;
+
+			// @todo use config / check for tidy in env. / use custom html5-tidy
+			$tidy_config = array(	'indent' => true,
+									'output-xhtml' => true,
+									'wrap' => 200);
+			$tidy = new tidy();
+			$buffer = $tidy->repairString($buffer, $tidy_config, 'utf8');
+
+			// @todo make new name configureable / use git / use .runty/backup ?!
+			rename($_SERVER['SCRIPT_FILENAME'], $_SERVER['SCRIPT_FILENAME'] . '.'.date('md-H').'.bak');
+			if (file_put_contents($_SERVER['SCRIPT_FILENAME'], $buffer)) {
+				$debug = 'OK: writing file';
+			} else {
+				$debug = 'ERROR: writing file';
+			}
+		}
+	}
+
 	// editing with aloha editor
 	// 'http://cdn.aloha-editor.org/latest/' -- '../runty/aloha-editor/0.21/'
 	$aloha_url = '../runty/aloha-editor/0.21/'; 
@@ -80,10 +105,10 @@ function runty_loader( $buffer ) {
 
 	// runty toolbar
 	$toolbar = '
-		<script src="../runty/plugin/toolbar.js"></script>;
+		<script src="../runty/plugin/toolbar.js"></script>
 	';
 
-	// @todo check for https/http
+	// @todo check for https/http / add local copy
 	$browserid = '
 		<script src="http://browserid.org/include.js" type="text/javascript"></script>
 
@@ -134,6 +159,13 @@ function runty_loader( $buffer ) {
 		</div>
 	';
 
+	if (empty($_REQUEST['sign'])) {
+		$_REQUEST['sign'] = false;
+	}
+	if (empty($_REQUEST['action'])) {
+		$_REQUEST['action'] = false;
+	}
+
 	// sign-off / logout
 	if ($_REQUEST['sign'] == 'off' ||
 		$_REQUEST['action'] == 'sign-off' ||
@@ -153,6 +185,14 @@ function runty_loader( $buffer ) {
 		!strpos($buffer, 'jquery-1.7.2.js')) {
 		$buffer = str_replace( "<head>", "<head>\n\n$jquery\n\n", $buffer );
 	}
+
+	/*
+	$debug = '';
+	foreach ($_SERVER as $k => $v) {
+		$debug .= $k.': '.$v.'<br /> '."\n\n";
+	}
+	$buffer = str_replace( "<body>", "<body>\n\n$debug\n\n", $buffer );
+	// */
 
 	/*
 	// user session object
@@ -192,10 +232,32 @@ function runty_loader( $buffer ) {
 	}
 }
 
+
 // call runty_loader callback function
 ob_start( 'runty_loader' );
 
 // tidy contents in order to get valid html
-// @todo test if tidy is supported / config
-//ob_start( 'ob_tidyhandler' );
+// @todo test if tidy is supported / config -- use global tidy config
+// ob_start( 'ob_tidyhandler' );
+
+
+function updateContentIds($content) {
+	require_once dirname( __FILE__ ) . '/vendor/simple_html_dom.php';
+
+	$html = str_get_html($content);
+	$updates = 0;
+	foreach($html->find('.runty-editable') as $editable) {
+		if (empty($editable->id)) {
+			$editable->id = 'runty-'.sha1(microtime()*rand(5, 15));
+			$updates++;
+		}
+	}
+	
+	$html = str_replace( "<body>", "<body>\n\n$debug\n\n", $html );
+	
+	$return = new stdClass();
+	$return->html = $html;
+	$return->updates = $updates;
+	return $return;
+}
 ?>
