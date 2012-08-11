@@ -61,17 +61,13 @@ function runty_loader( $buffer ) {
 		}
 	}
 
-
 	// draft info
-	$draft_file = $_SERVER['SCRIPT_FILENAME'];
 	$draft_file = str_replace( $_SERVER['SCRIPT_NAME'], '/.runty/draft'.$_SERVER['SCRIPT_NAME'], $_SERVER['SCRIPT_FILENAME'] );
 	$draft_url = '/.runty/draft'.$_SERVER['SCRIPT_NAME'];
-	//$buffer = str_replace( "<body>", "<body>\n\n$draft_file\n\n", $buffer );
 	if (is_readable($draft_file) && is_writeable($draft_file)) {
 		$draft_msg = '<div id="runty-notice-draft"><span>A draft of this page is available.</span> <a href="'.$draft_url.'">Edit draft</a></div>';
 		$buffer = str_replace( "<body>", "<body>\n\n$draft_msg\n\n", $buffer );
 	}
-	
 
 	// editing with aloha editor
 	// 'http://cdn.aloha-editor.org/latest/' -- '/runty/aloha-editor/0.21/'
@@ -101,14 +97,13 @@ function runty_loader( $buffer ) {
 	';
 
 	// require
-	// http://cdn.aloha-editor.org/latest/lib/aloha.js
 	// http://requirejs.org/docs/release/2.0.5/minified/require.js
 	$requirejs = '
 		<script src="'.$aloha_url.'lib/require.js"></script>
 	';
 
 	// jquery
-	// http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+	// http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 	$jquery_url = $aloha_url.'lib/vendor/jquery-1.7.2.js';
 	$jquery = '
 		<script src="'.$jquery_url.'"></script>

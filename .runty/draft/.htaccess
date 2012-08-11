@@ -31,17 +31,3 @@
 	# @todo info about sub directories: use absolute path to runty (include-path setting)
 	# http://www.php.net/manual/de/ini.core.php#ini.include-path
 </IfModule>
-
-<IfModule mod_rewrite.c>
-	# @todo use runty/favicon.ico if no /favicon.ico is provided
-	# if Runty is running in a sub directory (eg. http://example.com/my-runty-site/)
-
-	RewriteEngine On
-	# use as RewriteBase /my-runty-site
-	#RewriteBase /
-
-	# favicon
-	RewriteCond favicon.ico !-f
-	RewriteCond $0 !=runty/favicon.ico
-	RewriteRule ^([^/]+/)*favicon\.ico$ /runty/favicon.ico [L]
-</IfModule>
