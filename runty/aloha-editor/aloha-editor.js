@@ -28,13 +28,13 @@ if (window.Aloha === undefined || window.Aloha === null) {
 /*
 This is a minimal Aloha Editor configuration
 
-In this Aloha Editor Nano CMS Demo we add a custom plugin.
+In this Aloha Editor within Runty we add a custom plugin.
 This plugin is located in our own specific plugin bundle.
 */
 Aloha.settings = {
 	bundles: {
 		// Path for custom bundle relative from Aloha.settings.baseUrl usually path of aloha.js
-		custom: '../../aloha-editor-plugin'
+		custom: '../../../aloha-editor/plugin/' // '../../../aloha-editor/plugin/' -- '/runty/aloha-editor/plugin/'
 	},
 	sidebar: {
 		open: false,
@@ -43,7 +43,8 @@ Aloha.settings = {
 	plugins: {
 		load: "common/ui, common/format, common/table, common/list, common/link, " +
 		"common/highlighteditables, common/block, common/undo, " +
-		"common/contenthandler, common/paste, common/commands, common/abbr " /*+
+		"common/contenthandler, common/paste, common/commands, common/abbr, " +
+		"custom/runty" /*+
 		", custom/runty, custom/fontsize, custom/colorselector"*/
 	}
 };

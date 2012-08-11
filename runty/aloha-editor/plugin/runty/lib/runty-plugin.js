@@ -3,14 +3,17 @@ define( [
 	'aloha/jquery',
 	'aloha/plugin',
 	'../../runty/extra/runty-linklist' // custom linklist
-], function ( Aloha, jQuery, Plugin ) {
-	
+], function (
+	Aloha,
+	jQuery,
+	Plugin) {
+
 	var GENTICS = window.GENTICS;
 
 	/**
 	 * register the plugin with unique name
 	 */
-	return Plugin.create( 'runty-plugin', {
+	return Plugin.create('runty-plugin', {
 
 		/**
 		 * Initialize the plugin and set initialize flag on true
@@ -26,7 +29,5 @@ define( [
 		toString: function () {
 			return 'runty-plugin';
 		}
-
 	} );
-	
 } );
