@@ -48,7 +48,7 @@ function ( jQuery, repository ) {
 			jQuery.ajax({ type: "GET",
 				dataType: "json",
 				async: false,
-				url: '../runty/repository-local.php', // @todo
+				url: '../runty/repository.php', // @todo
 				success: function(data) {
 					//console.log('lookup data', data);
 					var items = [];

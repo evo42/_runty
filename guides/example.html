@@ -1,5 +1,7 @@
-<?php
-/* index.php is part of the Runty NoCMS project http://runtyapp.org
+<!DOCTYPE html>
+
+<!--
+/* example.html is part of the Runty NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -21,22 +23,16 @@
 *
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
+-->
 
-// runty app
-session_start();
-$runty = new stdClass();
-$runty->core_path = dirname( __FILE__ );
-$runty->host = $_SERVER['HTTP_HOST'];
-$runty->settings = new stdClass();
-
-// load individual project config file
-$require = array();
-$require[] = $runty->core_path . '/settings.php';
-$require[] = $runty->core_path . '../.runty/settings.php';
-foreach($require as $require_path) {
-	if (is_readable($require_path)) {
-		require_once $require_path;
-	}
-}
-
-// @todo http router
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Runty App NoCMS Example</title>
+</head>
+<body>
+	<h1 class="runty-editable">Runty, Edit smart!</h1>
+	<p class="runty-editable">Use the power of Aloha Editor to <a href="?edit=on">edit</a> the web.</p>
+	<span>Runty NoCMS</span>
+</body>
+</html>

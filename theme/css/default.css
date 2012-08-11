@@ -1,3 +1,26 @@
+/* default.css is part of the Runty NoCMS project http://runtyapp.org
+*
+* Runty is a handy NoCMS utilizing the power of Aloha Editor
+* -- a modern WYSIWYG HTML5 inline editing library and editor.
+*
+*
+* Runty is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or any later version.
+*
+* Runty is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program; if not, write to the Free Software
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+*
+* Online: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
 html {
 	height:100%;
 	font-family: "Lucida Grande",Lucida,Verdana,sans-serif;
@@ -261,11 +284,15 @@ div.page-bg-leaf {
 	height:700px;
 	margin:0 auto;
 }
+
 .p-intro {
 	font-size:1.5em;
 	line-height:1.3em;
-	text-align:left !important;
+	text-align:center !important;
+	padding: 15px;
+	margin: 15px;
 }
+
 p {
 	font-family:georgia;
 	font-size:1em;
@@ -525,12 +552,12 @@ img {
 }
 #runty-guides {
 	position:absolute;
-	top:100px;
+	top:0px;
 	right:600px;
 	z-index:100;
 	background-color:black;
 	width:300px;
-	height:250px;
+	height:80%;
 	margin:15% 5% 10% 50%;
 	padding:0px 20px 10px 30px;
 	color:white;
@@ -545,6 +572,14 @@ img {
 }
 #runty-info p {
 	text-align:center;
+}
+#runty-info p span {
+	background-color: white;
+	color: black;
+	padding: 5px 10px 5px 10px;
+}
+#runty-info p span a {
+	color: black;
 }
 #browserid {
 	position:absolute;
@@ -573,9 +608,10 @@ img {
 #runty-toolbar a span {
 }
 #ae-icon-tech-flower {
+	position: relative;
+	margin:0;
 	float:right;
-	margin-right:100px;
-	margin-top:-5px;
+	margin: 0px 70px 0 5px;
 }
 #mc_embed_signup {
 	background:none;
@@ -598,4 +634,7 @@ img {
 .list-item {
 	float: left;
 	padding: 5px 5px 0 0;
+}
+.small-info {
+	font-size: x-small;
 }

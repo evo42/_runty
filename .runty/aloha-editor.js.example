@@ -1,0 +1,75 @@
+/* aloha-editor.js.example is part of the Runty NoCMS project http://runtyapp.org
+*
+* Runty is a handy NoCMS utilizing the power of Aloha Editor
+* -- a modern WYSIWYG HTML5 inline editing library and editor.
+*
+*
+* Runty is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
+* of the License, or any later version.
+*
+* Runty is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program; if not, write to the Free Software
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+*
+* Online: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+(function (window, undefined) {
+    var Aloha = window.Aloha || (window.Aloha = {});
+
+    Aloha.settings = {
+        logLevels: {
+            'error': true,
+            'warn': true,
+            'info': true,
+            'debug': false,
+            'deprecated': true
+        },
+        locale: 'en',
+        placeholder: {
+            '#placeholder': '<img src="http://aloha-editor.org/logo/Aloha%20Editor%20HTML5%20technology%20class%2016.png" alt="Aloha Editor"/>&nbsp;Aloha Editor'
+        },
+        repositories: {
+            linklist: {
+                data: [{
+                    name: 'Aloha Editor Developers Wiki',
+                    url: 'https://github.com/alohaeditor/Aloha-Editor/wiki',
+                    type: 'website',
+                    weight: 0.50
+                }, {
+                    name: 'Aloha Editor - The HTML5 Editor',
+                    url: 'http://aloha-editor.com',
+                    type: 'website',
+                    weight: 0.90
+                }, {
+                    name: 'Runty NoCMS',
+                    url: 'http://runtyapp.org',
+                    type: 'website',
+                    weight: 0.95
+                }, {
+                    name: 'Aloha Editor Logo',
+                    url: 'http://www.aloha-editor.com/images/aloha-editor-logo.png',
+                    type: 'image',
+                    weight: 0.20
+                }]
+            }
+        },
+        plugins: {
+            format: {
+                // all elements with no specific configuration get this configuration
+                //config: [  'strong', 'em', 'p', 'sub', 'sup', 'del', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'removeFormat' ],
+                editables: {
+                    // no formatting allowed for title
+                    '#title': []
+                }
+            }
+        }
+    };
+})(window);

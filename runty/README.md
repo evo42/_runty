@@ -1,0 +1,1 @@
+See [http://runtyapp.org/guides/](Runty Guides) for more information about Runty NoCMS.

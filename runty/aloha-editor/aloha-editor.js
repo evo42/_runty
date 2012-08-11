@@ -1,5 +1,4 @@
-<?php
-/* index.php is part of the Runty NoCMS project http://runtyapp.org
+/* aloha-editor.js is part of the Runty NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -22,21 +21,29 @@
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// runty app
-session_start();
-$runty = new stdClass();
-$runty->core_path = dirname( __FILE__ );
-$runty->host = $_SERVER['HTTP_HOST'];
-$runty->settings = new stdClass();
-
-// load individual project config file
-$require = array();
-$require[] = $runty->core_path . '/settings.php';
-$require[] = $runty->core_path . '../.runty/settings.php';
-foreach($require as $require_path) {
-	if (is_readable($require_path)) {
-		require_once $require_path;
-	}
+if (window.Aloha === undefined || window.Aloha === null) {
+	var Aloha = window.Aloha = {};
 }
 
-// @todo http router
+/*
+This is a minimal Aloha Editor configuration
+
+In this Aloha Editor Nano CMS Demo we add a custom plugin.
+This plugin is located in our own specific plugin bundle.
+*/
+Aloha.settings = {
+	bundles: {
+		// Path for custom bundle relative from Aloha.settings.baseUrl usually path of aloha.js
+		custom: '../../aloha-editor-plugin'
+	},
+	sidebar: {
+		open: false,
+		disabled: true
+	},
+	plugins: {
+		load: "common/ui, common/format, common/table, common/list, common/link, " +
+		"common/highlighteditables, common/block, common/undo, " +
+		"common/contenthandler, common/paste, common/commands, common/abbr " /*+
+		", custom/runty, custom/fontsize, custom/colorselector"*/
+	}
+};

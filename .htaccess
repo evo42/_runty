@@ -1,24 +1,47 @@
+# .htaccess is part of the Runty NoCMS project http://runtyapp.org
+#
+# Runty is a handy NoCMS utilizing the power of Aloha Editor
+# -- a modern WYSIWYG HTML5 inline editing library and editor.
+#
+#
+# Runty is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or any later version.
+#
+# Runty is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# Online: https://www.gnu.org/licenses/gpl-2.0.html
+
 <FilesMatch "\.(htm|html)$">
 	SetHandler application/x-httpd-php
 
-	php_value auto_prepend_file "./runty/app-prepend.php"
-	php_value auto_append_file "./runty/app-append.php"
-
-	# turn on / off error reporting
-	# http://www.php.net/manual/en/errorfunc.constants.php
-	php_value error_reporting 32767
-	php_value display_errors 1
+	php_value auto_prepend_file "./runty/prepend.php"
+	php_value auto_append_file "./runty/append.php"
 </FilesMatch>
 
 <IfModule mod_php5.c>
-	
-	# if sub directories are used, use absolute path to runty 
+	# @todo info about sub directories: use absolute path to runty (include-path setting)
 	# http://www.php.net/manual/de/ini.core.php#ini.include-path
 </IfModule>
 
 <IfModule mod_rewrite.c>
-	#RewriteEngine On
-	# if runty is running in a sub directory (eg. http://example.com/runty/content) use RewriteBase /runty
+	# @todo use runty/favicon.ico if no /favicon.ico is provided
+	# if Runty is running in a sub directory (eg. http://example.com/my-runty-site/)
+
+	RewriteEngine On
+	# use as RewriteBase /my-runty-site
 	#RewriteBase /
-	#RewriteRule ^$ content [L,R=301] # user is redirected to content directory
+
+	# favicon
+	RewriteCond favicon.ico !-f
+	RewriteCond $0 !=runty/favicon.ico
+	RewriteRule ^([^/]+/)*favicon\.ico$ /runty/favicon.ico [L]
 </IfModule>

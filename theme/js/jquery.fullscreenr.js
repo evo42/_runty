@@ -16,15 +16,11 @@
 		return this; 		
 	};	
 	$.fn.fullscreenrResizer = function(options) {
-		// Set bg size
 		var ratio = options.height / options.width;	
-		// Get browser window size
 		var browserwidth = $(window).width();
 		var browserheight = $(window).height();
-		
 		var w;
 		var h;
-		
 		var hm = 25;
 		var vm = 25;
 		
@@ -43,31 +39,13 @@
 		// Center the image
 		$(this).css('left', ( browserwidth - $(this).width())/2);
 		$(this).css('top', ( browserheight - $(this).height())/2);
-		//window.console.log('css: ' + (browserwidth - $(this).width())/2 + ' -- ' + (browserheight - $(this).height())/2);
-
 
 		// set size
 		$(this).attr('width', w );
 		$(this).attr('height', h);
-		window.console.log(' ** set size: ' + w + ' -- ' + h);
 
 		// set touchslider size
 		jQuery('.touchslider-item img.backgroud').width(w).height(h);
-		
-		// set projekktor size
-		//projekktor('#player').setSize({width:w, height:h});
-		
-		// set video js size
-		if ( typeof _V_ !== 'undefined' ) {
-			_V_("#player").ready(function(){
-				var player = this;
-				//console.log(player);
-				//player.play();
-				player.width(w);
-				player.height(h);
-			});
-		}
-		
 		return this;
 	};
 })(jQuery);
