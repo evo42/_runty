@@ -131,6 +131,12 @@ function runty_loader( $buffer ) {
 		unset($_SESSION['user']);
 	}
 
+	// @todo proper regex
+	if (false === strpos($buffer, 'jquery.js') ||
+		false === strpos($buffer, 'jquery.min.js')) {
+		$buffer = str_replace( "</head>", "\n\n$jquery\n\n</head>", $buffer );
+	}
+
 	/*
 	// user session object
 	//
@@ -149,13 +155,9 @@ function runty_loader( $buffer ) {
 	*/
 	if ( !empty($_SESSION['user']) ) {
 
-		if (false === strpos($buffer, 'jquery')) {
-			$buffer = str_replace( "</head>", "</head>\n\n$jquery\n\n", $buffer );
-		}
-
 		if (empty($_SESSION['user']->email)) {
 			$buffer = str_replace( "</body>", "\n\n$browserid\n\n</body>", $buffer );
-			$buffer = str_replace( "</head>", "</head>\n\n$login\n\n", $buffer );
+			$buffer = str_replace( "</body>", "\n\n$login\n\n</body>", $buffer );
 			return ( $buffer );
 		} else {
 			$buffer = str_replace( "</body>", "\n\n$toolbar\n\n</body>", $buffer );
@@ -167,9 +169,8 @@ function runty_loader( $buffer ) {
 
 		return ( $buffer );
 	} else {
-		$buffer = str_replace( "</head>", "</head>\n\n$jquery\n\n", $buffer );
 		$buffer = str_replace( "</body>", "\n\n$browserid\n\n</body>", $buffer );
-		$buffer = str_replace( "</head>", "</head>\n\n$login\n\n", $buffer );
+		$buffer = str_replace( "</body>", "\n\n$login\n\n</body>", $buffer );
 		return ( $buffer );
 	}
 }
