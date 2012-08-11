@@ -22,10 +22,10 @@
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-require_once '../index.php';
+require_once dirname( __FILE__ ) . '/index.php';
 
 // @todo config
-$user_file = '../../.runty/user.json';
+$user_file = '../.runty/user.json';
 
 // user object
 if (!isset($_SESSION['user']) ||
@@ -75,15 +75,17 @@ if (isset($_REQUEST['assertion'])) {
 					}
 				}
 			} else {
-				echo 'Runty Auth: File .runty/user.json is not readable / available';
+				echo json_encode('Runty Auth: File .runty/user.json is not readable / available');
+				//unset( $_SESSION['user'] );
+				die();
 			}
 
-			echo 'Runty Auth: Not Authenticated.';
+			echo json_encode('Runty Auth: Not Authenticated.');
 			unset( $_SESSION['user'] );
 			die();
 		}
 	}
 } else if ( isset($_REQUEST['logout']) ) {
 	unset( $_SESSION['user'] );
-	echo 'Runty Auth: Session closed';
+	echo json_encode('Runty Auth: Session closed');
 }

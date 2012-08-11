@@ -45,7 +45,6 @@ function runty_loader( $buffer ) {
 		<script src="../runty/aloha-editor/aloha-editor.js"></script>
 		<script src="../.runty/aloha-editor.js"></script>
 
-		<script src="http://cdn.aloha-editor.org/latest/lib/require.js" ></script>
 		<script src="http://cdn.aloha-editor.org/latest/lib/aloha.js" ></script>
 
 		<script type="text/javascript">
@@ -63,9 +62,14 @@ function runty_loader( $buffer ) {
 		</script>
 	';
 
+	// require
+	$requirejs = '
+		<script src="http://requirejs.org/docs/release/2.0.5/minified/require.js" ></script>
+	';
+
 	// jquery
 	$jquery = '
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	';
 
 	// runty toolbar
@@ -132,9 +136,15 @@ function runty_loader( $buffer ) {
 	}
 
 	// @todo proper regex
+	if (false === strpos($buffer, 'require.js') ||
+		false === strpos($buffer, 'require.min.js')) {
+		$buffer = str_replace( "<\head>", "\n\n$requirejs\n\n<\head>", $buffer );
+	}
+
+	// @todo proper regex
 	if (false === strpos($buffer, 'jquery.js') ||
 		false === strpos($buffer, 'jquery.min.js')) {
-		$buffer = str_replace( "</head>", "\n\n$jquery\n\n</head>", $buffer );
+		$buffer = str_replace( "<\head>", "\n\n$jquery\n\n<\head>", $buffer );
 	}
 
 	/*
