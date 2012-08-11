@@ -30,12 +30,11 @@ function runty_loader( $buffer ) {
 	// inject html, javascript & css into the page to load Runty
 
 	// ToDo list:
-	// @todo check if .runty/aloha-editor.js & ../runty/aloha-editor/aloha-editor.js are available
+	// @todo check if .runty/aloha-editor.js & /runty/aloha-editor/aloha-editor.js are available
 	// @todo make theme config able
 	// @todo include jquery just once (improve?)
 	// @todo multilingual
 	// @todo add guid as id attribute to all elements with class runty-editable and not id attr.
-
 
 	// if check / update ids write buffer back to file
 	$updateContentIds = true;
@@ -62,15 +61,27 @@ function runty_loader( $buffer ) {
 		}
 	}
 
+
+	// draft info
+	$draft_file = $_SERVER['SCRIPT_FILENAME'];
+	$draft_file = str_replace( $_SERVER['SCRIPT_NAME'], '/.runty/draft'.$_SERVER['SCRIPT_NAME'], $_SERVER['SCRIPT_FILENAME'] );
+	$draft_url = '/.runty/draft'.$_SERVER['SCRIPT_NAME'];
+	//$buffer = str_replace( "<body>", "<body>\n\n$draft_file\n\n", $buffer );
+	if (is_readable($draft_file) && is_writeable($draft_file)) {
+		$draft_msg = '<div id="runty-notice-draft"><span>A draft of this page is available.</span> <a href="'.$draft_url.'">Edit draft</a></div>';
+		$buffer = str_replace( "<body>", "<body>\n\n$draft_msg\n\n", $buffer );
+	}
+	
+
 	// editing with aloha editor
-	// 'http://cdn.aloha-editor.org/latest/' -- '../runty/aloha-editor/0.21/'
-	$aloha_url = '../runty/aloha-editor/0.21/'; 
+	// 'http://cdn.aloha-editor.org/latest/' -- '/runty/aloha-editor/0.21/'
+	$aloha_url = '/runty/aloha-editor/0.21/'; 
 	$aloha = '
-		<link rel="stylesheet" href="../runty/theme/css/runty.css" type="text/css">
+		<link rel="stylesheet" href="/runty/theme/css/runty.css" type="text/css">
 		<link rel="stylesheet" href="'.$aloha_url.'css/aloha.css" type="text/css">
 
-		<script src="../runty/aloha-editor/aloha-editor.js"></script>
-		<script src="../.runty/aloha-editor.js"></script>
+		<script src="/runty/aloha-editor/aloha-editor.js"></script>
+		<script src="/.runty/aloha-editor.js"></script>
 
 		<script src="'.$aloha_url.'lib/aloha.js" ></script>
 
@@ -105,7 +116,7 @@ function runty_loader( $buffer ) {
 
 	// runty toolbar
 	$toolbar = '
-		<script src="../runty/plugin/toolbar.js"></script>
+		<script src="/runty/plugin/toolbar.js"></script>
 	';
 
 	// @todo check for https/http / add local copy
@@ -238,7 +249,7 @@ ob_start( 'runty_loader' );
 
 // tidy contents in order to get valid html
 // @todo test if tidy is supported / config -- use global tidy config
-// ob_start( 'ob_tidyhandler' );
+ob_start( 'ob_tidyhandler' );
 
 
 function updateContentIds($content) {

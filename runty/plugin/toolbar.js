@@ -28,20 +28,16 @@ var toolbar = jQuery('<div id="runty-toolbar">'),
 // @todo icons into runty
 // @todo config options
 actions.append("<a href=\"#runty\" id=\"runty-button-icon\"><span><img alt=\"Runty NoCMS\" title=\"Runty NoCMS\" src=\"/theme/images/icons/glyphicons_002_dog.png\"></span></a> ");
+actions.append("&nbsp;");
 actions.append("<a href=\"#edit\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"/theme/images/icons/glyphicons_030_pencil.png\"></span></a> ");
 actions.append("<a href=\"#save\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"/theme/images/icons/glyphicons_198_ok.png\"></span></a> ");
 actions.append("&nbsp;");
+actions.append("<a href=\"#draft\" id=\"runty-button-draft\"><span><img alt=\"Edit draft\" title=\"Edit draft\" src=\"/theme/images/icons/glyphicons_057_history.png\"></span></a> &nbsp;");
 actions.append("<a href=\"?sign=off\" id=\"runty-button-logout\"><span><img alt=\"Sign-off\" title=\"Sign-off\" src=\"/theme/images/icons/glyphicons_240_rotation_lock.png\"></span></a>");
 toolbar.append(actions);
-jQuery('body').prepend(toolbar);
 
-if ( typeof Aloha != 'undefined' ) {
-	jQuery('#runty-button-edit').hide();
-	jQuery('#runty-button-save').show();
-} else {
-	jQuery('#runty-button-edit').show();
-	jQuery('#runty-button-save').hide();
-}
+jQuery('body').prepend(toolbar);
+//jQuery('#runty-button-draft').hide();
 
 jQuery('#runty-button-save').bind('click', function() {
 	jQuery('.runty-editable').mahalo();
@@ -56,7 +52,7 @@ jQuery('#runty-button-save').bind('click', function() {
 		// @todo switch to datatype json
 		//console.log(pageId + ' -- ' + contentId + ' content: ' + content);
 		var request = jQuery.ajax({
-			url: "../runty/store.php",
+			url: "/runty/store.php",
 			type: "POST",
 			data: {
 				content : content,
@@ -89,4 +85,9 @@ jQuery('#runty-button-edit').bind('click', function() {
 
 	jQuery('#runty-button-edit').hide();
 	jQuery('#runty-button-save').show();
+});
+
+jQuery('#runty-button-draft').bind('click', function() {
+	// get url from draft and redirect to page or load data into current page ...
+	//jQuery('#runty-notice-draft a');
 });

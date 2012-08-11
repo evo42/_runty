@@ -26,6 +26,18 @@
 	border: 1px dotted gray;
 	margin: 5px;
 	padding: 5px;
+	color: black;
+	background-color: white;
+}
+
+#runty-notice-draft {
+	border: 1px dotted gray;
+	margin: 5px;
+	padding: 5px;
+	font-family: Verdana;
+	font-size: 0.7em;
+	color: black;
+	background-color: white;
 }
 
 /** runty actions panel **/
