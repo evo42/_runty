@@ -22,21 +22,9 @@
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// runty app
-session_start();
-$runty = new stdClass();
-$runty->core_path = dirname( __FILE__ );
-$runty->host = $_SERVER['HTTP_HOST'];
-$runty->settings = new stdClass();
+require_once './core.php';
 
-// load individual project config file
-$require = array();
-$require[] = $runty->core_path . '/settings.php';
-$require[] = $runty->core_path . '../.runty/settings.php';
-foreach($require as $require_path) {
-	if (is_readable($require_path)) {
-		require_once $require_path;
-	}
-}
+require_once './routes.php';
+require_once './draft.php';
 
-// @todo http router
+dispatch();

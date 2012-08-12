@@ -23,7 +23,7 @@
 */
 
 // load runty core
-require_once dirname( __FILE__ ) . '/index.php';
+require_once dirname( __FILE__ ) . '/core.php';
 
 // runty loader
 function runty_loader( $buffer ) {
@@ -65,7 +65,7 @@ function runty_loader( $buffer ) {
 	$draft_file = str_replace( $_SERVER['SCRIPT_NAME'], '/.runty/draft'.$_SERVER['SCRIPT_NAME'], $_SERVER['SCRIPT_FILENAME'] );
 	$draft_url = '/.runty/draft'.$_SERVER['SCRIPT_NAME'];
 	if (is_readable($draft_file) && is_writeable($draft_file)) {
-		$draft_msg = '<div id="runty-notice-draft"><span>A draft of this page is available.</span> <a href="'.$draft_url.'">Edit draft</a></div>';
+		$draft_msg = '<div id="runty-notice-draft"><span>A draft of this page is available:</span> <a href="'.$draft_url.'">Edit draft</a></div>';
 		$buffer = str_replace( "<body>", "<body>\n\n$draft_msg\n\n", $buffer );
 	}
 
@@ -83,16 +83,72 @@ function runty_loader( $buffer ) {
 
 		<script type="text/javascript">
 		Aloha.ready( function() {
-			Aloha.jQuery(".runty-editable").aloha();
+
+			// @todo check for draft version
+			this.isDraftVersion = false;
+			this.draftExists = UrlExists("/.runty/draft" + window.location.pathname.replace(/\/.runty\/draft\//g, "/"));
+			this.isDraftView = new RegExp("/.runty/draft").test(window.location.pathname);
+
+			// this... or jquery below...
+			if (this.draftExists && this.isDraftView) {
+				jQuery("#runty-button-save").hide();
+				jQuery("#runty-button-edit").show();
+				jQuery("#runty-button-draft-edit").hide();
+			} else if (this.draftExists) {
+				jQuery("#runty-button-save").hide();
+				jQuery("#runty-button-edit").hide();
+				jQuery("#runty-button-draft-edit").show();
+			} else if (this.draftExists == false) {
+				jQuery("#runty-button-save").hide();
+				jQuery("#runty-button-edit").show();
+			} else {
+				Aloha.jQuery(".runty-editable").aloha();
+			}
+			
+			/*var request = jQuery.ajax({
+				url: "/.runty/draft" + window.location.pathname.replace(/\/.runty\/draft\//g, "/"),
+				type: "HEAD",
+				dataType: "html"
+			});
+			request.done(function(msg) {
+				var that = this;
+				// @todo disable overwriting (editing) from live version over existing draft version
+				jQuery("#runty-button-save").hide();
+				jQuery("#runty-button-edit").hide();
+				jQuery("#runty-button-draft-edit").show();
+				that.isDraftVersion = true;
+				if (window.console) {
+					window.console.log( "Runty: draft available " );
+				}
+			});
+			request.fail(function(jqXHR, msg) {
+				
+				Aloha.jQuery(".runty-editable").aloha();
+				if (window.console) {
+					window.console.log( "Runty: draft available " + msg );
+				}
+			});
+			*/
+
+			//Aloha.jQuery(".runty-editable").aloha();
 
 			if ( typeof Aloha != "undefined" ) {
-				jQuery("#runty-button-edit").hide();
-				jQuery("#runty-button-save").show();
+				//jQuery("#runty-button-edit").hide();
+				//jQuery("#runty-button-save").show();
 			} else {
 				jQuery("#runty-button-edit").show();
 				jQuery("#runty-button-save").hide();
 			}
 		});
+
+		function UrlExists(url) {
+			// @todo cross browser
+			var http = new XMLHttpRequest();
+			http.open("HEAD", url, false);
+			http.send();
+			return http.status!=404;
+		}
+
 		</script>
 	';
 
@@ -259,11 +315,11 @@ function updateContentIds($content) {
 		}
 	}
 	
-	$html = str_replace( "<body>", "<body>\n\n$debug\n\n", $html );
+	// $debug = 'foo bar';
+	// $html = str_replace( "<body>", "<body>\n\n$debug\n\n", $html );
 	
 	$return = new stdClass();
 	$return->html = $html;
 	$return->updates = $updates;
 	return $return;
 }
-?>

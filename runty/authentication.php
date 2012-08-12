@@ -22,7 +22,7 @@
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-require_once dirname( __FILE__ ) . '/index.php';
+require_once dirname( __FILE__ ) . '/core.php';
 
 // @todo config
 $user_file = '../.runty/user.json';

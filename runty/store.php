@@ -22,7 +22,7 @@
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-require_once dirname( __FILE__ ) . '/index.php';
+require_once dirname( __FILE__ ) . '/core.php';
 
 
 // update a backend store
@@ -130,4 +130,4 @@ if ( !empty($error) ) {
 } else {
 	echo json_encode($msg);
 }
-?>
+
