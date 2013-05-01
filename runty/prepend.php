@@ -142,8 +142,7 @@ function runty_loader( $buffer ) {
 		});
 
 		function UrlExists(url) {
-			// @todo cross browser
-			var http = new XMLHttpRequest();
+			var http = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
 			http.open("HEAD", url, false);
 			http.send();
 			return http.status!=404;

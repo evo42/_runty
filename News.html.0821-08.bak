@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!--
+	/* News.html is part of the Runty NoCMS project http://runtyapp.org
+	*
+	* Runty is a handy NoCMS utilizing the power of Aloha Editor
+	* -- a modern WYSIWYG HTML5 inline editing library and editor.
+	*
+	*
+	* Runty is free software; you can redistribute it and/or
+	* modify it under the terms of the GNU General Public License
+	* as published by the Free Software Foundation; either version 2
+	* of the License, or any later version.
+	*
+	* Runty is distributed in the hope that it will be useful,
+	* but WITHOUT ANY WARRANTY; without even the implied warranty of
+	* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	* GNU General Public License for more details.
+	*
+	* You should have received a copy of the GNU General Public License
+	* along with this program; if not, write to the Free Software
+	* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+	*
+	* Online: https://www.gnu.org/licenses/gpl-2.0.html
+	*/
+	-->
+
+	<meta charset="UTF-8">
+	<title>News Example -- Dynamic Content with Runty NoCMS</title>
+
+	<!-- Import the 1KB CSS Grid -->
+	<link rel="stylesheet" href="./theme/css/grid.css" type="text/css" media="screen">
+
+	<!-- Import styles for the universal footer -->
+	<link rel="stylesheet" href="../theme/css/grid.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../theme/css/examples.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../theme/css/news.css" type="text/css" media="screen">
+	<link href="http://fonts.googleapis.com/css?family=Lobster" media="screen" rel="stylesheet" type="text/css">
+
+	<style type="text/css" media="screen">
+	/* reset and basic typography */
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: Helvetica, Arial, sans-serif;
+	}
+	h1, ol#tweets p {
+		font-family: Georgia, "Times New Roman", serif;
+		font-weight: normal;
+	}
+	ol {
+		margin: 0;
+		padding: 0;
+		list-style: none outside none;
+	}
+
+	/* header */
+	#header {
+		background-color: black;
+		margin-bottom: 2em;
+	}
+	h1 {
+		color: white;
+		padding: 0.667em 0;
+		margin: 0;
+		text-align: center;
+	}
+
+	/* tweets */
+	ol#tweets.loading {
+		padding: 6em 0;
+		background: url('../theme/images/loading.gif') no-repeat center;
+	}
+	ol#tweets li {
+		padding: 1.25em 0;
+		border-bottom: 1px solid #e9e9e9;
+	}
+	ol#tweets li.error {
+		margin: 50px 0 30px 0;
+		font-family: Georgia, "Times New Roman", serif;
+		text-align: center;
+		font-size: 1.5em;
+	}
+	ol#tweets p {
+		font-size: 1.5em;
+		color: #666;
+	}
+
+	ol#tweets p span.time {
+		font-size: 0.7em;
+		color: #bbb;
+	}
+
+	.user img {
+		float: right;
+		padding: 5px;
+		border: 1px solid #e9e9e9;
+		margin-right: 20px;
+	}
+	.user h3 {
+		float: right;
+		margin: 0 15px 0 0;
+		color: #333;
+		line-height: 60px;
+	}
+
+	#multicolumnElement {
+		-webkit-column-width:300px;
+		-webkit-column-gap:20px;
+		-moz-column-width:300px;
+		-moz-column-gap:20px;
+		width:940px;
+		height: 700px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		font-family: 'Lobster';
+		line-height: 140%;
+		text-rendering: optimizeLegibility;
+		margin:10px auto;
+		font-size:10em;
+		color: #2a719e;
+		text-align:center;
+	}
+
+	h2 {
+		font-family: 'Lobster';
+		line-height: 140%;
+		text-rendering: optimizeLegibility;
+		margin:20px auto;
+		font-size:3em;
+		color: #2a719e;
+		text-align:center;
+	}
+
+	h3 {
+		font-family: 'Lobster';
+		line-height: 120%;
+		text-rendering: optimizeLegibility;
+		margin:20px auto;
+		font-size:2.2em;
+		color: #2a719e;
+		text-align:center;
+	}
+
+	.p-intro {
+		font-size: 1.5em;
+		line-height: 1.3em;
+		text-align:left !important;
+		font-family: 'Lobster';
+	}
+
+	p {
+		font-family: georgia;
+		font-size: 1em;
+		line-height: 1.4em;
+		text-align: justify;
+	}
+
+	NO.p-intro:first-letter  {
+		color: #5499c5;
+		display: inline;
+		float: left;
+		font-size: 4em;
+		margin: 0px;
+		padding: 0.2em 0.1em 0 0.1em;
+		text-transform: capitalize;
+		font-family: 'Lobster';
+	}
+
+	.content img {
+		display: block; 
+		width: 300px;  
+		overflow: visible;
+	}
+
+	.container .info li {
+		line-height: 1.5em;
+		list-style: disc;
+	}
+	</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+	<div class="row">
+		<div class="column grid_12">
+			<h2><span class="runty-editable"><strong>Dynamic Content with Runty NoCMS</strong></span></h2>
+			<h3><span class="runty-editable">Display JSON data &amp; <a href="?edit=on">edit</a> the rest!</span></h3>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<h1 id="page-title"><span class="runty-editable">Moby Dick</span></h1>
+
+	<div id="multicolumnElement" class="runty-editable"><p class="p-intro">Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.</p>
+
+		<p>It is a way I have of driving off the spleen, and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off - then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+
+		<p>There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs - commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme down-town is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+
+		<img src="./theme/images/moby-dick.jpg"><p>Circumambulate the city of a dreamy Sabbath afternoon. Go from Corlears Hook to Coenties Slip, and from thence, by Whitehall northward. What do you see? - Posted like silent sentinels all around the town, stand thousands upon thousands of mortal men fixed in ocean reveries. Some leaning against the spiles; some seated upon the pier-heads; some looking over the bulwarks of ships from China; some high aloft in the rigging, as if striving to get a still better seaward peep. But these are all landsmen; of week days pent up in lath and plaster - tied to counters, nailed to benches, clinched to desks. How then is this? Are the green fields gone? What do they here?</p>
+
+		<p>But look! here come more crowds, pacing straight for the water, and seemingly bound for a dive. Strange! Nothing will content them but the extremest limit of the land; loitering under the shady lee of yonder warehouses will not suffice. No. They must get just as nigh the water as they possibly can without falling in. And there they stand - miles of them - leagues. Inlanders all, they come from lanes and alleys, streets and avenues, - north, east, south, and west. Yet here they all unite. Tell me, does the magnetic virtue of the needles of the compasses of all those ships attract them thither?</p>
+	</div>
+</div>
+
+<!-- Tweets -->
+<ol id="tweets">
+	<h2><span class="runty-editable">People talking on Twitter about "<span id="lookup-query" class="runty-block runty-editable">Moby Dick</span>"</span></h2>
+	<li class="row" data-template style="display: none;">
+		<div class="column grid_4 user">
+			<img height="48" width="48" alt="{{from_user}}" src="./theme/images/tweeter.png" data-src="{{profile_image_url}}" />
+			<h3>{{from_user}}</h3>
+		</div>
+		<p class="column grid_8 text">
+			{{text}}<span class="time">, {{created_at | date '\at HH:mm on EEEE' }}</span>
+		</p>
+	</li>
+	<li class="error" data-template-fallback>
+		Sorry, but you sort of need JavaScript for this one!
+	</li>
+</ol>
+<p style="text-align:center;"><span class="runty-editable">This is a list of tweets containing "Moby Dick".</span></p>
+
+
+<div id="footer">
+	<div class="row">
+		<p><span class="runty-editable"><a href="http://runtyapp.org">Runty NoCMS</a></span></p>
+	</div>
+</div>
+
+<!-- Import Tempo -->
+<script type="text/javascript" src="./runty/vendor/tempo.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+	var twitter = Tempo.prepare('tweets').notify(function(event) {
+		if (event.type === TempoEvent.Types.RENDER_STARTING || event.type === TempoEvent.Types.RENDER_COMPLETE) {
+			$('ol').toggleClass('loading');
+		}
+	});
+	twitter.starting();
+	$.getJSON("http://search.twitter.com/search.json?q='moby+dick'&rpp=7&callback=?", function(data) {
+		twitter.render(data.results);
+	});
+});
+</script>
+
+</body>
+</html>
