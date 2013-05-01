@@ -1,0 +1,38 @@
+.x-btn button.aloha-button-fontfamily {
+    background: url( '../img/icon.gif' );
+}
+
+.aloha-fontfamily-overlay {
+    position: absolute;
+    display: none;
+    float: left;
+    padding: 3px;
+    top: 0;
+    left: 0;
+    border: 1px solid #afafaf;
+    border-collapse: separate;
+    background-color: #fff;
+    z-index: 12000;
+}
+
+.aloha-fontfamily-overlay {
+	border-collapse:collapse;
+}
+
+.aloha-fontfamily-overlay td {
+    width: 10em;
+    height: 1em;
+    border: 1px solid #afafaf;
+    font-size: 0.8em;
+    padding: 0.05em;
+}
+
+.aloha-fontfamily-overlay td.mouseover {
+    border: 1px solid #fdea83;
+    background-color: #fefce1;
+}
+
+.aloha-fontfamily-overlay td.focused {
+    border: 1px solid #407bcf;
+    background-color: #b9d6f9;
+}

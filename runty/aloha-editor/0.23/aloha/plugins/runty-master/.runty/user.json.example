@@ -1,0 +1,23 @@
+[
+	{
+	    "@context": "http://runtyapp.org/person",
+	    "@id": "admin@runtyapp.org",
+	    "name": "Runty Admin",
+	    "role": "admin",
+	    "member": "http://runtyapp.org/admin"
+	},
+	{
+	    "@context": "http://runtyapp.org/person",
+	    "@id": "editor@runtyapp.org",
+	    "name": "Runty Editor",
+	    "role": "editor",
+	    "member": "http://runtyapp.org/editor"
+	},
+	{
+	    "@context": "http://runtyapp.org/person",
+	    "@id": "guest@runtyapp.org",
+	    "name": "Runty Guest",
+	    "role": "guest",
+	    "member": "http://runtyapp.org/guest"
+	}
+]

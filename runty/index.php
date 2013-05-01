@@ -23,8 +23,6 @@
 */
 
 require_once './core.php';
-
 require_once './routes.php';
-require_once './draft.php';
 
 dispatch();

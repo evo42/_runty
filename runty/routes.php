@@ -31,7 +31,7 @@ respond(function () {
 
 respond(array('POST','GET'), '/runty/?', function($request, $response) {
 	echo 	'<h1 style="margin: 250px; text-align: center;font-family: Verdana;">
-				Runty.
-				<a style="color: black;" href="http://runtyapp.org">NoCMS</a>.
+				<img src="./theme/ico/glyphicons_002_dog.png">&nbsp;</img> &nbsp; Runty. &nbsp; 
+				<a style="color: black;" href="http://runtyapp.org"><b><em>No</em>CMS</b></a>
 			</h1>';
 });
