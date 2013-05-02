@@ -42,14 +42,14 @@ function runty_loader() {
 	if ($updateContentIds) {
 		//$update = updateContentIds($buffer);
 			// @todo use config / check for tidy in env. / use custom html5-tidy
-			$content = file_get_contents($_SERVER['HTTP_REFERER']);
+			//$content = file_get_contents($_SERVER['HTTP_REFERER']);
 			//$content = '';
 			$tidy_config = array(	'indent' => true,
 									'output-xhtml' => true,
 									'wrap' => 200);
-			$tidy = new tidy();
-			$content_tidy = $tidy->repairString($content, $tidy_config, 'utf8');
-			$clean_referer = str_replace('http://runty/','../',$_SERVER['HTTP_REFERER']);
+			//$tidy = new tidy();
+			//$content_tidy = $tidy->repairString($content, $tidy_config, 'utf8');
+			//$clean_referer = str_replace('http://runty/','../',$_SERVER['HTTP_REFERER']);
             //file_put_contents($clean_referer, $content_tidy);
 	}
 
