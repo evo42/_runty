@@ -153,6 +153,11 @@ function runty_loader() {
 		[member] => http://runtyapp.org/admin
 	)
 	*/
+	
+	// @hack / @option demo mode
+	$_SESSION['user']->email = 'edit@runtyapp.org';
+	$_SESSION['user']->role = 'admin';
+	
 	if ( !empty($_SESSION['user']) ) {
 
 		if (empty($_SESSION['user']->email)) {

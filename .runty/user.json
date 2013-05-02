@@ -1,8 +1,8 @@
 [
 	{
 	    "@context": "http://runtyapp.org/person",
-	    "@id": "rene.kapusta@gmail.com",
-	    "name": "Rene Kapusta (Admin)",
+	    "@id": "edit@runtyapp.org",
+	    "name": "Runty. NoCMS Demo Mode",
 	    "role": "admin",
 	    "member": "http://runtyapp.org/admin"
 	},
