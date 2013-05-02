@@ -1,0 +1,16 @@
+[
+	{
+	    "@context": "http://runtyapp.org/person",
+	    "@id": "rene.kapusta@gmail.com",
+	    "name": "Rene Kapusta (Admin)",
+	    "role": "admin",
+	    "member": "http://runtyapp.org/admin"
+	},
+	{
+	    "@context": "http://runtyapp.org/person",
+	    "@id": "guest@runtyapp.org",
+	    "name": "Runty Guest",
+	    "role": "guest",
+	    "member": "http://runtyapp.org/guest"
+	}
+]

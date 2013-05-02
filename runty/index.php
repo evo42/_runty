@@ -22,7 +22,7 @@
 * Online: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-require_once './core.php';
-require_once './routes.php';
+require_once './app/core.php';
+require_once './app/routes.php';
 
 dispatch();

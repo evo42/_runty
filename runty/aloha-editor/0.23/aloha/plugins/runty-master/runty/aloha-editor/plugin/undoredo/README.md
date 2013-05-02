@@ -1,2 +1,0 @@
-Aloha-Plugin-UndoRedo
-=====================

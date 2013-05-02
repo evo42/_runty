@@ -52,7 +52,7 @@ function(
 		jQuery.ajax({ type: "GET",
 		dataType: "json",
 		async: false,
-		url: '/runty/repository.php', // @todo config
+		url: '/runty/app/repository.php', // @todo config (Aloha Editor Repository API)
 		success: function(data) {
 			var items = [];
 			if (data && data.length) {
