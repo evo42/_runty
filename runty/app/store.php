@@ -23,19 +23,6 @@
 */
 
 require_once dirname( __FILE__ ) . '/core.php';
-
-
-// update a backend store
-
-// can be a key-value store like redis
-// a data base like sqlite or postgresql
-// html5 local storage
-
-
-// or
-
-
-//DOM
 require_once './vendor/JSLikeHTMLElement.php';
 
 // check authentication
@@ -44,17 +31,6 @@ if (empty($_SESSION['user']->id)) {
 }
 
 
-// @todo draft mode
-if (isset($_REQUEST['version']) && $_REQUEST['version'] == 'draft') {
-	$is_draft = true;
-} else {
-	$is_draft = false;
-}
-
-/*if ($runty->settings->draft) {
-	$is_draft = true;
-}*/
-
 // Save Data
 $msg = '';
 
@@ -62,6 +38,7 @@ $msg = '';
 $pageId = false;
 $contentId = false;
 $content =  false;
+$is_draft = false;
 
 if (isset($_REQUEST['pageId'])) {
 	$pageId = $_REQUEST['pageId'];
@@ -78,20 +55,8 @@ if (empty($contentId)) {
 
 // @todo test / improve regex
 //$filePath = preg_replace('%^(/*)[^/]+%', '$2..', $pageId);
-
-// draft mode @hack
-//$pageId = str_replace('/.runty/draft/', '/', $pageId);
-$filePath = $filePath_src = '../../'.$pageId;
-//$draftFilePath = '../.runty/draft'.$pageId;
-
-
-if ($is_draft) {
-	//$filePath = $draftFilePath;
-}
-
-if (!is_file($filePath) && $is_draft) {
-	//copy($filePath_src, $filePath);
-}
+$filePath = '../../'.$pageId;
+$filePath = $filePath_src = str_replace('.//', './', $filePath);
 
 if (!is_file($filePath)) {
 	echo json_encode('Runty Error: Can not read source file. '.$filePath);
@@ -110,15 +75,10 @@ if (!$doc->loadHTML($pageContent)) {
 } else {
 	$elem = $doc->getElementById($contentId);
 
-	// @todo <b>Strict Standards</b>:  Creating default object from empty value in <b>store.php</b> on line <b>97</b><br />
 	// set innerHTML
 	$elem->innerHTML = $content;
 
 	$msg = 'Saved as: '.$filePath;
-	if ($is_draft) {
-		//$filePath = $draftFilePath;
-		//$msg = 'Saved as Draft: '.$filePath;
-	}
 	if (!file_put_contents($filePath, $doc->saveHTML())) {
 		$error = $msg = 'Could not update file: '.$filePath;
 	}

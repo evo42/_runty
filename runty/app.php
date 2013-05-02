@@ -157,6 +157,7 @@ function runty_loader() {
 	// @hack / @option demo mode
 	$_SESSION['user']->email = 'edit@runtyapp.org';
 	$_SESSION['user']->role = 'admin';
+	$_SESSION['user']->id = '999999999';
 	
 	if ( !empty($_SESSION['user']) ) {
 
