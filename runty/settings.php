@@ -25,5 +25,5 @@
 // this are all default settings
 // use /<runty-project-public-htdocs>/.runty/config.php for your individual project settings
 
-$runty->settings->draft = true; // @todo set to false later on
+$runty->settings->draft = false;
 $runty->settings->demo = false;
