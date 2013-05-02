@@ -1,0 +1,16 @@
+[
+	{
+	    "@context": "http://runtyapp.org/person",
+	    "@id": "edit@runtyapp.org",
+	    "name": "Runty. NoCMS Demo Mode",
+	    "role": "admin",
+	    "member": "http://runtyapp.org/admin"
+	},
+	{
+	    "@context": "http://runtyapp.org/person",
+	    "@id": "guest@runtyapp.org",
+	    "name": "Runty Guest",
+	    "role": "guest",
+	    "member": "http://runtyapp.org/guest"
+	}
+]

@@ -638,3 +638,10 @@ img {
 .small-info {
 	font-size: x-small;
 }
+
+#runty-authenticate {
+	position:absolute;
+	bottom:20px;
+	left:25px;
+	z-index:1000;
+}

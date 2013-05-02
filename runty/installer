@@ -84,7 +84,7 @@ function process($argv)
 function displayHelp()
 {
     echo <<<EOF
-Runty NoCMS Installer
+Runty. NoCMS installer
 ------------------
 Options
 --help               this help
@@ -151,7 +151,7 @@ function checkPlatform($quiet)
     }
 
     if (!empty($errors)) {
-        out("Some settings on your machine make Runty NoCMS unable to work properly.", 'error');
+        out("Some settings on your machine make Runty. NoCMS unable to work properly.", 'error');
 
         out('Make sure that you fix the issues listed below and run this script again:', 'error');
         foreach ($errors as $error => $current) {
