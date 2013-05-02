@@ -3,7 +3,7 @@
 <head>
 
 	<!--
-	/* index.html is part of the Runty NoCMS project http://runtyapp.org
+	/* index.html is part of the Runty. NoCMS project http://runtyapp.org
 	*
 	* Runty is a handy NoCMS utilizing the power of Aloha Editor
 	* -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -28,7 +28,7 @@
 	-->
 
 	<meta charset="UTF-8">
-	<title>Runty NoCMS App Guide</title>
+	<title>Runty. NoCMS Guide</title>
 
 	<link rel="stylesheet" href="../theme/css/grid.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="../theme/css/examples.css" type="text/css" media="screen">
@@ -202,7 +202,7 @@
 <div id="header">
 	<div class="row">
 		<div class="column grid_12">
-			<h2><span class="runty-editable"><strong>Runty App NoCMS Guide</strong></span></h2>
+			<h2><span class="runty-editable"><strong>Runty. NoCMS Guide</strong></span></h2>
 			<h3><span class="runty-editable">Learn how to edit the web smart!</span></h3>
 		</div>
 	</div>
@@ -214,11 +214,12 @@
 	<!-- Main hero unit for a primary marketing message or call to action -->
 	<div id="multicolumnElement" class="runty-editable">
 		<p class="p-intro">
-			The <em>Runty NoCMS App</em> is an 
+			The <em>Runty. NoCMS</em> is an 
 			<strong>Open Source Software</strong> application 
 			consisting of some javascript, php and css files.<br />
-			- Copy the Runty App files (.htaccess, runty, .runty) to your webserver.<br />
+			- Copy the Runty App files (runty, .runty) to your webserver.<br />
 			- Add the CSS class <br />"runty-editable" to all elements you want to edit (in *.html files)<br />
+			- Add the HTML script tag <code><script type="text/javascript" src="./runty/app.php"></script></code><br />
 			- Done. NoCMS editable ready!<br />
 			- Add "?edit=on" to the URL in the browser to start editing.<br />
 		</p>
@@ -229,14 +230,15 @@
 				<li><a href="https://github.com/evo42/runty/zipball/master">Download Runty App</a> as *.zip file</li>
 				<li>Extract the archive to <code>/path/to/htdocs/</code>. Should be a LAMP like stack. Should be accessible via web browser.</li>
 				<li>Add in your HTML files to all elments you want to be editable the CSS class <code>runty-editable</code>.</li>
-				<li>Runty App needs the following files <code>/.htaccess</code> and folder <code>/.runty</code>, <code>/runty</code>.</li>
+				<li>Runty. NoCMS needs the following folders <code>/.runty</code> and <code>/runty</code>.</li>
+				<li>To enable editing add the following script tag into the desired page: <code><script type="text/javascript" src="./runty/app.php"></script></code></li>
 				<li>All other files in the downloaded archive are for demo purposes and can be removed if you like.</li>
 				<li>Use a URL like <code>http://runtyapp.org/?edit=on</code> to start editing (demo mode).</li>
 			</ol>
 		</p>
 
 		<h2>Minimal Demo</h2>
-		<p>All the code you need for editing will be added automatically to all *.html / *.htm / *.php files in the <code>./</code> root directory of the Runty App on the web server.</p>
+		<p>All you need to do to enable inline editing is to include the following script tag: <code><script type="text/javascript" src="./runty/app.php"></script></code></p>
 
 		<pre><code>
 			&lt;!DOCTYPE html&gt;
@@ -248,7 +250,7 @@
 			&lt;body&gt;
 			&lt;h1 class="runty-editable"&gt;Runty, Edit smart!&lt;/h1&gt;
 			&lt;p class="runty-editable"&gt;Use the power of Aloha Editor to edit the web.&lt;/p&gt;
-			&lt;span&gt;Runty NoCMS&lt;/span&gt;
+			&lt;span&gt;Runty. NoCMS&lt;/span&gt;
 			&lt;/body&gt;
 			&lt;/html&gt;
 		</code></pre>
@@ -288,7 +290,7 @@
 
 	<div id="footer">
 		<div class="row">
-			<p><span class="runty-editable"><a href="http://runtyapp.org">Runty NoCMS</a></span></p>
+			<p><span class="runty-editable"><a href="http://runtyapp.org">Runty. NoCMS</a></span></p>
 		</div>
 	</div>
 

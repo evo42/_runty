@@ -1,4 +1,4 @@
-/* toolbar.js is part of the Runty NoCMS project http://runtyapp.org
+/* toolbar.js is part of the Runty. NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -27,7 +27,7 @@ var toolbar = jQuery('<div id="runty-toolbar">'),
 
 // @todo icons into runty
 // @todo config options
-actions.append("<a href=\"#runty\" id=\"runty-button-icon\"><span><img alt=\"Runty NoCMS\" title=\"Runty NoCMS\" src=\"/runty/theme/ico/glyphicons_002_dog.png\"></span></a>");
+actions.append("<a href=\"#runty\" id=\"runty-button-icon\"><span><img alt=\"Runty. NoCMS\" title=\"Runty. NoCMS\" src=\"/runty/theme/ico/glyphicons_002_dog.png\"></span></a>");
 actions.append("<a href=\"#draft-public\" id=\"runty-button-draft-public\"><span><img alt=\"Public version\" title=\"Public version\" src=\"/runty/theme/ico/glyphicons_340_globe.png\"></span></a>");
 actions.append("<a href=\"#edit\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"/runty/theme/ico/glyphicons_030_pencil.png\"></span></a>");
 actions.append("<a href=\"#save\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"/runty/theme/ico/glyphicons_198_ok.png\"></span></a>");
