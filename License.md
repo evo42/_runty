@@ -1,6 +1,6 @@
-# Runty NoCMS License
+# Runty. NoCMS License
 
-Runty NoCMS is meant to be free and open source for all now and in future.
+Runty. NoCMS is meant to be free and open source for all now and in future.
 
 We encourage continuous, self sustainable development supported by both the open source
 community and commercial stake holders. This way both parties (community and commercial users)
@@ -9,7 +9,7 @@ profit from each other by code and financial resources for development.
 
 ## Open Source Software License
 
-Runty NoCMS is released under the terms of GPLv2 or later.
+Runty. NoCMS is released under the terms of GPLv2 or later.
 http://www.gnu.org/licenses/gpl-2.0.html (or see license text below)
 
 
