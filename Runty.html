@@ -126,15 +126,37 @@
       </p>
     </div><!-- /container --><a class="blur" href="https://github.com/evo42/runty" target="_blank" title="Watch / Fork Runty on Github"><img style="position: absolute; top: 0; right: 0; border: 0; width: 200px;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork Runty on GitHub"></a> 
     
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <!-- Load jquery plugins -->
+        <script type="text/javascript" src="./theme/js/jquery.fullscreenr.js"></script>
+        <script type="text/javascript" src="./theme/js/jquery.touchslider.js"></script>
+        
+        
+        <script type="text/javascript">
+    //<![CDATA[
+                     var FullscreenrOptions = {  width: 1920, height: 1080, bgID: '#fullscreen' };                                      jQuery.fn.fullscreenr(FullscreenrOptions); 
+                     
+                     
+        //]]>
+        </script>
+        
+        <script type="text/javascript">
+    //<![CDATA[
+                     
+
+
+                     
+                     jQuery(function() {                 jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").css("opacity","0.6");                 jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").hover(function () {                         jQuery(this).stop().animate({opacity: 1.0}, "slow");},                         function () { jQuery(this).stop().animate({ opacity: 0.6 }, "slow"); }); 
+                                jQuery(".touchslider-next").hover(function () {                                 jQuery(".touchslider-nav").stop().animate({opacity: 1.0}, "slow"),                                 function () { jQuery(".touchslider-nav").stop().animate({ opacity: 0.6 }, "slow");};                         });                          jQuery(".touchslider-next").mouseleave(function () {                                 jQuery(".touchslider-nav").stop().animate({opacity: 0.6}, "slow"),                                 function () { jQuery(".touchslider-nav").stop().animate({ opacity: 0.6 }, "slow");};                         });                  });
+
+                                jQuery("#fullscreen").touchSlider();
+
+
+        //]]>
+        </script>
+
+
+        <script type="text/javascript" src="./runty/app.php"></script>
+
     
-    <script type="text/javascript" src="./runty/app.php"></script><!-- Load jquery plugins --><script type="text/javascript" src="./theme/js/jquery.fullscreenr.js">
-</script><script type="text/javascript" src="./theme/js/jquery.touchslider.js">
-</script><script type="text/javascript">
-//<![CDATA[
-                 var FullscreenrOptions = {  width: 1920, height: 1080, bgID: '#fullscreen' };                 jQuery.fn.fullscreenr(FullscreenrOptions); 
-    //]]>
-    </script><script type="text/javascript">
-//<![CDATA[
-                 jQuery("#fullscreen").touchSlider({mouseTouch: true}); // true in none edit mode         jQuery(function() {                 jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").css("opacity","0.6");                 jQuery(".rb, .blur, #aloha-editor-logo, #aloha-editor-html5").hover(function () {                         jQuery(this).stop().animate({opacity: 1.0}, "slow");},                         function () { jQuery(this).stop().animate({ opacity: 0.6 }, "slow"); });                          // custom                         jQuery(".touchslider-next").hover(function () {                                 jQuery(".touchslider-nav").stop().animate({opacity: 1.0}, "slow"),                                 function () { jQuery(".touchslider-nav").stop().animate({ opacity: 0.6 }, "slow");};                         });                          jQuery(".touchslider-next").mouseleave(function () {                                 jQuery(".touchslider-nav").stop().animate({opacity: 0.6}, "slow"),                                 function () { jQuery(".touchslider-nav").stop().animate({ opacity: 0.6 }, "slow");};                         });                  }); 
-    //]]>
-    </script></body></html>
+    </body></html>
