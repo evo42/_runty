@@ -1,5 +1,5 @@
 <?php
-/* index.php is part of the Runty NoCMS project http://runtyapp.org
+/* index.php is part of the Runty. NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.

@@ -1,4 +1,4 @@
-# Runty NoCMS
+# Runty. NoCMS
 
 ### From HTML to NoCMS content editable in 1 minute.
 
