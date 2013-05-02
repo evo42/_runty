@@ -47,3 +47,25 @@ foreach($require as $require_path) {
 }
 
 // @todo http router
+
+
+if (empty($_REQUEST['sign'])) {
+	$_REQUEST['sign'] = false;
+}
+if (empty($_REQUEST['action'])) {
+	$_REQUEST['action'] = false;
+}
+
+
+// sign-off / logout
+if ($_REQUEST['sign'] == 'off' ||
+	$_REQUEST['action'] == 'sign-off' ||
+	$_REQUEST['action'] == 'logout') {
+	unset($_SESSION['user']);
+} else {
+    // @hack / @option demo mode
+    $_SESSION['user']->email = 'edit@runtyapp.org';
+    $_SESSION['user']->role = 'admin';
+    $_SESSION['user']->id = '999999999';
+}
+

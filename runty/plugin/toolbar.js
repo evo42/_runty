@@ -108,7 +108,7 @@ jQuery('#runty-button-save').bind('click', function() {
 
 		request.done(function(msg) {
 			if (window.console) {
-				window.console.log( "Request OK: " + msg );
+				//window.console.log( "Request OK: " + msg );
 			}
 		});
 
@@ -119,7 +119,7 @@ jQuery('#runty-button-save').bind('click', function() {
 		});
 	});
 
-	jQuery('#runty-button-edit').hide();
+	jQuery('#runty-button-edit').show();
 	jQuery('#runty-button-save').hide();
 });
 

@@ -25,6 +25,8 @@
 // load runty core
 require_once dirname( __FILE__ ) . '/app/core.php';
 
+echo $html = runty_loader();
+
 // runty loader
 function runty_loader() {
 	// inject html, javascript & css into the page to load Runty
@@ -54,7 +56,7 @@ function runty_loader() {
 	}
 
 	// editing with aloha editor
-	// 'http://cdn.aloha-editor.org/latest/' -- '/runty/aloha-editor/0.21/'
+	// 'http://cdn.aloha-editor.org/latest/' -- '/runty/aloha-editor/0.23/'
 	$aloha_url = '/runty/aloha-editor/0.23/'; 
 	
 	$html = '';
@@ -125,13 +127,6 @@ function runty_loader() {
 		$_REQUEST['action'] = false;
 	}
 
-	// sign-off / logout
-	if ($_REQUEST['sign'] == 'off' ||
-		$_REQUEST['action'] == 'sign-off' ||
-		$_REQUEST['action'] == 'logout') {
-		unset($_SESSION['user']);
-	}
-
     // add require and jquery to the output
     $buffer .= "\n\n$requirejs\n\n";
     $buffer .= "\n\n$jquery\n\n";
@@ -153,11 +148,6 @@ function runty_loader() {
 		[member] => http://runtyapp.org/admin
 	)
 	*/
-	
-	// @hack / @option demo mode
-	$_SESSION['user']->email = 'edit@runtyapp.org';
-	$_SESSION['user']->role = 'admin';
-	$_SESSION['user']->id = '999999999';
 	
 	if ( !empty($_SESSION['user']) ) {
 
@@ -198,8 +188,3 @@ function updateContentIds($content) {
 	return $return;
 }
 */
-
-// tidy contents in order to get valid html
-// @todo test if tidy is supported / config -- use global tidy config
-
-echo $html = runty_loader();
