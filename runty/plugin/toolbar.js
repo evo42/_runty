@@ -35,7 +35,7 @@ actions.append("<a href=\"#draft\" id=\"runty-button-draft\"><span><img alt=\"Ed
 actions.append("<a href=\"#draft-publish\" id=\"runty-button-draft-publish\"><span><img alt=\"Publish draft\" title=\"Publish draft\" src=\"/runty/theme/ico/glyphicons_073_signal.png\"></span></a>");
 actions.append("<a href=\"#draft-edit\" id=\"runty-button-draft-edit\"><span><img alt=\"Edit draft\" title=\"Edit draft\" src=\"/runty/theme/ico/glyphicons_151_edit.png\"></span></a>");
 actions.append("<a href=\"#draft-remove\" id=\"runty-button-draft-remove\"><span><img alt=\"Remove draft\" title=\"Remove draft\" src=\"/runty/theme/ico/glyphicons_197_remove.png\"></span></a>");
-actions.append("<a href=\"?sign=off\" id=\"runty-button-logout\"><span><img alt=\"Sign-off\" title=\"Sign-off\" src=\"/runty/theme/ico/glyphicons_240_rotation_lock.png\"></span></a>");
+actions.append("<a href=\"/runty/?sign=off\" id=\"runty-button-logout\"><span><img alt=\"Sign-off\" title=\"Sign-off\" src=\"/runty/theme/ico/glyphicons_240_rotation_lock.png\"></span></a>");
 toolbar.append(actions);
 
 jQuery('body').prepend(toolbar);

@@ -56,8 +56,8 @@ function runty_loader() {
 	}
 
 	// editing with aloha editor
-	// 'http://cdn.aloha-editor.org/latest/' -- '/runty/aloha-editor/0.23/'
-	$aloha_url = '/runty/aloha-editor/0.23/'; 
+	// 'http://cdn.aloha-editor.org/latest/' -- '/runty/aloha-editor/0.23.ui/'
+	$aloha_url = '/runty/aloha-editor/0.23.ui/'; 
 	
 	$html = '';
 	
@@ -123,13 +123,27 @@ function runty_loader() {
 	if (empty($_REQUEST['sign'])) {
 		$_REQUEST['sign'] = false;
 	}
+	if (empty($_REQUEST['type'])) {
+		$_REQUEST['type'] = false;
+	}
 	if (empty($_REQUEST['action'])) {
 		$_REQUEST['action'] = false;
 	}
 
+
+    if ($_REQUEST['type'] == 'aloha') {
+        $type_buffer = $buffer;
+        $type_buffer .= "\n\n$requirejs\n\n";
+        $type_buffer .= "\n\n$jquery\n\n";
+        $type_buffer .= "\n\n$aloha\n\n";
+        return ( $type_buffer );
+        exit();
+    }
+
     // add require and jquery to the output
     $buffer .= "\n\n$requirejs\n\n";
     $buffer .= "\n\n$jquery\n\n";
+    
     $buffer .= "\n\n$runty_app\n\n";
 
 	/*
