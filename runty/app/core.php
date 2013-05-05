@@ -24,6 +24,8 @@
 
 // runty app
 session_start();
+//unset($_SESSION['runty']);
+
 if (empty($runty)) {
     $runty = new stdClass();
 }
@@ -48,6 +50,30 @@ foreach($require as $require_path) {
 
 // @todo http router
 
+$users = array();
+$user_file = '../.runty/user.json';
+if (!isset($_SESSION['runty']) ||
+	empty($_SESSION['runty']->users)) {
+	$_SESSION['runty'] = new StdClass();
+
+    if (is_readable($user_file)) {
+    	$users_data = file_get_contents($user_file);
+    	$users = json_decode($users_data);
+    } else {
+        //echo 'not readable...';
+    }
+
+    // make nicer ...
+    if (!empty($users)) {
+        if ($users[0]->{'@id'} == 'edit@runtyapp.org') {
+            $_SESSION['runty']->install = $users;
+            unset($_SESSION['runty']->users);
+        } else {
+            $_SESSION['runty']->users = $users;
+        }
+    }
+}
+
 
 if (empty($_REQUEST['sign'])) {
 	$_REQUEST['sign'] = false;
@@ -62,5 +88,10 @@ if ($_REQUEST['sign'] == 'off' ||
     $_REQUEST['sign'] == 'out' ||
 	$_REQUEST['action'] == 'sign-off' ||
 	$_REQUEST['action'] == 'logout') {
-	unset($_SESSION['user']);
+    	unset($_SESSION['user']);
+}
+
+// sign-off / logout
+if ($_REQUEST['action'] == 'clear-session') {
+	unset($_SESSION);
 }

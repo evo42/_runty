@@ -154,17 +154,40 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
               </div -->
 ';
 
-if ( empty($_SESSION['user']->email) ) {
+if ( empty($_SESSION['user']->email) && !empty($_SESSION['runty']->users)) {
+    // sign-in if there's no authenticated user
     $body .= '<a class="btn btn-primary btn-large btn-block" id="browserid" href="#sign-in" title="Sign-in with BrowserID / Mozilla Persona">Sign in</a>
     <a class="login-link" href="https://persona.org">Lost your password?</a>
       <br /><br />
       <a class="login-link" href="https://login.persona.org/about">Mozilla Persona / BrowserID login</a>
       
       ';
-} else {
+} else if (!empty($_SESSION['user']->email)) {
+    // hello! we have a authenticated user
     $body .= '<a class="btn btn-primary btn-large btn-block" href="/">Manage</a> 
     <br /><br />
     <a class="btn btn-primary btn-large btn-block" href="/runty/?sign=off">Sign off</a>';
+} else if (empty($_SESSION['runty']->users)) {
+    // install the system. there's no user list available.
+    $body .= '
+        <h3>Runty. NoCMS – Installation</h3>
+        <p>To install this software follow the next steps.</p>
+        <ul>
+        <li>Sign in with the desired admin user:</li>
+        </ul>
+        <br />
+    
+    <a class="btn btn-primary btn-large btn-block" id="browserid" href="#sign-in" title="Sign-in with BrowserID / Mozilla Persona">Sign in</a>
+    <br /><br />
+    <a class="login-link" href="https://login.persona.org/about">Mozilla Persona / BrowserID login</a>';
+    
+} else {
+    // some problem...
+    $body .= '
+    <h3>tzzzz...</h3>
+    <a class="btn btn-primary btn-large btn-block" href="#reload" title="Reload. Now!">Reload!</a>
+    <br /><br />
+    ';
 }
 
 $body .= '
