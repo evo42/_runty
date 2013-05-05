@@ -127,21 +127,6 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
 
 
     echo $header;
-	/*echo 	'
-	        <h1 style="margin: 250px; text-align: center;font-family: Verdana;">
-				<img src="./theme/ico/glyphicons_002_dog.png">&nbsp;</img> &nbsp; Runty. &nbsp; 
-				<a style="color: black;" href="http://runtyapp.org"><b>NoCMS</b></a> <br /><br />
-		';
-		
-		
-		if ( empty($_SESSION['user']->email) ) {
-		    echo '<a href="#sign-in" id="browserid" title="Sign-in with BrowserID / Mozilla Persona" class="persona-button dark"><span>Sign in</span></a>';
-		    echo '<!-- p>Using <a href="https://login.persona.org/about">Mozilla Persona</a>.</p -->';
-		} else {
-            echo '<p><a href="/">Manage</a> &middot; <a href="/runty/?sign=off">Sign-off</a></p>';
-		}
-        echo '</h1>'; // strange container ...
-    */
     
     $body = '    <div class="container">
 
@@ -171,8 +156,11 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
 
 if ( empty($_SESSION['user']->email) ) {
     $body .= '<a class="btn btn-primary btn-large btn-block" id="browserid" href="#sign-in" title="Sign-in with BrowserID / Mozilla Persona">Sign in</a>
-      <a class="login-link" href="https://www.persona.org/signin">Lost your password?</a>
-      <a class="login-link" href="#">Sign up!</a>';
+    <a class="login-link" href="https://persona.org">Lost your password?</a>
+      <br /><br />
+      <a class="login-link" href="https://login.persona.org/about">Mozilla Persona / BrowserID login</a>
+      
+      ';
 } else {
     $body .= '<a class="btn btn-primary btn-large btn-block" href="/">Manage</a> 
     <br /><br />
