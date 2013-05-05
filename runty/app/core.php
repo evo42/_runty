@@ -59,13 +59,8 @@ if (empty($_REQUEST['action'])) {
 
 // sign-off / logout
 if ($_REQUEST['sign'] == 'off' ||
+    $_REQUEST['sign'] == 'out' ||
 	$_REQUEST['action'] == 'sign-off' ||
 	$_REQUEST['action'] == 'logout') {
 	unset($_SESSION['user']);
-} else {
-    // @hack / @option demo mode
-    $_SESSION['user']->email = 'edit@runtyapp.org';
-    $_SESSION['user']->role = 'admin';
-    $_SESSION['user']->id = '999999999';
 }
-

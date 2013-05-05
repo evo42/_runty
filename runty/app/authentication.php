@@ -25,7 +25,7 @@
 require_once dirname( __FILE__ ) . '/core.php';
 
 // @todo config
-$user_file = '../.runty/user.json';
+$user_file = '../../.runty/user.json';
 
 // user object
 if (!isset($_SESSION['user']) ||
@@ -75,7 +75,7 @@ if (isset($_REQUEST['assertion'])) {
 					}
 				}
 			} else {
-				echo json_encode('Runty Auth: File .runty/user.json is not readable / available');
+				echo json_encode('Runty Auth: File /.runty/user.json is not readable / available');
 				//unset( $_SESSION['user'] );
 				die();
 			}
