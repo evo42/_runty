@@ -1,4 +1,4 @@
-# Runty. NoCMS
+# Runty. The NoCMS
 
 ### From HTML to NoCMS content editable in 1 minute.
 
@@ -8,12 +8,12 @@
 *Just edit your web pages **smart!***
 
 
-[Runty. NoCMS](http://runtyapp.org) is using [Aloha Editor](http://aloha-editor.org) as HTML5 inline WYSIWYG editor.
+[Runty. The NoCMS](http://runtyapp.org) is using [Aloha Editor](http://aloha-editor.org) as HTML5 inline WYSIWYG editor.
 See our [guides](http://runtyapp.org/guides/) for more information about the usage.
 
 
 Open one of our demos:
-* [Runty.html](./Runty.html) -- The Runty. NoCMS app website
+* [Runty.html](./Runty.html) -- The Runty. The NoCMS app website
 * [News.html](./CSS3.html) -- The Moby Dick CSS3 demo with dynamic JSON data
 
 
@@ -33,13 +33,13 @@ and create your [own web page](http://runtyapp.org/guides/example.html).
 
 
 ## Getting Started
-See the Runty. NoCMS getting started guide: [http://runtyapp.org/guides/](http://runtyapp.org/guides/getting-started.html)
+See the Runty. The NoCMS getting started guide: [http://runtyapp.org/guides/](http://runtyapp.org/guides/getting-started.html)
 
 
 
 ### Download
-It is easy to [install Runty. NoCMS](http://runtyapp.org/guides/installation.html)!
-* [Download the latest version](http://runtyapp.org/guides/installation.html) of Runty. NoCMS to your computer.
+It is easy to [install Runty. The NoCMS](http://runtyapp.org/guides/installation.html)!
+* [Download the latest version](http://runtyapp.org/guides/installation.html) of Runty. The NoCMS to your computer.
 * Extract the runty-x.y.zip archive.
 * Navigate to ./
 

@@ -1,1 +1,1 @@
-/* Runty. NoCMS JavaScript App */
+/* Runty. The NoCMS JavaScript App */

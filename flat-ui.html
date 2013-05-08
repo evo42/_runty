@@ -1,0 +1,425 @@
+<!doctype html>
+<head>
+	<title>Flat UI Editor</title>
+
+	<meta charset="UTF-8">
+	<meta name="description" content="Flat UI Editor">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="/runty/theme/flat-ui/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Loading Bootstrap 
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css">
+    -->
+    <link href="/runty/theme/flat-ui/css/bootstrap.css" rel="stylesheet">
+
+	<!-- Loading Flat UI -->
+    <link href="/runty/theme/flat-ui/css/flat-ui.css" rel="stylesheet">    
+
+	<!--
+		UI A la carte css
+	-->
+	<link rel="stylesheet" href="../runty/aloha-editor/0.23.ui/plugins/common/ui-a-la-carte/css/ui-a-la-carte.css" type="text/css">
+	<link rel="stylesheet" href="./flat-ui/css/aloha-components.css" type="text/css">
+    
+	<link rel="stylesheet" href="./flat-ui/css/style.css">
+	
+</head>
+<body>
+    
+    <div class="container">
+    
+    <div class="login">
+      <div class="login-screen">
+        <div class="login-icon">
+          <img src="/runty/theme/flat-ui/images/illustrations/clipboard.png" alt="Welcome to Flat UI Editor" />
+          <h4>Welcome to <small>Flat UI Editor</small></h4>
+        </div>
+
+        <div class="login-form">
+          <div class="control-group">
+            <input type="text" class="login-field" value="" placeholder="Enter your name" id="login-name" />
+            <label class="login-field-icon fui-man-16" for="login-name"></label>
+          </div>
+
+          <div class="control-group">
+            <input type="password" class="login-field" value="" placeholder="Password" id="login-pass" />
+            <label class="login-field-icon fui-lock-16" for="login-pass"></label>
+          </div>
+
+          <a class="btn btn-primary btn-large btn-block" href="#start">Login</a>
+          <a class="login-link" href="#start">Lost your password? &middot; Sign up!</a>
+        </div>
+      </div>
+  </div>
+</div>
+    
+	<div id="page">
+
+
+
+
+			<div id="main" role="main">
+			    <a name="start" ></a>
+			    <br /><br /><br />
+			    <div class="navbar navbar-inverse">
+                  <div class="navbar-inner">
+                    <div class="container">
+                      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <div class="nav-collapse collapse">
+                        <ul class="nav">
+                          <li>
+                            <a href="#">
+                              Menu Item
+                              <span class="navbar-unread">1</span>
+                            </a>
+                          </li>
+                          <li class="active">
+                            <a href="#">
+                              Messages
+                              <span class="navbar-unread">1</span>
+                            </a>
+                            <ul>
+                              <li><a href="#">Element One</a></li>
+                              <li>
+                                <a href="#">Sub menu</a>
+                                <ul>
+                                  <li><a href="#">Element One</a></li>
+                                  <li><a href="#">Element Two</a></li>
+                                  <li><a href="#">Element Three</a></li>
+                                </ul> <!-- /Sub menu -->
+                              </li>
+                              <li><a href="#">Element Three</a></li>
+                            </ul> <!-- /Sub menu -->
+                          </li>
+                          <li>
+                            <a href="#">
+                              About Us
+                              <span class="navbar-unread">1</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div><!--/.nav-collapse -->
+                </div></div></div>
+                
+
+
+
+			    <div class="flat-ui-editable">
+                    <h2>Aloha Editor - HTML5 WYSIWYG Editor</h2>
+                    <p>
+                    The world's most advanced browser <b>HTML5 based WYSIWYG editor</b> lets you <a href="http://aloha-editor.org/demos/">experience</a> a whole new way of editing. It's <a href="#faster">faster</a> than existing technologies and offers unprecedented WYSIWYG functionalities.</p>
+                    
+                    <h1>Click to edit!</h1>
+
+                    <h2>Features</h2>
+                    <p>Innovative features. Flexible UI.</p>
+                    <ul>
+                        <li>Blocks</li>
+                        <li>Smart Content Change</li>
+                        <li>Advanced</li>
+                    </ul>
+                    
+                    <h3>Subheadline</h3>
+                    <p><b>bold</b> and <i>italic</i></p>
+                    <p><strong>strong</strong> and <em>emphasize</em></p>
+                    <blockquote>This was told once or twice...</blockquote>
+                    <p><b><i>bold&italic</i></b> text goes there.</p>
+
+                    <h4>Header 4</h4>
+                    <h5>Header 5</h5>
+                    <h6>Header 6</h6>
+                    <p>This is a logo:</p>
+                    <img src="./flat-ui/img/aloha-editor-logo.png" />
+                    <p>End of the story.</p>
+                </div>
+    
+                <br /><br />
+    
+                <input name="tagsinput" id="tagsinput" class="tagsinput" value="Clean,Fresh,Modern,Unique" />
+    
+                <br /><br />
+                
+                <!-- 
+                <select value="X-Men" class="span3" tabindex="1" name="herolist">
+                  <option value="0">Choose hero</option>
+                  <option value="1">Spider Man</option>
+                  <option value="2">Wolverine</option>
+                  <option value="3">Captain America</option>
+                  <option value="X-Men" selected="selected">X-Men</option>
+                  <option value="Crocodile">Crocodile</option>
+                </select>
+                -->
+                
+                <hr />
+                <hr />
+                <br /><br />
+                
+                
+                  <div class="todo mrm">
+                    <div class="todo-search">
+                      <input class="todo-search-field" type="search" value="" placeholder="Search" />
+                    </div>
+                    <ul>
+                      <li class="todo-done">
+                        <div class="todo-icon fui-man-24"></div>
+                        <div class="todo-content">
+                          <h4 class="todo-name">
+                            Meet <strong>Adrian</strong> at <strong>6pm</strong>
+                          </h4>
+                          Times Square
+                        </div>
+                      </li>
+
+                      <li>
+                        <div class="todo-icon fui-menu-24"></div>
+                        <div class="todo-content">
+                          <h4 class="todo-name">
+                            Chat with <strong>V.Kudinov</strong>
+                          </h4>
+                          Skype conference an 9 am
+                        </div>
+                      </li>
+
+                      <li>
+                        <div class="todo-icon fui-eye-24"></div>
+                        <div class="todo-content">
+                          <h4 class="todo-name">
+                            Watch <strong>Iron Man</strong>
+                          </h4>
+                          1998 Broadway
+                        </div>
+                      </li>
+
+                      <li>
+                        <div class="todo-icon fui-time-24"></div>
+                        <div class="todo-content">
+                          <h4 class="todo-name">
+                            Fix bug on a <strong>Website</strong>
+                          </h4>
+                          As soon as possible
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div> <!-- /todo list -->
+                
+                <br /><br />
+                
+
+                <hr />
+                <hr />
+                <br /><br />
+
+
+            <div class="row demo-tiles">
+              <div class="span3">
+                <div class="tile">
+                  <img class="tile-image big-illustration" alt="" src="/runty/theme/flat-ui/images/illustrations/compass.png" />
+                  <h3 class="tile-title">Web Oriented</h3>
+                  <p>100% convertable to HTML/CSS layout.</p>
+                  <a class="btn btn-primary btn-large btn-block" href="#">Get Pro</a>
+                </div>
+              </div>
+
+              <div class="span3">
+                <div class="tile">
+                  <img class="tile-image" alt="" src="/runty/theme/flat-ui/images/illustrations/infinity.png" />
+                  <h3 class="tile-title">Easy to Customize</h3>
+                  <p>Vector-based shapes and minimum of layer styles.</p>
+                  <a class="btn btn-primary btn-large btn-block" href="#">Get Pro</a>
+                </div>
+              </div>
+
+              <div class="span3">
+                <div class="tile tile-hot">
+                  <img class="tile-image big-illustration" alt="" src="/runty/theme/flat-ui/images/illustrations/share.png" />
+                  <h3 class="tile-title">Free for Share</h3>
+                  <p>Your likes, shares and comments helps us.</p>
+                  <a class="btn btn-primary btn-large btn-block" href="#">Get Pro</a>
+                </div>
+
+              </div>
+            </div> <!-- /tiles -->
+
+
+            <hr />
+            <hr />
+            
+                
+                <!-- -->
+                <div class="row demo-tiles">
+                
+                <div class="span4">
+                
+                <h3 class="demo-panel-title">Share</h3>
+                <div class="share mrl">
+                  <ul>
+                    <li>
+                      <label class="share-label" for="share-toggle2">Facebook</label>
+                      <div class="toggle">
+                        <label class="toggle-radio" for="share-toggle2">ON</label>
+                        <input type="radio" name="share-toggles" id="share-toggle2" value="toggle1">
+                        <label class="toggle-radio" for="share-toggle1">OFF</label>
+                        <input type="radio" name="share-toggles" id="share-toggle1" value="toggle2" checked="checked">
+                      </div>
+                    </li>
+                    <li>
+                      <label class="share-label" for="share-toggle4">Twitter</label>
+                      <div class="toggle">
+                        <label class="toggle-radio" for="share-toggle4">ON</label>
+                        <input type="radio" name="share-toggles2" id="share-toggle4" value="toggle1" checked="checked">
+                        <label class="toggle-radio" for="share-toggle3">OFF</label>
+                        <input type="radio" name="share-toggles2" id="share-toggle3" value="toggle2">
+                      </div>
+                    </li>
+                    <li>
+                      <label class="share-label" for="share-toggle6">Pinterest</label>
+                      <div class="toggle">
+                        <label class="toggle-radio" for="share-toggle6">ON</label>
+                        <input type="radio" name="share-toggles3" id="share-toggle6" value="toggle1">
+                        <label class="toggle-radio" for="share-toggle5">OFF</label>
+                        <input type="radio" name="share-toggles3" id="share-toggle5" value="toggle2" checked="checked">
+                      </div>
+                    </li>
+                  </ul>
+                  <a href="#" class="btn btn-primary btn-block btn-large">Share</a>
+                </div> <!-- /share -->
+                
+            </div>
+        </div>
+                <br /><br />
+                <br /><br />
+
+<p>Flat UI Editor &middot; <a href="http://aloha-editor.org">Aloha Editor</a> UI á la Carte with bootstrap.</p>
+<br /><br />
+
+</div> <!-- page end -->
+
+
+
+
+
+
+
+<div id="toolbar">
+
+<div id="menu">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#format" data-toggle="tab">Format</a></li>
+        <li class="not-in-scope"><a href="#link" data-toggle="tab">Link</a></li>
+    </ul>
+</div>
+<!--/menu-->
+
+<div id="toolbar-components" class="tab-content">
+<div class="tab-pane active" id="format">
+<div class="btn-group">
+	<button class="btn" id="aloha-component-bold" title="Format bold"><i class="icon-white icon-bold"></i></button>
+	<button class="btn" id="aloha-component-italic" title="Format italic"><i class="icon-white icon-italic"></i></button>
+	<button class="btn" id="aloha-component-comment" title="Format as quote"><span class="icon-white icon-comment"></span></button>
+	<button class="btn" id="aloha-component-insert-link"><span class="icon-white icon-globe"></span></button>
+</div>
+<div class="btn-group">
+	<button class="btn" id="aloha-component-unordered-list" title="Insert unordered list"><span class="icon-white icon-list"></span></button>
+	<button class="btn" id="aloha-component-indent-list" title="Indent left" disabled="disabled"><span class="icon-white icon-indent-left"></span></button>
+	<button class="btn" id="aloha-component-outdent-list" title="Indent right" disabled="disabled"><span class="icon-white icon-indent-right"></span></button>
+</div>
+
+<div id="aloha-component-format-block" class="btn-group dropdown">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    <span class="dropdown-text">Paragraph</span>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+	<li><a class="aloha-component-h" id="aloha-component-h1" href="#">Heading 1</a></li>
+	<li><a class="aloha-component-h" id="aloha-component-h2" href="#">Heading 2</a></li>
+	<li><a class="aloha-component-h" id="aloha-component-h3" href="#">Heading 3</a></li>
+	<li><a class="aloha-component-h" id="aloha-component-h4" href="#">Heading 4</a></li>
+	<li><a class="aloha-component-h" id="aloha-component-h5" href="#">Heading 5</a></li>
+	<li><a class="aloha-component-h" id="aloha-component-h6" href="#">Heading 6</a></li>
+	<li><a id="aloha-component-p" href="#">Paragraph</a></li>
+	<li><a id="aloha-component-pre" href="#">Preformatted</a></li>
+	<li><a id="aloha-component-blockquote" href="#">Blockquote</a></li>
+	<li><a id="aloha-component-remove-format" href="#">Remove format</a></li>
+  </ul>
+</div>
+</div> <!--/tab-pane #format-->
+
+<!-- -->
+<div class="tab-pane" id="insert">
+<div class="btn-group">
+	<button class="btn" id="aloha-component-insert-link"><span class="icon-white icon-globe"></span></button>
+</div>
+</div>
+
+<div class="tab-pane" id="link">
+<div class="btn-group">
+	<button class="btn" id="aloha-component-remove-link" title="Remove link"><span class="icon-white icon-trash"></span></button>
+	<input type="text" id="aloha-component-edit-link" />
+</div>
+</div>
+
+</div> <!--/toolbar-components-->
+</div> <!--/toolbar-->
+
+
+
+
+<script type="text/javascript" src="../runty/app.php?type=aloha"></script>
+
+<script src="./flat-ui/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+		var $toolbar = $('#toolbar');
+		$toolbar.hide();
+
+			Aloha.ready( function(){
+				var $ = Aloha.jQuery;
+                   
+                    $('.flat-ui-editable').aloha();
+                    $('.todo-name').aloha();
+                   $('.tile').aloha();
+				
+			    
+				Aloha.bind('aloha-editable-activated', function() {
+				    $(this.activeEditable.obj).mouseover(function(e){
+                          $toolbar.css({ "position": "absolute", "top": e.pageY, "left": e.pageX });
+                       });
+			        $toolbar.show();
+				});
+				Aloha.bind('aloha-editable-deactivated', function() {
+				    $toolbar.hide();
+				});
+			});
+			
+        	  //Aloha.require(['../plugins/common/link/extra/linklist'], function() { });
+		</script>
+
+    <!-- Load JS here for greater good =============================-->
+    <script src="/runty/theme/flat-ui/js/jquery-1.8.2.min.js"></script>
+    <script src="/runty/theme/flat-ui/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="/runty/theme/flat-ui/js/jquery.dropkick-1.0.0.js"></script>
+    <script src="/runty/theme/flat-ui/js/custom_checkbox_and_radio.js"></script>
+    <script src="/runty/theme/flat-ui/js/custom_radio.js"></script>
+    <script src="/runty/theme/flat-ui/js/jquery.tagsinput.js"></script>
+    <script src="/runty/theme/flat-ui/js/bootstrap-tooltip.js"></script>
+    <script src="/runty/theme/flat-ui/js/jquery.placeholder.js"></script>
+    <script src="/runty/theme/flat-ui/js/application.js"></script>
+    <!-- script src="http://vjs.zencdn.net/c/video.js"></script -->
+
+    <!--[if lt IE 8]>
+      <script src="/runty/theme/flat-ui/js/icon-font-ie7.js"></script>
+      <script src="/runty/theme/flat-ui/js/icon-font-ie7-24.js"></script>
+    <![endif]-->
+</body>
+</html>

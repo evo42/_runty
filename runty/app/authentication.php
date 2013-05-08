@@ -1,5 +1,5 @@
 <?php
-/* authentication.php is part of the Runty. NoCMS project http://runtyapp.org
+/* authentication.php is part of the Runty. The NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -26,6 +26,12 @@ require_once dirname( __FILE__ ) . '/core.php';
 
 // @todo config
 $user_file = '../../.runty/user.json';
+if (!empty($_SESSION['runty']->users)) {
+    $users = $_SESSION['runty']->users;
+} else {
+    $users = array();
+}
+
 
 // user object
 if (!isset($_SESSION['user']) ||
@@ -33,6 +39,38 @@ if (!isset($_SESSION['user']) ||
 	$_SESSION['user'] = new StdClass();
 	$_SESSION['user']->id = 'guest';
 }
+
+
+
+
+$user_file = '../../.runty/user.json';
+if (!isset($_SESSION['runty']) ||
+	empty($_SESSION['runty']->users)) {
+	$_SESSION['runty'] = new StdClass();
+
+    if (is_readable($user_file)) {
+    	$users_data = file_get_contents($user_file);
+    	$users = json_decode($users_data);
+    } else {
+        //echo 'not readable...';
+    }
+}
+
+// make nicer ...
+if (empty($users)) {
+    $users = array();
+}
+if (!empty($users)) {
+    if ($users[0]->{'@id'} == 'edit@runtyapp.org') {
+        $_SESSION['runty']->install = $users;
+        unset($_SESSION['runty']->users);
+    } else {
+        unset($_SESSION['runty']->users);
+    }
+}
+
+
+
 
 if (isset($_REQUEST['assertion'])) {
 	$http_protocol = 'http://';
@@ -56,30 +94,45 @@ if (isset($_REQUEST['assertion'])) {
 	if ( !empty($data) ) {
 		$signin_user = json_decode($data);
 		if ($signin_user->status == 'okay') {
-			if (is_readable($user_file)) {
-				$user_data = file_get_contents($user_file);
-				$users = json_decode($user_data);
-				// @todo check for valid user data
-				foreach ($users as $id => $user) {
-					$user = (array) $user;
-					if ( $signin_user->email == $user['@id'] ) {
-						$_SESSION['user'] = $signin_user;
+			// @todo check for valid user data
+			foreach ($users as $id => $user) {
+				$user = (array) $user;
+				if ( $signin_user->email == $user['@id'] ) {
+					$_SESSION['user'] = $signin_user;
 
-						foreach($user as $key => $value) {
-							$key = str_replace('@', '', $key);
-							$_SESSION['user']->$key = $value;
-						}
-
-						echo $data;
-						die();
+					foreach($user as $key => $value) {
+						$key = str_replace('@', '', $key);
+						$_SESSION['user']->$key = $value;
 					}
-				}
-			} else {
-				echo json_encode('Runty Auth: File /.runty/user.json is not readable / available');
-				//unset( $_SESSION['user'] );
-				die();
+				} 
 			}
 
+			if (isset($_SESSION['runty']->install)) {
+			        $_SESSION['user'] = $signin_user;
+                    /*$user = (array) $user;
+					foreach($user as $key => $value) {
+						$key = str_replace('@', '', $key);
+						$_SESSION['user']->$key = $value;
+					}*/
+				    if ($_SESSION['runty']->install[0]->{'@id'}) {
+				        $_SESSION['runty']->install[0]->{'@id'} = $_SESSION['user']->email;
+			        
+				        if (!file_put_contents($user_file, json_encode($_SESSION['runty']->install))) {
+				            echo json_encode('Runty installation: Could not write user.json file.');
+				            unset($_SESSION['user']);
+				            die();
+				        }
+				    } else {
+				        // add new user json
+				    }
+			}
+			
+			echo $data;
+			
+	    } else {
+			//echo json_encode('Runty Auth: File /.runty/user.json is not readable / available');
+			//unset( $_SESSION['user'] );
+			//die();
 			echo json_encode('Runty Auth: Not Authenticated.');
 			unset( $_SESSION['user'] );
 			die();
@@ -87,5 +140,6 @@ if (isset($_REQUEST['assertion'])) {
 	}
 } else if ( isset($_REQUEST['logout']) ) {
 	unset( $_SESSION['user'] );
+	unset( $_SESSION['runty'] );
 	echo json_encode('Runty Auth: Session closed');
 }

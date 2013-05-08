@@ -1,5 +1,5 @@
 <?php
-/* routes.php is part of the Runty. NoCMS project http://runtyapp.org
+/* routes.php is part of the Runty. The NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -83,10 +83,10 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
 
     $header = '<!doctype html>
     <head>
-    	<title>Runty. NoCMS</title>
+    	<title>Runty. The NoCMS</title>
 
     	<meta charset="UTF-8">
-    	<meta name="description" content="Runty. NoCMS">
+    	<meta name="description" content="Runty. The NoCMS">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="shortcut icon" href="./favicon.ico">
 
@@ -97,6 +97,8 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
 
         <link href="/runty/theme/flat-ui/css/bootstrap.css" rel="stylesheet">
         <link href="/runty/theme/flat-ui/css/flat-ui.css" rel="stylesheet">
+    	<link rel="stylesheet" href="/runty/theme/css/runty.css" type="text/css">
+
     ';
     $header .= $persona_css;
     $header .= $jquery;
@@ -107,8 +109,9 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
 
     $footer = '<script src="/runty/theme/flat-ui/js/bootstrap.min.js"></script>
 
-        <!-- Load JS here for greater good =============================-->
+        <!-- Load JS here for greater good =============================
         <script src="/runty/theme/flat-ui/js/jquery-1.8.2.min.js"></script>
+        -->
         <script src="/runty/theme/flat-ui/js/jquery-ui-1.10.0.custom.min.js"></script>
         <script src="/runty/theme/flat-ui/js/jquery.dropkick-1.0.0.js"></script>
         <script src="/runty/theme/flat-ui/js/custom_checkbox_and_radio.js"></script>
@@ -128,16 +131,21 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
 
     echo $header;
     
+    $no_mh = '';
+    if (empty($_SESSION['user']->email)) {
+        $no_mh = 'no-min-height';
+    }
+    
     $body = '    <div class="container">
 
         <div class="login">
           <div class="login-screen">
             <div class="login-icon">
-              <img src="/runty/theme/flat-ui/images/illustrations/infinity.png" alt="Welcome to Runty. NoCMS" />
-              <h4>Welcome to <small>Runty. NoCMS</small></h4>
+              <a href="/"><img src="/runty/theme/flat-ui/images/illustrations/infinity.png" alt="Runty. The NoCMS" /></a>
+              <h4 style="text-align: center">Runty. <small>The NoCMS</small></h4>
             </div>
 
-            <div class="login-form">
+            <div class="login-form '.$no_mh.'">
             <div class="control-group">
             ';
             
@@ -152,30 +160,83 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
                 <input type="password" class="login-field" value="" placeholder="Password" id="login-pass" />
                 <label class="login-field-icon fui-lock-16" for="login-pass"></label>
               </div -->
+
+              <div id="page">
 ';
 
-if ( empty($_SESSION['user']->email) ) {
+$page = '';
+$js = '';
+if ( empty($_SESSION['user']->email) && !empty($_SESSION['runty']->users)) {
+    // sign-in if there's no authenticated user
     $body .= '<a class="btn btn-primary btn-large btn-block" id="browserid" href="#sign-in" title="Sign-in with BrowserID / Mozilla Persona">Sign in</a>
-    <a class="login-link" href="https://persona.org">Lost your password?</a>
       <br /><br />
-      <a class="login-link" href="https://login.persona.org/about">Mozilla Persona / BrowserID login</a>
+      <a class="login-link" href="https://login.persona.org/about">Mozilla Persona / BrowserID</a>
       
       ';
+} else if (!empty($_SESSION['user']->email)) {
+    // hello! we have a authenticated user
+    $body .= $page = '
+        <a class="btn btn-primary btn-large btn-block" href="/">Edit pages</a> 
+        <br />
+        <a id="add_page" class="btn btn-primary btn-large btn-block" href="#add-page">Add page</a> 
+        <br />
+        <a id="manage_user" class="btn btn-primary btn-large btn-block" href="#user">Manage user</a> 
+        <br />
+        <a class="btn btn-primary btn-large btn-block" href="/runty/?sign=off">Sign off</a>
+    ';
+
+
+    //$page .= $js;
+
+    // @todo fix this soon...
+    //$page = str_replace('##content##', $page, $page.$js);
+    $page_js = trim(addslashes(str_replace(array("\r", "\n"), '', $page)));
+    $js = "<script>
+        $('#manage_user').click(function(){
+            $('#page').load('../runty/theme/manage-user.php?content=".urlencode($page_js)."');
+        });    $('#add_page').click(function(){
+            $('#page').load('../runty/theme/manage-page.php?content=".urlencode($page_js)."', function(){
+            });
+        });
+        
+    </script>";
+    
+    //$page .= $js;
+    
+} else if (empty($_SESSION['runty']->users)) {
+    // install the system. there's no user list available.
+    $body .= '
+        <h1>Runty. The NoCMS</h1>
+        <h2>Installation guide</h2>
+        <p>To install this software follow the next steps.</p>
+        <ul>
+        <li>Sign in with your <a href="https://login.persona.org">Mozilla Persona</a> identity.</li>
+        </ul>
+    
+    <a class="btn btn-primary btn-large btn-block" id="browserid" href="#sign-in" title="Sign-in with Mozilla Persona / BrowserID">Sign in to install</a>
+    <a class="login-link" href="https://login.persona.org/about">Authenticate with Mozilla Persona / BrowserID</a>';
+    
 } else {
-    $body .= '<a class="btn btn-primary btn-large btn-block" href="/">Manage</a> 
+    // some problem...
+    $body .= '
+    <h3>tzzzz...</h3>
+    <a class="btn btn-primary btn-large btn-block" href="#reload" title="Reload. Now!">Reload!</a>
     <br /><br />
-    <a class="btn btn-primary btn-large btn-block" href="/runty/?sign=off">Sign off</a>';
+    ';
 }
 
 $body .= '
-              
+              </div>
 
             </div>
           </div>
       </div>
     </div>
     ';
-    
+ 
+    $body .= $js;
+
+   
     echo $body;
     
     echo $footer;
