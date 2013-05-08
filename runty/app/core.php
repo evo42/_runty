@@ -60,7 +60,7 @@ if (!isset($_SESSION['runty']) ||
     	$users_data = file_get_contents($user_file);
     	$users = json_decode($users_data);
     } else {
-        //echo 'not readable...';
+        //echo 'ERROR: file '.$user_file.' not readable.';
     }
 
     // make nicer ...
