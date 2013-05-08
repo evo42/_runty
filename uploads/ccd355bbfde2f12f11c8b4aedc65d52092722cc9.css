@@ -1,0 +1,86 @@
+#parallax-01,
+#parallax-02,
+#parallax-03,
+#parallax-04,
+#parallax-05,
+#parallax-06,
+#parallax-07 {
+	position: fixed;
+}
+
+#balloons-01,
+#balloons-02,
+#balloons-03,
+#balloons-04,
+#balloons-05,
+#balloons-06,
+#balloons-07 {
+    position: absolute;
+}
+
+
+
+#parallax-01 {
+	z-index: 1;
+}
+
+#balloons-01 {
+    top: 204px;
+    left: 124px;
+}
+		
+
+#parallax-02 {
+	z-index: 2;
+}
+
+#balloons-02 {
+	top: 256px;
+	left: 516px;
+}
+
+
+#parallax-03 {
+	z-index: 3;
+}
+#balloons-03 {
+	top: 158px;
+	left: 532px;
+}
+
+
+#parallax-04 {
+	z-index: 1;
+}
+#balloons-04 {
+	top: 110px;
+	left: 45px;
+	}
+
+
+#parallax-05 {
+	z-index: 2;
+}
+#balloons-05 {
+	top: 219px;
+	left: -72px;
+}
+
+
+#parallax-06 {
+	z-index: 3;
+}
+
+#balloons-06 {
+	top: 199px;
+	left: 206px;
+}
+
+#parallax-07 {
+	z-index: 5;
+}
+
+#balloons-07 {
+	top: 2000px;
+	left: 451px;
+}

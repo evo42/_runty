@@ -1,5 +1,5 @@
 <?php
-/* authentication.php is part of the Runty. NoCMS project http://runtyapp.org
+/* authentication.php is part of the Runty. The NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -104,9 +104,6 @@ if (isset($_REQUEST['assertion'])) {
 						$key = str_replace('@', '', $key);
 						$_SESSION['user']->$key = $value;
 					}
-
-					echo $data;
-					//die();
 				} 
 			}
 
@@ -128,8 +125,10 @@ if (isset($_REQUEST['assertion'])) {
 				    } else {
 				        // add new user json
 				    }
-				    echo $data;
 			}
+			
+			echo $data;
+			
 	    } else {
 			//echo json_encode('Runty Auth: File /.runty/user.json is not readable / available');
 			//unset( $_SESSION['user'] );

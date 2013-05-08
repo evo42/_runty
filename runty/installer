@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-/* installer is part of the Runty. NoCMS project http://runtyapp.org
+/* installer is part of the Runty. The NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -84,7 +84,7 @@ function process($argv)
 function displayHelp()
 {
     echo <<<EOF
-Runty. NoCMS installer
+Runty. The NoCMS installer
 ------------------
 Options
 --help               this help
@@ -96,7 +96,7 @@ EOF;
 }
 
 /**
- * check the platform for possible issues on running Runty. NoCMS
+ * check the platform for possible issues on running Runty. The NoCMS
  */
 function checkPlatform($quiet)
 {
@@ -151,7 +151,7 @@ function checkPlatform($quiet)
     }
 
     if (!empty($errors)) {
-        out("Some settings on your machine make Runty. NoCMS unable to work properly.", 'error');
+        out("Some settings on your machine make Runty. The NoCMS unable to work properly.", 'error');
 
         out('Make sure that you fix the issues listed below and run this script again:', 'error');
         foreach ($errors as $error => $current) {
@@ -197,7 +197,7 @@ function checkPlatform($quiet)
     }
 
     if (!empty($warnings)) {
-        out("Some settings on your machine may cause stability issues with Runty. NoCMS.", 'error');
+        out("Some settings on your machine may cause stability issues with Runty. The NoCMS.", 'error');
 
         out('If you encounter issues, try to change the following:', 'error');
         foreach ($warnings as $warning => $current) {
@@ -223,7 +223,7 @@ function checkPlatform($quiet)
 
                 case 'php':
                     $text = PHP_EOL."Your PHP ({$current}) is quite old, upgrading to PHP 5.3.4 or higher is recommended.".PHP_EOL;
-                    $text .= "Runty. NoCMS works with 5.3.2+ for most people, but there might be edge case issues.";
+                    $text .= "Runty. The NoCMS works with 5.3.2+ for most people, but there might be edge case issues.";
                     break;
             }
             out($text, 'info');
@@ -234,13 +234,13 @@ function checkPlatform($quiet)
     }
 
     if (!$quiet) {
-        out("All settings correct for using Runty. NoCMS", 'success');
+        out("All settings correct for using Runty. The NoCMS", 'success');
     }
     return true;
 }
 
 /**
- * installs Runty. NoCMS to the current working directory
+ * installs Runty. The NoCMS to the current working directory
  */
 function installRunty($installDir, $quiet)
 {
@@ -283,7 +283,7 @@ function installRunty($installDir, $quiet)
     chmod($file, 0755);
 
     if (!$quiet) {
-        out(PHP_EOL."Runty. NoCMS successfully installed to: " . $file, 'success', false);
+        out(PHP_EOL."Runty. The NoCMS successfully installed to: " . $file, 'success', false);
         out(PHP_EOL."Use it: php $installPath", 'info');
     }
 }
