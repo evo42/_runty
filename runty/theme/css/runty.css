@@ -1,4 +1,4 @@
-/* runty.css is part of the Runty. NoCMS project http://runtyapp.org
+/* runty.css is part of the Runty. The NoCMS project http://runtyapp.org
 *
 * Runty is a handy NoCMS utilizing the power of Aloha Editor
 * -- a modern WYSIWYG HTML5 inline editing library and editor.
@@ -57,3 +57,41 @@
 	left: 125px;
 	z-index: 1000;
 }
+
+
+
+/*****
+ * backend stuff
+****/
+div.login-form {
+    min-height: 250px;
+}
+
+div.login-form.no-min-height {
+    min-height: 0;
+}
+
+div.login-form h1 {
+    margin: -20px 0 10px 0;
+    padding: 0;
+    color: #424242;
+}
+div.login-form h2 {
+    margin: -10px 0px 0px 0px;
+    padding: 0;
+    color: #424242;
+}
+
+div.login-form p {
+    color: #A4A4A4;
+}
+
+div.login-form li {
+    color: #585858;
+}
+
+div.login-form #user-list {
+    overflow: auto;
+    height: 110px;
+}
+

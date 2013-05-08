@@ -18,7 +18,7 @@ function(
 		},
 
 		urlset: [
-		{ name: 'Runty. NoCMS', url: 'http://runtyapp.org', type: 'website' }
+		{ name: 'Runty. The NoCMS', url: 'http://runtyapp.org', type: 'website' }
 		],
 
 		/**
