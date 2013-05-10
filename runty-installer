@@ -1,6 +1,13 @@
 #!/usr/bin/php
 <?php
 
+/*
+ * installation via command line:
+ *
+ * wget https://raw.github.com/evo42/runty/installer/runty-installer && php runty-installer
+ *
+*/
+
 // check permissions / rm old download files / ...
 
 
