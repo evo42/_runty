@@ -23,11 +23,15 @@
 
 /** runty toolbar **/
 #runty-toolbar {
-	border: 1px dotted gray;
+	border: 1px dotted black;
 	margin: 5px;
 	padding: 5px;
 	color: black;
 	background-color: white;
+	position: fixed;
+	top: 5px;
+	right: 5px;
+	z-index: 99999;
 }
 
 #runty-notice-draft {

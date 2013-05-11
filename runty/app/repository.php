@@ -39,11 +39,11 @@ function query() {
 	// read all available files
 	$results = array();
 	
-	$scan_dirs = array(	'website' => '../',
-						'media' => '../media/',
-						'slide' => '../slides/',
-						'guide' => '../guides/',
-						'upload'	=> '../uploads/');
+	$scan_dirs = array(	'website' => '../../',
+						'media' => '../../media/',
+						'slide' => '../../slides/',
+						'guide' => '../../guides/',
+						'upload'	=> '../../uploads/');
 	
 	foreach($scan_dirs as $id => $path) {
 		if (is_readable($path)) {
