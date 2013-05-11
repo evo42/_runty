@@ -37,13 +37,17 @@ See the Runty. The NoCMS getting started guide: [http://runtyapp.org/guides/](ht
 
 
 
-### Download
+### Download and install
 It is easy to [install Runty. The NoCMS](http://runtyapp.org/guides/installation.html)!
-* [Download the latest version](http://runtyapp.org/guides/installation.html) of Runty. The NoCMS to your computer.
-* Extract the runty-x.y.zip archive.
-* Navigate to ./
+* [Download the latest version](https://github.com/evo42/runty/archive/master.zip) of Runty. The NoCMS to your computer.
+* Extract the runty-x.y.zip archive to your web server root folder.
+* Navigate to http://<your.webserver.com>/runty/ and sign in to activate your admin account.
+* Make the web server user (eg. www-data) able to read all files in the /.runty/ (your user specific files) and /runty/ (the Runty app files) also the ./ root direcory should be writeable by the web server user.
 
 
+### Installation via command line
+Navigate to your web page root folder and run the following command:
+``wget https://raw.github.com/evo42/runty/installer/runty-installer && php runty-installer``
 
 
 ## Editable zones

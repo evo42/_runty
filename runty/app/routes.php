@@ -169,6 +169,7 @@ $js = '';
 if ( empty($_SESSION['user']->email) && !empty($_SESSION['runty']->users)) {
     // sign-in if there's no authenticated user
     $body .= '<a class="btn btn-primary btn-large btn-block" id="browserid" href="#sign-in" title="Sign-in with BrowserID / Mozilla Persona">Sign in</a>
+    <a class="login-link" href="/">Home page</a>
       <br /><br />
       <a class="login-link" href="https://login.persona.org/about">Mozilla Persona / BrowserID</a>
       
