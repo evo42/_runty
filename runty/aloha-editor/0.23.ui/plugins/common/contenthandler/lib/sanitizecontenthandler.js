@@ -85,20 +85,21 @@ function( Aloha, jQuery, ContentHandlerManager, Plugin, console ) {
 		attributes: {
 			'a': ['href', 'title', 'id', 'class', 'target', 'data-gentics-aloha-repository', 'data-gentics-aloha-object-id'],
 			'div': ['id','class','style'],
-			'abbr': ['title'],
-			'blockquote': ['cite'],
+			'abbr': ['class', 'title'],
+			'blockquote': ['class', 'id', 'cite'],
 			'br': ['class'],
-			'col': ['span', 'width'],
-			'colgroup': ['span', 'width'],
-			'img': ['align', 'alt', 'height', 'src', 'title', 'width', 'class', 'data-caption', 'data-align', 'data-width', 'data-original-image'],
-			'ol': ['start', 'type'],
+			'col': ['id', 'class', 'span', 'width'],
+			'colgroup': ['id', 'class', 'span', 'width'],
+			'i': ['class'],
+			'img': ['id', 'align', 'alt', 'height', 'src', 'title', 'width', 'class', 'data-caption', 'data-align', 'data-width', 'data-original-image'],
+			'ol': ['id', 'start', 'type', 'class'],
 			'p': ['class', 'style', 'id'],
-			'q': ['cite'],
-			'table': ['summary', 'width'],
-			'td': ['abbr', 'axis', 'colspan', 'rowspan', 'width'],
-			'th': ['abbr', 'axis', 'colspan', 'rowspan', 'scope', 'width'],
-			'ul': ['type'],
-			'span': ['class','style','lang','xml:lang','role']
+			'q': ['id', 'cite', 'class'],
+			'table': ['id', 'class', 'summary', 'width'],
+			'td': ['abbr', 'axis', 'colspan', 'class', 'rowspan', 'width'],
+			'th': ['abbr', 'axis', 'colspan', 'class', 'rowspan', 'scope', 'width'],
+			'ul': ['id', 'type', 'class'],
+			'span': ['id', 'class','style','lang','xml:lang','role']
 		},
 
 		protocols: {
