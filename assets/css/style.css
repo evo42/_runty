@@ -2479,3 +2479,13 @@ only screen and (min-resolution: 2dppx) {
 		background: none;
 	}
 }
+
+
+
+a.btn-aloha-editor {
+    background: #F2F2F2;
+}
+
+a.btn-aloha-editor:hover {
+    background: #FAFAFA;
+}
