@@ -71,8 +71,9 @@ respond(array('POST','GET'), '/runty/?', function($request, $response) {
     	    } else {}
     	}
     	function checkLogin(res) {
+    	    //console.log(res);
     	    var obj = jQuery.parseJSON(res);
-    	    if (obj.status === "okay") {
+    	    if (obj && obj.status === "okay") {
     	        document.location.href = document.location.origin + document.location.pathname
     	    }
 

@@ -19,15 +19,12 @@
        * valid HTML id attribute
     -->
     <div id="page">
-    <h1 class="runty-editable" id="title">Runty. The NoCMS -- Minimal example</h1>
-    <h2 class="runty-editable" id="headline">edit content. easy. ...</h2>
+    <h1 class="runty-editable" id="title">Runty. The NoCMS - Minimal example</h1>
+    <h2 class="runty-editable" id="headline">Just click and edit!</h2>
 
     <p class="runty-editable">Here is some text about this page. Nice example.</p>
         
     <div class="runty-editable" id="description">
-        
-        <p>This</p><p>is</p><p>some</p><p><b>text</b></p><p><i>about</i></p><p>nothing</p><p><em>special</em></p>
-        
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.</p>
         
         <img title="Aloha Editor" src="http://aloha-editor.org/logo/Aloha%20Editor%20HTML5%20contenteditable%20transparent%20256.png" />
@@ -43,7 +40,11 @@
       include the following HTML script element 
       before the </body> tag to
       activate Runty. The NoCMS
+      
+      Note:
+      /runty/app.php - Runty. NoCMS mode (with authentication)
+      /runty/app.php?type=aloha - Aloha Editor demo mode (no authentication)
     -->
-    <script type="text/javascript" src="/runty/app.php"></script>
+    <script type="text/javascript" src="/runty/app.php?type=aloha"></script>
     
     </body></html>

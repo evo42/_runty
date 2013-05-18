@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-	<title>Flat UI Editor</title>
+	<title>Flat UI Editor - Runty. Aloha Editor UI à la carte demo</title>
 
 	<meta charset="UTF-8">
 	<meta name="description" content="Flat UI Editor">
@@ -12,10 +12,7 @@
       <script src="/runty/theme/flat-ui/js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Loading Bootstrap 
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css">
-    -->
+    <!-- Loading Bootstrap styles -->
     <link href="/runty/theme/flat-ui/css/bootstrap.css" rel="stylesheet">
 
 	<!-- Loading Flat UI -->
@@ -58,11 +55,7 @@
       </div>
   </div>
 </div>
-    
 	<div id="page">
-
-
-
 
 			<div id="main" role="main">
 			    <a name="start" ></a>
@@ -110,9 +103,6 @@
                         </ul>
                       </div><!--/.nav-collapse -->
                 </div></div></div>
-                
-
-
 
 			    <div class="flat-ui-editable">
                     <h2>Aloha Editor - HTML5 WYSIWYG Editor</h2>
@@ -306,107 +296,33 @@
 </div> <!-- page end -->
 
 
-
-
-
-
-
-<div id="toolbar">
-
-<div id="menu">
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#format" data-toggle="tab">Format</a></li>
-        <li class="not-in-scope"><a href="#link" data-toggle="tab">Link</a></li>
-    </ul>
-</div>
-<!--/menu-->
-
-<div id="toolbar-components" class="tab-content">
-<div class="tab-pane active" id="format">
-<div class="btn-group">
-	<button class="btn" id="aloha-component-bold" title="Format bold"><i class="icon-white icon-bold"></i></button>
-	<button class="btn" id="aloha-component-italic" title="Format italic"><i class="icon-white icon-italic"></i></button>
-	<button class="btn" id="aloha-component-comment" title="Format as quote"><span class="icon-white icon-comment"></span></button>
-	<button class="btn" id="aloha-component-insert-link"><span class="icon-white icon-globe"></span></button>
-</div>
-<div class="btn-group">
-	<button class="btn" id="aloha-component-unordered-list" title="Insert unordered list"><span class="icon-white icon-list"></span></button>
-	<button class="btn" id="aloha-component-indent-list" title="Indent left" disabled="disabled"><span class="icon-white icon-indent-left"></span></button>
-	<button class="btn" id="aloha-component-outdent-list" title="Indent right" disabled="disabled"><span class="icon-white icon-indent-right"></span></button>
-</div>
-
-<div id="aloha-component-format-block" class="btn-group dropdown">
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    <span class="dropdown-text">Paragraph</span>
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu">
-	<li><a class="aloha-component-h" id="aloha-component-h1" href="#">Heading 1</a></li>
-	<li><a class="aloha-component-h" id="aloha-component-h2" href="#">Heading 2</a></li>
-	<li><a class="aloha-component-h" id="aloha-component-h3" href="#">Heading 3</a></li>
-	<li><a class="aloha-component-h" id="aloha-component-h4" href="#">Heading 4</a></li>
-	<li><a class="aloha-component-h" id="aloha-component-h5" href="#">Heading 5</a></li>
-	<li><a class="aloha-component-h" id="aloha-component-h6" href="#">Heading 6</a></li>
-	<li><a id="aloha-component-p" href="#">Paragraph</a></li>
-	<li><a id="aloha-component-pre" href="#">Preformatted</a></li>
-	<li><a id="aloha-component-blockquote" href="#">Blockquote</a></li>
-	<li><a id="aloha-component-remove-format" href="#">Remove format</a></li>
-  </ul>
-</div>
-</div> <!--/tab-pane #format-->
-
-<!-- -->
-<div class="tab-pane" id="insert">
-<div class="btn-group">
-	<button class="btn" id="aloha-component-insert-link"><span class="icon-white icon-globe"></span></button>
-</div>
-</div>
-
-<div class="tab-pane" id="link">
-<div class="btn-group">
-	<button class="btn" id="aloha-component-remove-link" title="Remove link"><span class="icon-white icon-trash"></span></button>
-	<input type="text" id="aloha-component-edit-link" />
-</div>
-</div>
-
-</div> <!--/toolbar-components-->
-</div> <!--/toolbar-->
-
-
-
-
 <script type="text/javascript" src="../runty/app.php?type=aloha"></script>
 
-<script src="/assets/flat-ui/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var $toolbar = $('#toolbar');
+        $toolbar.hide();
+        
+        Aloha.ready( function(){
+        	var $ = Aloha.jQuery;
 
-		<script type="text/javascript">
-		var $toolbar = $('#toolbar');
-		$toolbar.hide();
+                $('.flat-ui-editable').aloha();
+                $('.todo-name').aloha();
+               $('.tile').aloha();
 
-			Aloha.ready( function(){
-				var $ = Aloha.jQuery;
-                   
-                    $('.flat-ui-editable').aloha();
-                    $('.todo-name').aloha();
-                   $('.tile').aloha();
-				
-			    
-				Aloha.bind('aloha-editable-activated', function() {
-				    $(this.activeEditable.obj).mouseover(function(e){
-                          $toolbar.css({ "position": "absolute", "top": e.pageY, "left": e.pageX });
-                       });
-			        $toolbar.show();
-				});
-				Aloha.bind('aloha-editable-deactivated', function() {
-				    $toolbar.hide();
-				});
-			});
-			
-        	  //Aloha.require(['../plugins/common/link/extra/linklist'], function() { });
-		</script>
+
+        	Aloha.bind('aloha-editable-activated', function() {
+        	    $(this.activeEditable.obj).mouseover(function(e){
+                      $toolbar.css({ "position": "absolute", "top": e.pageY, "left": e.pageX });
+                   });
+                $toolbar.show();
+        	});
+        	Aloha.bind('aloha-editable-deactivated', function() {
+        	    $toolbar.hide();
+        	});
+        });
+	</script>
 
     <!-- Load JS here for greater good =============================-->
-    <script src="/runty/theme/flat-ui/js/jquery-1.8.2.min.js"></script>
     <script src="/runty/theme/flat-ui/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script src="/runty/theme/flat-ui/js/jquery.dropkick-1.0.0.js"></script>
     <script src="/runty/theme/flat-ui/js/custom_checkbox_and_radio.js"></script>
@@ -415,7 +331,6 @@
     <script src="/runty/theme/flat-ui/js/bootstrap-tooltip.js"></script>
     <script src="/runty/theme/flat-ui/js/jquery.placeholder.js"></script>
     <script src="/runty/theme/flat-ui/js/application.js"></script>
-    <!-- script src="http://vjs.zencdn.net/c/video.js"></script -->
 
     <!--[if lt IE 8]>
       <script src="/runty/theme/flat-ui/js/icon-font-ie7.js"></script>
