@@ -69,8 +69,9 @@ function runty_loader() {
 	    document.write(\'<script type="text/javascript">var $toolbar=$("#toolbar");$toolbar.hide();Aloha.ready(function(){var e=Aloha.jQuery;Aloha.bind("aloha-editable-activated",function(){e(this.activeEditable.obj).mouseover(function(e){$toolbar.css({position:"absolute",top:e.pageY,left:e.pageX})});$toolbar.show()});Aloha.bind("aloha-editable-deactivated",function(){$toolbar.hide()})})</script>\');
 	';
 
-    $aloha .= 'document.write(\'<script type="text/javascript">Aloha.ready( function () {$(".runty-editable").aloha()})</script>\');';
-	
+    if (!empty($_REQUEST['type'])) {
+        $aloha .= 'document.write(\'<script type="text/javascript">Aloha.ready( function () {$(".runty-editable").aloha()})</script>\');';
+    }
 	
 	// require
 	// http://requirejs.org/docs/release/2.0.5/minified/require.js
