@@ -30,8 +30,9 @@ var toolbar = jQuery('<div id="runty-toolbar">'),
 
 //actions.append("<a href=\"/runty/\" id=\"runty-button-icon\"><span><img alt=\"Runty. The NoCMS\" title=\"Runty. The NoCMS\" src=\"/runty/theme/ico/glyphicons_002_dog.png\"></span></a>");
 actions.append("<a href=\"/runty/\" id=\"runty-gravatar-icon\"><span><img id=\"runty-user-gravatar\" width=\"26px\" height=\"26px\" alt=\"User\" title=\"User\" src=\"https://en.gravatar.com/avatar/" + md5(runtyUserEmail) + "\"></span></a>");
-actions.append("<a href=\"#edit\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"/runty/theme/ico/glyphicons_030_pencil.png\"></span></a>");
-actions.append("<a href=\"#save\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"/runty/theme/ico/glyphicons_198_ok.png\"></span></a>");
+actions.append("<a style=\"display:none\" href=\"\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"/runty/theme/ico/glyphicons_030_pencil.png\"></span></a>");
+actions.append("<a style=\"display:none\" href=\"\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"/runty/theme/ico/glyphicons_198_ok.png\"></span></a>");
+actions.append("<a style=\"display:none\" href=\"#resize\" id=\"runty-button-resize\"><span><img alt=\"Resize view port\" title=\"Resize view port\" src=\"/runty/theme/ico/glyphicons_086_display.png\"></span></a>")
 //actions.append("<a href=\"/runty/?sign=off\" id=\"runty-button-logout\"><span><img alt=\"Sign-off\" title=\"Sign-off\" src=\"/runty/theme/ico/glyphicons_240_rotation_lock.png\"></span></a>");
 toolbar.append(actions);
 
@@ -40,8 +41,9 @@ jQuery('body').prepend(toolbar);
 // hide some buttons on startup
 jQuery('#runty-button-save').hide();
 jQuery('#runty-button-edit').hide();
+jQuery('#runty-button-resize').show();
 
-
+jQuery('#runty-button-resize').click(function(){void((function(d){if(self!=top||d.getElementById('toolbar')&&d.getElementById('toolbar').getAttribute('data-resizer'))return false;d.write('<!DOCTYPE HTML><html style="opacity:0;"><head><meta charset="utf-8"/></head><body><a data-viewport="320x480" data-icon="mobile">Mobile (e.g. Apple iPhone)</a><a data-viewport="320x568" data-icon="mobile" data-version="5">Apple iPhone 5</a><a data-viewport="600x800" data-icon="small-tablet">Small Tablet</a><a data-viewport="768x1024" data-icon="tablet">Tablet (e.g. Apple iPad 2-3rd, mini)</a><a data-viewport="1280x800" data-icon="notebook">Widescreen</a><script src="http://lab.maltewassermann.com/viewport-resizer/resizer.min.js"></script></body></html>')})(document))});
 
 jQuery('#runty-button-save').bind('click', function() {
 	jQuery('.runty-editable').mahalo();
@@ -82,6 +84,7 @@ jQuery('#runty-button-save').bind('click', function() {
 
 	jQuery('#runty-button-edit').show();
 	jQuery('#runty-button-save').hide();
+	jQuery('#runty-button-resize').show();
 });
 
 jQuery('#runty-button-edit').bind('click', function() {
@@ -89,6 +92,7 @@ jQuery('#runty-button-edit').bind('click', function() {
 
 	jQuery('#runty-button-edit').hide();
 	jQuery('#runty-button-save').show();
+	jQuery('#runty-button-resize').show();
 });
 
 
