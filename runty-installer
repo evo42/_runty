@@ -17,7 +17,7 @@ $data = file_get_contents('https://github.com/evo42/runty/archive/installer.zip'
 file_put_contents('runty-installer.zip', $data);
 echo 'done. '."\n";
 
-// unzip
+// unzip -- @todo zip_open ... ZipArchive not supported on free hosting?
 echo 'unzip download'."\n";
 $zip = new ZipArchive;
      $res = $zip->open('runty-installer.zip');
