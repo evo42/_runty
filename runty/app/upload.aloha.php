@@ -1,4 +1,18 @@
 <?php 
+require_once 'core.php';
+
+if (isset($_SESSION['user']->role)) {
+    if ($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'editor') {
+	    echo json_encode('Runty: Upload not possible. User not authenticated.');
+        die();
+    }
+} else {
+    echo json_encode('Runty: Upload not possible. User not authenticated.');
+    die();
+}
+
+// @todo check if upload dir exists; create if not
+
 
 /**
  * Easy example script to store uploaded files
