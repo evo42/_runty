@@ -1,4 +1,15 @@
 <?php 
+require_once 'core.php';
+
+if (isset($_SESSION['user']->role)) {
+    if ($_SESSION['user']->role != 'admin' || $_SESSION['user']->role != 'editor') {
+	    echo json_encode('Runty: User not authenticated.')
+        die();
+    }
+} else {
+    echo json_encode('Runty: User not authenticated.')
+    die();
+}
 
 /**
  * Easy example script to store uploaded files
