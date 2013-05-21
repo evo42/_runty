@@ -80,19 +80,23 @@ if (isset($_REQUEST['assertion'])) {
 		$http_protocol = 'https://';
 	}
 
-	// @todo use other stuff than curl via exec for the "cheap hosting environments"
-	$cmd = 'curl -d "assertion='.$_REQUEST['assertion']
-			.'&audience='.$http_protocol.''.$_SERVER['HTTP_HOST']
-			.'" "https://browserid.org/verify"';
-	$data = exec($cmd);
+    $url = "https://browserid.org/verify"; 
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url); // set url to post to 
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);// allow redirects 
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // return into a variable 
+    curl_setopt($ch, CURLOPT_TIMEOUT, 3); // times out after 4s 
+    curl_setopt($ch, CURLOPT_POST, 1); // set POST method 
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "assertion=".$_REQUEST['assertion']."&audience=".$http_protocol.''.$_SERVER['HTTP_HOST']);
+    $data = curl_exec($ch); 
+    curl_close($ch);  
 
 	// browserid auth response:
-	//
-	// {"status":"okay","email":"user@example.org",
-	// "audience":"http://example.com","expires":1334279729067,
-	// "issuer":"browserid.org"}
 	if ( !empty($data) ) {
 		$signin_user = json_decode($data);
+		//print_r($data);
+		//print_r($signin_user);
+		if (!empty($signin_user) && isset($signin_user->status)) {
 		if ($signin_user->status == 'okay') {
 			// @todo check for valid user data
 			foreach ($users as $id => $user) {
@@ -136,6 +140,7 @@ if (isset($_REQUEST['assertion'])) {
 			echo json_encode('Runty Auth: Not Authenticated.');
 			unset( $_SESSION['user'] );
 			die();
+		}
 		}
 	}
 } else if ( isset($_REQUEST['logout']) ) {

@@ -67,12 +67,31 @@ Aloha.settings = {
 		disabled: true
 	},
 	plugins: {
-		load: "common/ui, common/format, common/table, common/list, common/link, common/image, " +
+		load: "common/ui, common/format, common/table, common/list, common/link, custom/image, " +
 		"common/block, common/undo, common/characterpicker, common/horizontalruler, " +
 		"common/contenthandler, common/paste, common/commands, common/abbr, common/dom-to-xhtml, common/align, " +
-		"custom/runty" /*+
-		", common/highlighteditables, extra/imagebrowser, extra/linkbrowser, extra/metaview, extra/listenforcer, extra/headerids"
+		"custom/runty, custom/hearts, custom/draganddropfiles", /*+
+		", custom/bootstrapui, custom/videoembed, common/highlighteditables, extra/imagebrowser, extra/linkbrowser, extra/metaview, extra/listenforcer, extra/headerids"
 		", custom/runty, custom/fontsize, custom/colorselector"*/
+		
+		draganddropfiles: {
+            config: {
+                'max_file_size': '200000',
+                'upload': {
+                    'config': {
+                        'url': '/runty/app/upload.aloha.php', // rename from upload.php.example to upload.php
+                        'extra_headers': {
+                            'Accept': 'application/json'
+                        },
+                        'additional_params': {
+                            'location': ""
+                        },
+                        'www_encoded': false
+                    }
+                }
+            }
+        }
+        
 	}
 };
 
