@@ -24,62 +24,62 @@
 body {
 	margin: 0;
 	padding: 0;
-	font - family: Helvetica,
+	font-family: Helvetica,
 	Arial,
-	sans - serif;
+	sans-serif;
 }
 
 h1, ol#tweets p {
-	font - family: Georgia,
+	font-family: Georgia,
 	"Times New Roman",
 	serif;
-	font - weight: normal;
+	font-weight: normal;
 }
 
 ol {
 	margin: 0;
 	padding: 0;
-	list - style: none outside none;
+	list-style: none outside none;
 }
 
 #header {
-	background - color: black;
-	margin - bottom: 2em;
+	background-color: black;
+	margin-bottom: 2em;
 }
 
 h1 {
 	color: white;
 	padding: 0.667em 0;
 	margin: 0;
-	text - align: center;
+	text-align: center;
 }
 
 ol#tweets.loading {
 	padding: 6em 0;
-	background: url('./theme/images/loading.gif') no - repeat center;
+	background: url('/assets/img/loading.gif') no-repeat center;
 }
 
 ol#tweets li {
 	padding: 1.25em 0;
-	border - bottom: 1px solid#e9e9e9;
+	border-bottom: 1px solid#e9e9e9;
 }
 
 ol#tweets li.error {
 	margin: 50px 0 30px 0;
-	font - family: Georgia,
+	font-family: Georgia,
 	"Times New Roman",
 	serif;
-	text - align: center;
-	font - size: 1.5em;
+	text-align: center;
+	font-size: 1.5em;
 }
 
 ol#tweets p {
-	font - size: 1.5em;
+	font-size: 1.5em;
 	color: #666;
 }
 
 ol# tweets p span.time {
-	font - size: 0.7em;
+	font-size: 0.7em;
 	color: #bbb;
 }
 
@@ -87,7 +87,7 @@ ol# tweets p span.time {
 	float: right;
 	padding: 5px;
 	border: 1px solid#e9e9e9;
-	margin - right: 20px;
+	margin-right: 20px;
 }
 
 .user h3 {
@@ -98,18 +98,21 @@ ol# tweets p span.time {
 }
 
 # multicolumnElement {
-	-webkit - column - width: 300px; - webkit - column - gap: 20px; - moz - column - width: 300px; - moz - column - gap: 20px;
+	-webkit-column-width: 300px;
+	-webkit-column-gap: 20px;
+	-moz-column-width: 300px;
+	-moz-column-gap: 20px;
 	width: 940px;
 	height: 700px;
 	margin: 0 auto;
 }
 
 h1 {
-	font - family: 'Lobster';
-	line - height: 140 % ;
-	text - rendering: optimizeLegibility;
+	font-family: 'Lobster';
+	line-height: 140 % ;
+	text-rendering: optimizeLegibility;
 	margin: 10px auto;
-	font - size: 10em;
+	font-size: 10em;
 	color: #2a719e;
 	text-align:center;
 }
@@ -121,15 +124,15 @@ h2 {
 	margin:20px auto;
 	font-size:3em;
 	color: # 2a719e;
-	text - align: center;
+	text-align: center;
 }
 
 h3 {
-	font - family: 'Lobster';
-	line - height: 120 % ;
-	text - rendering: optimizeLegibility;
+	font-family: 'Lobster';
+	line-height: 120 % ;
+	text-rendering: optimizeLegibility;
 	margin: 20px auto;
-	font - size: 2.2em;
+	font-size: 2.2em;
 	color: #2a719e;
 	text-align:center;
 }
@@ -152,11 +155,11 @@ NO.p-intro:first-letter {
 	color: # 5499c5;
 	display: inline;
 	float: left;
-	font - size: 4em;
+	font-size: 4em;
 	margin: 0px;
 	padding: 0.2em 0.1em 0 0.1em;
-	text - transform: capitalize;
-	font - family: 'Lobster';
+	text-transform: capitalize;
+	font-family: 'Lobster';
 }
 
 .content img {
