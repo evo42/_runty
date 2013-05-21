@@ -40,7 +40,9 @@ if ($_REQUEST['sign'] == 'off' ||
     $_REQUEST['sign'] == 'out' ||
 	$_REQUEST['action'] == 'sign-off' ||
 	$_REQUEST['action'] == 'logout') {
-    	unset($_SESSION['user']);
+    	//unset($_SESSION['user']);
+    	unset($_SESSION);
+    	session_destroy();
 }
 
 // sign-off / logout
