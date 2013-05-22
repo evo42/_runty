@@ -47,6 +47,16 @@ function runty_loader() {
 	
 	$html = '';
 	
+	if (empty($_REQUEST['sign'])) {
+		$_REQUEST['sign'] = false;
+	}
+	if (empty($_REQUEST['type'])) {
+		$_REQUEST['type'] = false;
+	}
+	if (empty($_REQUEST['action'])) {
+		$_REQUEST['action'] = false;
+	}
+	
 	$aloha = '
 	    document.write(\'<link rel="stylesheet" href="/runty/aloha-editor/0.23.ui/plugins/common/ui-a-la-carte/css/ui-a-la-carte.css" type="text/css"><link rel="stylesheet" href="/runty/theme/css/aloha-components.css" type="text/css"><link href="/runty/theme/flat-ui/css/bootstrap.css" rel="stylesheet"><link href="/runty/theme/flat-ui/css/flat-ui.css" rel="stylesheet"><link rel="stylesheet" href="/runty/theme/css/runty.css" type="text/css"><link rel="stylesheet" href="'.$aloha_url.'css/aloha.css" type="text/css">\');';
 	
@@ -69,7 +79,7 @@ function runty_loader() {
 	    document.write(\'<script type="text/javascript">var $toolbar=$("#toolbar");$toolbar.hide();Aloha.ready(function(){var e=Aloha.jQuery;Aloha.bind("aloha-editable-activated",function(){e(this.activeEditable.obj).mouseover(function(e){$toolbar.css({position:"absolute",top:e.pageY,left:e.pageX})});$toolbar.show()});Aloha.bind("aloha-editable-deactivated",function(){$toolbar.hide()})})</script>\');
 	';
 
-    if (!empty($_REQUEST['type'])) {
+    if ($_REQUEST['type'] == 'aloha' && empty($_SESSION['user'])) {
         $aloha .= 'document.write(\'<script type="text/javascript">Aloha.ready( function () {$(".runty-editable").aloha()})</script>\');';
     }
 	
@@ -144,17 +154,7 @@ function runty_loader() {
 		document.write(\'<div id="runty-authenticate"> <span><a href="#" id="browserid" title="Sign-in with BrowserID"> <img src="http://browserid.org/i/sign_in_blue.png" alt="Sign in" /> </a></span> </div>\');
 	';
 
-	if (empty($_REQUEST['sign'])) {
-		$_REQUEST['sign'] = false;
-	}
-	if (empty($_REQUEST['type'])) {
-		$_REQUEST['type'] = false;
-	}
-	if (empty($_REQUEST['action'])) {
-		$_REQUEST['action'] = false;
-	}
-
-    if ($_REQUEST['type'] == 'aloha') {
+    if ($_REQUEST['type'] == 'aloha' && empty($_SESSION['user'])) {
         $type_buffer = $buffer;
         $type_buffer .= "\n\n$requirejs\n\n";
         $type_buffer .= "\n\n$jquery\n\n";
