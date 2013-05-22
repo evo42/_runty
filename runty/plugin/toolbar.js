@@ -30,8 +30,8 @@ var toolbar = jQuery('<div id="runty-toolbar">'),
 
 //actions.append("<a href=\"/runty/\" id=\"runty-button-icon\"><span><img alt=\"Runty. The NoCMS\" title=\"Runty. The NoCMS\" src=\"/runty/theme/ico/glyphicons_002_dog.png\"></span></a>");
 actions.append("<a href=\"/runty/\" id=\"runty-gravatar-icon\"><span><img id=\"runty-user-gravatar\" width=\"26px\" height=\"26px\" alt=\"User\" title=\"User\" src=\"https://en.gravatar.com/avatar/" + md5(runtyUserEmail) + "\"></span></a>");
-actions.append("<a style=\"display:none\" href=\"\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"/runty/theme/ico/glyphicons_030_pencil.png\"></span></a>");
-actions.append("<a style=\"display:none\" href=\"\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"/runty/theme/ico/glyphicons_198_ok.png\"></span></a>");
+actions.append("<a style=\"display:none\" href=\"#edit\" id=\"runty-button-edit\"><span><img alt=\"Edit\" title=\"Edit\" src=\"/runty/theme/ico/glyphicons_030_pencil.png\"></span></a>");
+actions.append("<a style=\"display:none\" href=\"#save\" id=\"runty-button-save\"><span><img alt=\"Save\" title=\"Save\" src=\"/runty/theme/ico/glyphicons_198_ok.png\"></span></a>");
 actions.append("<a style=\"display:none\" href=\"#resize\" id=\"runty-button-resize\"><span><img alt=\"Resize view port\" title=\"Resize view port\" src=\"/runty/theme/ico/glyphicons_086_display.png\"></span></a>")
 //actions.append("<a href=\"/runty/?sign=off\" id=\"runty-button-logout\"><span><img alt=\"Sign-off\" title=\"Sign-off\" src=\"/runty/theme/ico/glyphicons_240_rotation_lock.png\"></span></a>");
 toolbar.append(actions);
