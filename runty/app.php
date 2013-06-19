@@ -62,7 +62,7 @@ function runty_loader() {
 	
 	$aloha .= '
 		document.write(\'<script src="/runty/aloha-editor/aloha-editor.js"></script>\');
-		document.write(\'<script src="/.runty/aloha-editor.js"></script>\');
+		document.write(\'<script src="/aloha-editor.js"></script>\');
 
 		document.write(\'<script src="'.$aloha_url.'lib/aloha.js" ></script>\');
 

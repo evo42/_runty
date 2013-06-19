@@ -1,3 +1,0 @@
-<?php
-/* runty-config.php  */
-
