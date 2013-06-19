@@ -25,7 +25,7 @@
 require_once dirname( __FILE__ ) . '/core.php';
 
 // @todo config
-$user_file = '../../.runty/user.json';
+$user_file = '../../user.json';
 if (!empty($_SESSION['runty']->users)) {
     $users = $_SESSION['runty']->users;
 } else {
@@ -43,7 +43,7 @@ if (!isset($_SESSION['user']) ||
 
 
 
-$user_file = '../../.runty/user.json';
+$user_file = '../../user.json';
 if (!isset($_SESSION['runty']) ||
 	empty($_SESSION['runty']->users)) {
 	$_SESSION['runty'] = new StdClass();

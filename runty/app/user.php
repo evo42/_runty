@@ -29,7 +29,7 @@ if ( !empty($_SESSION['user']) ) {
 	if (!empty($_SESSION['user']->email) /*&& $_SESSION['user']->role == 'admin'*/) {
 
 
-$user_file = '../../.runty/user.json';
+$user_file = '../../user.json';
 
 
 if (is_readable($user_file) && is_writeable($user_file)) {
