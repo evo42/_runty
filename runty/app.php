@@ -107,6 +107,12 @@ function runty_loader() {
     $bootstrap = '
         document.write(\'<script src="/runty/theme/flat-ui/js/bootstrap.min.js"></script>\');
     '; // @todo move to runty/vendor
+    
+    $bootstrap .= '
+        document.write(\'<script src="/runty/vendor/markdown.js"></script>\');
+        document.write(\'<script src="/runty/vendor/to-markdown.js"></script>\');
+    '; 
+    
 
 	// runty app
 	$runty_app = '
@@ -137,7 +143,7 @@ function runty_loader() {
 		document.write(\'<script src="/runty/plugin/toolbar.js"></script>\');
 	';
 	
-	$toolbar .= 'document.write(\'<script type="text/javascript">function setProfileData( profile ) { window.console.log(profile); $("#runty-user-gravatar").attr("title", profile.entry[0].displayName); } </script> <script src="http://en.gravatar.com/'.$user_hash.'.json?callback=setProfileData" type="text/javascript"></script>\');';
+	$toolbar .= 'document.write(\'<script type="text/javascript">function setProfileData( profile ) { $("#runty-user-gravatar").attr("title", profile.entry[0].displayName); } </script> <script src="http://en.gravatar.com/'.$user_hash.'.json?callback=setProfileData" type="text/javascript"></script>\');';
 	
 	}
 	
@@ -187,16 +193,16 @@ function runty_loader() {
 		if (isset($_SESSION['user']->role)) {
 		if ($_SESSION['user']->role == 'admin' || $_SESSION['user']->role == 'editor') {
 			$buffer .= "\n\n$aloha\n\n";
+            $buffer .= "\n\n$runty_app\n\n";
 		}
 		}
 
-        $buffer .= "\n\n$runty_app\n\n";
         
 		return ( $buffer );
 	} else {
 		$buffer .= "\n\n$browserid\n\n";
 		//$buffer .= "\n\n$login\n\n";
-		$buffer .= "\n\n$runty_app\n\n";
+		//$buffer .= "\n\n$runty_app\n\n";
         
 		return ( $buffer );
 	}

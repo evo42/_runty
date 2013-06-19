@@ -23,7 +23,7 @@ TARBALL_URL="https://codeload.github.com/evo42/runty/tar.gz/installer"
 #TARBALL_URL="http://apa.runty/installer.tar.gz"
 
 INSTALL_TMPDIR=".runty-install-tmp"
-sudo rm -rf "$INSTALL_TMPDIR"
+rm -rf "$INSTALL_TMPDIR"
 mkdir "$INSTALL_TMPDIR"
 
 echo ""
@@ -33,7 +33,7 @@ curl --progress-bar --fail "$TARBALL_URL" | tar -xzf - -C "$INSTALL_TMPDIR"
 # bomb out if it didn't work, eg no net
 test -x "${INSTALL_TMPDIR}/runty-installer/runty/app.js"
 mv "${INSTALL_TMPDIR}/runty-installer/runty" "./runty"
-sudo rm -rf "${INSTALL_TMPDIR}"
+rm -rf "${INSTALL_TMPDIR}"
 # double-checking
 test -x "runty/app.js"
 
@@ -41,9 +41,10 @@ test -x "runty/app.js"
 # create uploads folder
 if [ -e "./uploads" ] ; then
     # do not remove uploads dir
-    echo "Uploads directory exists"
+    echo "Uploads directory exists."
 else
     # create empty uploads dir
+    echo "Create ./uploads directory."
     mkdir ./uploads
 fi
 
@@ -60,8 +61,8 @@ elif [ "$UNAME" = "Linux" ] ; then
   CHOWN="www-data:www-data"
 fi
 
-sudo chmod -R 755 ./*
-sudo chown -R "$CHOWN" ./*
+chmod -R 755 ./*
+#sudo chown -R "$CHOWN" ./*
 
 echo "Runty. The NoCMS has been installed."
 
