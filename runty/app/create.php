@@ -42,11 +42,12 @@ with('/runty/create', function () {
 		switch ($request->action) {
 			case 'remove':
 				// @todo draft / vs. create
+				/*
 				if ( unlink('../.runty/create/' . $request->uri) ) {
 					echo 'File '.$request->uri.' removed.';
 				} else {
 					echo 'File '.$request->uri.' not removed.';
-				}
+				}*/
 			break;
 			
 			case 'publish':
