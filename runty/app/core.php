@@ -66,7 +66,7 @@ if (empty($runty->settings)) {
 // load individual project config file
 $require = array();
 $require[] = $runty->core_path . '../settings.php';
-$require[] = $runty->core_path . '../../.runty/settings.php';
+//$require[] = $runty->core_path . '../../.runty/settings.php';
 $require[] = $runty->core_path . '/vendor/klein.php';
 foreach($require as $require_path) {
 	if (is_readable($require_path)) {
@@ -77,7 +77,7 @@ foreach($require as $require_path) {
 // @todo http router
 
 $users = array();
-$user_file = '../.runty/user.json';
+$user_file = '../user.json';
 if (!isset($_SESSION['runty']) ||
 	empty($_SESSION['runty']->users)) {
 	$_SESSION['runty'] = new StdClass();
