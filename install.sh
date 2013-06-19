@@ -14,14 +14,13 @@ fi
 
 trap "echo Installation failed." EXIT
 
-# If you already have a warehouse we do a clean
-# install here:
+# remove old runty directory
 [ -e "runty" ] && rm -rf "runty"
 
 # This is the CloudFront CDN serving com.meteor.warehouse.
 #ZIP_URL="https://github.com/evo42/runty/archive/installer.zip"
-#TARBALL_URL="https://codeload.github.com/evo42/runty/tar.gz/installer"
-TARBALL_URL="http://apa.runty/installer.tar.gz"
+TARBALL_URL="https://codeload.github.com/evo42/runty/tar.gz/installer"
+#TARBALL_URL="http://apa.runty/installer.tar.gz"
 
 INSTALL_TMPDIR=".runty-install-tmp"
 sudo rm -rf "$INSTALL_TMPDIR"
@@ -49,8 +48,8 @@ else
 fi
 
 # copy config files
-#mv runty/aloha-editor.js.example ./aloha-editor.js
-#mv runty/user.json.example ./user.json
+mv runty/aloha-editor.js.example ./aloha-editor.js
+mv runty/user.json.example ./user.json
 
 # chown
 if [ "$UNAME" = "Darwin" ] ; then
