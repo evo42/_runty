@@ -45,7 +45,7 @@
 
 	});
 
-
+/*
     Aloha.require(['ui/surface','util/range-context', 'aloha/jquery'], function(Surface, RangeContext, $) {
 
       // Do preseve the range when clicking outside the editable.
@@ -63,6 +63,8 @@
       });
 
     });
+*/
+
 /*
     // sync markdown textarea to aloha editor html
 	function TextareaEditor(input, preview) {
