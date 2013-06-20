@@ -224,3 +224,18 @@ background-repeat: repeat-x;
 #menu {
 	display: none;
 }
+
+
+
+
+/* Aloha Editor style first, just for your comfort */
+.aloha-editable:hover,.aloha-editable-active,
+.navbar .nav>li>a.aloha-editable-active, .navbar .nav>li>a.aloha-editable:hover  {
+  background-color: #fcf8e3;
+}
+.aloha-image-box-active {
+  vertical-align: middle;
+}
+.ui-helper-hidden-accessible {
+  display: none;
+}
