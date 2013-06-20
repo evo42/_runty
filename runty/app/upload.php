@@ -65,7 +65,7 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
     
     echo $file_data;
 } else {
-    echo "Possible file upload attack!\n";
+    echo "Could not upload file: $file_name\n";
 }
 
 } else {
