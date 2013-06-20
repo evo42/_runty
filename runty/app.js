@@ -54,7 +54,6 @@
 
       // We want to activate and deactivate our components depending on an image is selected.
       Aloha.bind('aloha-image-selected', function (jEvent, aEvent){
-          window.console.log('image selected');
         $('#aloha-component-image-source').removeAttr('disabled');
         $('#aloha-component-image-align-group>button').removeClass('disabled');
       });

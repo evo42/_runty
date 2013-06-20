@@ -239,3 +239,7 @@ background-repeat: repeat-x;
 .ui-helper-hidden-accessible {
   display: none;
 }
+
+.aloha-editor-image-toolbar > div, .aloha-editor-image-toolbar > input, .aloha-editor-image-toolbar > button {
+  margin-left: 20px;
+}
