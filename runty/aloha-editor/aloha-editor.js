@@ -91,7 +91,7 @@ Aloha.settings = {
                 }
             }
         },
-        
+        /*
         image: {
           config:{
             'fixedAspectRatio' : false,
@@ -115,7 +115,7 @@ Aloha.settings = {
             'align'  : false,
             'margin' : false
           }
-        },
+        },*/
         
 	}
 };

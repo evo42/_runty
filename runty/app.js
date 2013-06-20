@@ -63,7 +63,7 @@
       });
 
     });
-*/
+//*/
 
 /*
     // sync markdown textarea to aloha editor html
