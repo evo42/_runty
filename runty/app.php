@@ -107,6 +107,12 @@ function runty_loader() {
     $bootstrap = '
         document.write(\'<script src="/runty/theme/flat-ui/js/bootstrap.min.js"></script>\');
     '; // @todo move to runty/vendor
+    
+    $bootstrap .= '
+        document.write(\'<script src="/runty/vendor/markdown.js"></script>\');
+        document.write(\'<script src="/runty/vendor/to-markdown.js"></script>\');
+    '; 
+    
 
 	// runty app
 	$runty_app = '
@@ -137,13 +143,12 @@ function runty_loader() {
 		document.write(\'<script src="/runty/plugin/toolbar.js"></script>\');
 	';
 	
-	$toolbar .= 'document.write(\'<script type="text/javascript">function setProfileData( profile ) { window.console.log(profile); $("#runty-user-gravatar").attr("title", profile.entry[0].displayName); } </script> <script src="http://en.gravatar.com/'.$user_hash.'.json?callback=setProfileData" type="text/javascript"></script>\');';
+	$toolbar .= 'document.write(\'<script type="text/javascript">function setProfileData( profile ) { $("#runty-user-gravatar").attr("title", profile.entry[0].displayName); } </script> <script src="http://en.gravatar.com/'.$user_hash.'.json?callback=setProfileData" type="text/javascript"></script>\');';
 	
 	}
 	
-    $toolbar.= 'document.write(\'<div id="toolbar" style="display:none;"><div id="menu"><ul class="nav nav-tabs"><li class="active"><a href="#format" data-toggle="tab">Format</a></li><li class="not-in-scope"><a href="#link" data-toggle="tab">Link</a></li></ul></div><div id="toolbar-components" class="tab-content"><div class="tab-pane active" id="format"><div class="btn-group"><button class="btn" id="aloha-component-bold" title="Format bold"><i class="icon-white icon-bold"></i></button><button class="btn" id="aloha-component-italic" title="Format italic"><i class="icon-white icon-italic"></i></button><button class="btn" id="aloha-component-comment" title="Format as quote"><span class="icon-white icon-comment"></span></button><button class="btn" id="aloha-component-insert-link"><span class="icon-white icon-globe"></span></button></div><div class="btn-group"><button class="btn" id="aloha-component-unordered-list" title="Insert unordered list"><span class="icon-white icon-list"></span></button><button class="btn" id="aloha-component-indent-list" title="Indent left" disabled><span class="icon-white icon-indent-left"></span></button><button class="btn" id="aloha-component-outdent-list" title="Indent right" disabled><span class="icon-white icon-indent-right"></span></button></div><div id="aloha-component-format-block" class="btn-group dropdown"><a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdown-text">Paragraph</span><span class="caret"></span></a><ul class="dropdown-menu"><li><a class="aloha-component-h" id="aloha-component-h1" href="#">Heading 1</a></li><li><a class="aloha-component-h" id="aloha-component-h2" href="#">Heading 2</a></li><li><a class="aloha-component-h" id="aloha-component-h3" href="#">Heading 3</a></li><li><a class="aloha-component-h" id="aloha-component-h4" href="#">Heading 4</a></li><li><a class="aloha-component-h" id="aloha-component-h5" href="#">Heading 5</a></li><li><a class="aloha-component-h" id="aloha-component-h6" href="#">Heading 6</a></li><li><a id="aloha-component-p" href="#">Paragraph</a></li><li><a id="aloha-component-pre" href="#">Preformatted</a></li><li><a id="aloha-component-blockquote" href="#">Blockquote</a></li><li><a id="aloha-component-remove-format" href="#">Remove format</a></li></ul></div></div><div class="tab-pane" id="link"><div class="btn-group"><button class="btn" id="aloha-component-remove-link" title="Remove link"><span class="icon-white icon-trash"></span></button><input type="text" id="aloha-component-edit-link"></div></div></div></div>\')';
-    
-    
+    $toolbar.= 'document.write(\'<div id="toolbar" style="display:none;"><div id="menu"><ul class="nav nav-tabs"><li class="active"><a href="#format" data-toggle="tab">Format</a></li><li class="not-in-scope"><a href="#link" data-toggle="tab">Link</a></li></ul></div><div id="toolbar-components" class="tab-content"><div class="tab-pane active" id="format"><div class="btn-group"><button class="btn" id="aloha-component-bold" title="Format bold"><i class="icon-white icon-bold"></i></button><button class="btn" id="aloha-component-italic" title="Format italic"><i class="icon-white icon-italic"></i></button><button class="btn" id="aloha-component-comment" title="Format as quote"><span class="icon-white icon-comment"></span></button><button class="btn" id="aloha-component-insert-link"><span class="icon-white icon-globe"></span></button></div><div class="btn-group"><button class="btn" id="aloha-component-unordered-list" title="Insert unordered list"><span class="icon-white icon-list"></span></button><button class="btn" id="aloha-component-indent-list" title="Indent left" disabled><span class="icon-white icon-indent-left"></span></button><button class="btn" id="aloha-component-outdent-list" title="Indent right" disabled><span class="icon-white icon-indent-right"></span></button></div><div id="aloha-component-format-block" class="btn-group dropdown"><a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdown-text">Paragraph</span><span class="caret"></span></a><ul class="dropdown-menu"><li><a class="aloha-component-h" id="aloha-component-h1" href="#">Heading 1</a></li><li><a class="aloha-component-h" id="aloha-component-h2" href="#">Heading 2</a></li><li><a class="aloha-component-h" id="aloha-component-h3" href="#">Heading 3</a></li><li><a class="aloha-component-h" id="aloha-component-h4" href="#">Heading 4</a></li><li><a class="aloha-component-h" id="aloha-component-h5" href="#">Heading 5</a></li><li><a class="aloha-component-h" id="aloha-component-h6" href="#">Heading 6</a></li><li><a id="aloha-component-p" href="#">Paragraph</a></li><li><a id="aloha-component-pre" href="#">Preformatted</a></li><li><a id="aloha-component-blockquote" href="#">Blockquote</a></li><li><a id="aloha-component-remove-format" href="#">Remove format</a></li></ul></div></div><div class="tab-pane" id="link"><div class="btn-group"><button class="btn" id="aloha-component-remove-link" title="Remove link"><span class="icon-white icon-trash"></span></button><input type="text" id="aloha-component-edit-link"></div></div><div class="tab-pane" id="aloha-editor-image-toolbar"><div id="aloha-component-image-align-group" class="btn-group pull-right"><button class="btn disabled" id="aloha-component-image-align-left">Left</button><button class="btn disabled" id="aloha-component-image-align-none">No Align</button><button class="btn disabled" id="aloha-component-image-align-right">Right</button></div><input class="input-xlarge pull-right" id="aloha-component-image-source" type="text" disabled><button id="aloha-component-insert-image" class="btn pull-right">Insert image</button></div></div></div>\')';
+
 
 	// @todo check for https/http
 	$browserid = '
@@ -187,16 +192,16 @@ function runty_loader() {
 		if (isset($_SESSION['user']->role)) {
 		if ($_SESSION['user']->role == 'admin' || $_SESSION['user']->role == 'editor') {
 			$buffer .= "\n\n$aloha\n\n";
+            $buffer .= "\n\n$runty_app\n\n";
 		}
 		}
 
-        $buffer .= "\n\n$runty_app\n\n";
         
 		return ( $buffer );
 	} else {
 		$buffer .= "\n\n$browserid\n\n";
 		//$buffer .= "\n\n$login\n\n";
-		$buffer .= "\n\n$runty_app\n\n";
+		//$buffer .= "\n\n$runty_app\n\n";
         
 		return ( $buffer );
 	}

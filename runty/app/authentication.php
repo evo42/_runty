@@ -98,18 +98,6 @@ if (isset($_REQUEST['assertion'])) {
 		//print_r($signin_user);
 		if (!empty($signin_user) && isset($signin_user->status)) {
 		if ($signin_user->status == 'okay') {
-			// @todo check for valid user data
-			foreach ($users as $id => $user) {
-				$user = (array) $user;
-				if ( $signin_user->email == $user['@id'] ) {
-					$_SESSION['user'] = $signin_user;
-
-					foreach($user as $key => $value) {
-						$key = str_replace('@', '', $key);
-						$_SESSION['user']->$key = $value;
-					}
-				} 
-			}
 
 			if (isset($_SESSION['runty']->install)) {
 			        $_SESSION['user'] = $signin_user;
@@ -129,6 +117,19 @@ if (isset($_REQUEST['assertion'])) {
 				    } else {
 				        // add new user json
 				    }
+			}
+			
+			// @todo check for valid user data
+			foreach ($users as $id => $user) {
+				$user = (array) $user;
+				if ( $signin_user->email == $user['@id'] ) {
+					$_SESSION['user'] = $signin_user;
+
+					foreach($user as $key => $value) {
+						$key = str_replace('@', '', $key);
+						$_SESSION['user']->$key = $value;
+					}
+				} 
 			}
 			
 			echo $data;
