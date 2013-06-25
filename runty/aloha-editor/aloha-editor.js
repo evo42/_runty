@@ -79,7 +79,7 @@ Aloha.settings = {
                 'max_file_size': '200000',
                 'upload': {
                     'config': {
-                        'url': '/runty/app/upload.aloha.php', // rename from upload.php.example to upload.php
+                        'url': '/runty/app/upload.aloha.php',
                         'extra_headers': {
                             'Accept': 'application/json'
                         },
@@ -90,7 +90,32 @@ Aloha.settings = {
                     }
                 }
             }
-        }
+        },
+        /*
+        image: {
+          config:{
+            'fixedAspectRatio' : false,
+            'maxWidth'         : 600,
+            'minWidth'         : 20,
+            'maxHeight'        : 600,
+            'minHeight'        : 20,
+            'globalselector'   : '.global',
+            'ui': {
+              'oneTab': true
+            }
+          },
+          'fixedAspectRatio' : false,
+          'maxWidth'         : 600,
+          'minWidth'         : 20,
+          'maxHeight'        : 600,
+          'minHeight'        : 20,
+          'globalselector'   : '.global',
+          'ui': {
+            'oneTab' : true,
+            'align'  : false,
+            'margin' : false
+          }
+        },*/
         
 	}
 };

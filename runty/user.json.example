@@ -1,7 +1,7 @@
 [
 	{
 	    "@context": "http://runtyapp.org/person",
-	    "@id": "admin@runtyapp.org",
+	    "@id": "edit@runtyapp.org",
 	    "name": "Runty Admin",
 	    "role": "admin",
 	    "member": "http://runtyapp.org/admin"

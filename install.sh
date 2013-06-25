@@ -24,15 +24,15 @@ TARBALL_URL="https://codeload.github.com/evo42/runty/tar.gz/installer"
 
 INSTALL_TMPDIR=".runty-install-tmp"
 sudo rm -rf "$INSTALL_TMPDIR"
-mkdir "$INSTALL_TMPDIR"
+sudo mkdir "$INSTALL_TMPDIR"
 
 echo ""
 echo "Downloading Runty. The NoCMS"
 
-curl --progress-bar --fail "$TARBALL_URL" | tar -xzf - -C "$INSTALL_TMPDIR"
+sudo curl --progress-bar --fail "$TARBALL_URL" | sudo tar -xzf - -C "$INSTALL_TMPDIR"
 # bomb out if it didn't work, eg no net
 test -x "${INSTALL_TMPDIR}/runty-installer/runty/app.js"
-mv "${INSTALL_TMPDIR}/runty-installer/runty" "./runty"
+sudo mv "${INSTALL_TMPDIR}/runty-installer/runty" "./runty"
 sudo rm -rf "${INSTALL_TMPDIR}"
 # double-checking
 test -x "runty/app.js"
@@ -41,15 +41,16 @@ test -x "runty/app.js"
 # create uploads folder
 if [ -e "./uploads" ] ; then
     # do not remove uploads dir
-    echo "Uploads directory exists"
+    echo "Uploads directory exists."
 else
     # create empty uploads dir
+    echo "Create ./uploads directory."
     mkdir ./uploads
 fi
 
 # copy config files
-mv runty/aloha-editor.js.example ./aloha-editor.js
-mv runty/user.json.example ./user.json
+sudo mv runty/aloha-editor.js.example ./aloha-editor.js
+sudo mv runty/user.json.example ./user.json
 
 # chown
 if [ "$UNAME" = "Darwin" ] ; then
@@ -68,11 +69,11 @@ echo "Runty. The NoCMS has been installed."
 
   cat <<"EOF"
 
-Sign in to http://yourdomain.com/runty to start editing pages.
+Sign in to http://<your-domain.com>/runty to start editing pages.
 
 Or see the docs at:
 
-  runty.io/guides
+  http://runty.io/guides
 
 EOF
 
